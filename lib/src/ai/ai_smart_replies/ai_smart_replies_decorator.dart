@@ -10,8 +10,12 @@ class AISmartRepliesDecorator extends DataSourceDecorator
   User? loggedInUser;
   AISmartRepliesConfiguration? configuration;
 
+<<<<<<< HEAD
   AISmartRepliesDecorator(DataSource dataSource, {this.configuration})
       : super(dataSource) {
+=======
+  AISmartRepliesDecorator(super.dataSource, {this.configuration}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     CometChatUIEvents.removeUiListener(_listenerId);
     dateStamp = DateTime.now().microsecondsSinceEpoch.toString();
     _listenerId = "AiSmartReply$dateStamp";
@@ -30,14 +34,28 @@ class AISmartRepliesDecorator extends DataSourceDecorator
     CometChatUIEvents.removeUiListener(_listenerId);
   }
 
+<<<<<<< HEAD
 
   @override
   List<CometChatMessageComposerAction> getAIOptions(User? user, Group? group, CometChatTheme theme, BuildContext context, Map<String, dynamic>? id, AIOptionsStyle? aiOptionStyle) {
     List<CometChatMessageComposerAction> actionList = super.getAIOptions(user, group, theme, context, id ,aiOptionStyle );
+=======
+  @override
+  List<CometChatMessageComposerAction> getAIOptions(
+      User? user,
+      Group? group,
+      CometChatTheme theme,
+      BuildContext context,
+      Map<String, dynamic>? id,
+      AIOptionsStyle? aiOptionStyle) {
+    List<CometChatMessageComposerAction> actionList =
+        super.getAIOptions(user, group, theme, context, id, aiOptionStyle);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     actionList.add(getAIComposerButton(context, theme));
     return actionList;
   }
 
+<<<<<<< HEAD
   CometChatMessageComposerAction getAIComposerButton(BuildContext context, CometChatTheme theme){
    return  CometChatMessageComposerAction(
      id:  getId(),
@@ -56,6 +74,25 @@ class AISmartRepliesDecorator extends DataSourceDecorator
 
     if(configuration!=null && configuration?.apiConfiguration!=null){
       apiMap =  await configuration?.apiConfiguration!(user, group);
+=======
+  CometChatMessageComposerAction getAIComposerButton(
+      BuildContext context, CometChatTheme theme) {
+    return CometChatMessageComposerAction(
+      id: getId(),
+      title: Translations.of(context).smartReplies,
+      onItemClick: (BuildContext context, User? user, Group? group) {
+        checkAndShowReplies(user, group);
+      },
+      background: theme.palette.getAccent50(),
+    );
+  }
+
+  checkAndShowReplies(User? user, Group? group) async {
+    Map<String, dynamic>? apiMap;
+
+    if (configuration != null && configuration?.apiConfiguration != null) {
+      apiMap = await configuration?.apiConfiguration!(user, group);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
 
     Map<String, dynamic> id = {};
@@ -88,7 +125,10 @@ class AISmartRepliesDecorator extends DataSourceDecorator
         emptyStateView: configuration?.emptyStateView,
         errorIconUrl: configuration?.errorIconUrl,
         apiConfiguration: apiMap,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       ),
     );
   }

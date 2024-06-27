@@ -8,6 +8,7 @@ class LinkPreviewExtensionDecorator extends DataSourceDecorator {
   String messageTranslationTypeConstant = ExtensionConstants.linkPreview;
   LinkPreviewConfiguration? configuration;
 
+<<<<<<< HEAD
   LinkPreviewExtensionDecorator(DataSource dataSource, {this.configuration}) : super(dataSource);
 
   @override
@@ -17,6 +18,19 @@ class LinkPreviewExtensionDecorator extends DataSourceDecorator {
     Widget? child = super.getTextMessageContentView(message, context, alignment, theme);
     return LinkPreviewBubble(
       ctheme: configuration?.theme ?? theme,
+=======
+  LinkPreviewExtensionDecorator(super.dataSource, {this.configuration});
+
+  @override
+  Widget getTextMessageContentView(TextMessage message, BuildContext context,
+      BubbleAlignment alignment, CometChatTheme theme,
+      {AdditionalConfigurations? additionalConfigurations}) {
+    Widget? child = super.getTextMessageContentView(
+        message, context, alignment, theme,
+        additionalConfigurations: additionalConfigurations);
+    return LinkPreviewBubble(
+      theme: configuration?.theme ?? theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       onTapUrl: onTapUrl,
       links: getMessageLinks(message),
       defaultImage: configuration?.defaultImage,
@@ -31,12 +45,22 @@ class LinkPreviewExtensionDecorator extends DataSourceDecorator {
   }
 
   List<dynamic> getMessageLinks(BaseMessage message) {
+<<<<<<< HEAD
     Map<String, Map>? extensionList = ExtensionModerator.extensionCheck(message);
+=======
+    Map<String, Map>? extensionList =
+        ExtensionModerator.extensionCheck(message);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     List<dynamic> links = [];
     if (extensionList != null) {
       try {
         if (extensionList.containsKey(ExtensionConstants.linkPreview)) {
+<<<<<<< HEAD
           Map<dynamic, dynamic>? linkPreview = extensionList[ExtensionConstants.linkPreview];
+=======
+          Map<dynamic, dynamic>? linkPreview =
+              extensionList[ExtensionConstants.linkPreview];
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           links = linkPreview?["links"] ?? [];
         }
       } catch (e) {
@@ -50,10 +74,18 @@ class LinkPreviewExtensionDecorator extends DataSourceDecorator {
     r'^(.*?)((mailto:)?[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z][A-Z]+)',
     caseSensitive: false,
   );
+<<<<<<< HEAD
   final RegExp _urlRegex = RegExp(r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+');
 
   final RegExp _phoneNumberRegex =
       RegExp(r'\b(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})\b');
+=======
+  final RegExp _urlRegex =
+      RegExp(r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+');
+
+  final RegExp _phoneNumberRegex = RegExp(
+      r'\b(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})\b');
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   Future<void> onTapUrl(String url) async {
     if (_urlRegex.hasMatch(url)) {

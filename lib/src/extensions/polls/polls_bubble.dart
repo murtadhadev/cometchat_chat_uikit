@@ -22,17 +22,29 @@ enum CometChatPollsBubbleType { result, poll }
 /// ```
 class CometChatPollsBubble extends StatelessWidget {
   const CometChatPollsBubble(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.loggedInUser,
       this.pollQuestion,
       this.options,
       this.pollId,
+<<<<<<< HEAD
       this.ctheme,
       required this.choosePoll,
       this.senderUid,
       this.metadata,
       this.style})
       : super(key: key);
+=======
+      this.theme,
+      required this.choosePoll,
+      this.senderUid,
+      this.metadata,
+      this.style});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[pollQuestion] if poll question is passed then that is used instead of poll question from message Object
   final String? pollQuestion;
@@ -43,7 +55,11 @@ class CometChatPollsBubble extends StatelessWidget {
   ///[pollId] if poll id is passed then that is used instead of poll id from message Object
   final String? pollId;
 
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
+=======
+  final CometChatTheme? theme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[loggedInUser] logged in user id to check if logged user voted or not
   final String? loggedInUser;
@@ -59,10 +75,20 @@ class CometChatPollsBubble extends StatelessWidget {
 
   final PollsBubbleStyle? style;
 
+<<<<<<< HEAD
   getRadio(int index, String id, String value, String chosenId, String pollId, CometChatTheme theme) {
     return GestureDetector(
       onTap: () async {
         if (loggedInUser != null && senderUid != null && senderUid == loggedInUser) {
+=======
+  getRadio(int index, String id, String value, String chosenId, String pollId,
+      CometChatTheme theme) {
+    return GestureDetector(
+      onTap: () async {
+        if (loggedInUser != null &&
+            senderUid != null &&
+            senderUid == loggedInUser) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           return;
         }
         await choosePoll(id, pollId);
@@ -71,6 +97,7 @@ class CometChatPollsBubble extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(4, 0, 4, 6),
         child: Container(
           decoration: BoxDecoration(
+<<<<<<< HEAD
               color: style?.pollOptionsBackgroundColor ?? theme.palette.getBackground(),
               borderRadius: const BorderRadius.all(Radius.circular(6.0))),
           height: 42,
@@ -81,6 +108,12 @@ class CometChatPollsBubble extends StatelessWidget {
           //   color: style.gradient==null?style.background??Colors.transparent:null,
           //   gradient: style.gradient
           // ),
+=======
+              color: style?.pollOptionsBackgroundColor ??
+                  theme.palette.getBackground(),
+              borderRadius: const BorderRadius.all(Radius.circular(6.0))),
+          height: 42,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -90,13 +123,24 @@ class CometChatPollsBubble extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 11, right: 9),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(11),
+<<<<<<< HEAD
                     color: style?.radioButtonColor ?? theme.palette.getAccent100(),
+=======
+                    color:
+                        style?.radioButtonColor ?? theme.palette.getAccent100(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   )),
               Flexible(
                 child: Text(
                   value,
                   maxLines: 2,
+<<<<<<< HEAD
                   style: TextStyle(color: theme.palette.getAccent(), fontSize: 13).merge(style?.pollOptionsTextStyle),
+=======
+                  style:
+                      TextStyle(color: theme.palette.getAccent(), fontSize: 13)
+                          .merge(style?.pollOptionsTextStyle),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 ),
               )
             ],
@@ -106,15 +150,26 @@ class CometChatPollsBubble extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   Widget getPollWidget(List<PollOptions> options, String chosenId, String pollId, CometChatTheme theme) {
     return Column(
       children: [
         for (int index = 0; index < options.length; index++)
           getRadio(index, options[index].id, options[index].optionText, chosenId, pollId, theme),
+=======
+  Widget getPollWidget(List<PollOptions> options, String chosenId,
+      String pollId, CometChatTheme theme) {
+    return Column(
+      children: [
+        for (int index = 0; index < options.length; index++)
+          getRadio(index, options[index].id, options[index].optionText,
+              chosenId, pollId, theme),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       ],
     );
   }
 
+<<<<<<< HEAD
   Widget getPollBar(int index, String id, List<PollOptions> options, int totalVote, String chosenId, String pollId,
       CometChatTheme theme) {
     int count = options[index].voteCount;
@@ -125,17 +180,43 @@ class CometChatPollsBubble extends StatelessWidget {
 
     if (id == chosenId) {
       progressColor = style?.selectedOptionColor ?? theme.palette.getPrimary200();
+=======
+  Widget getPollBar(int index, String id, List<PollOptions> options,
+      int totalVote, String chosenId, String pollId, CometChatTheme theme) {
+    int count = options[index].voteCount;
+    String text = options[index].optionText;
+    double percentage = totalVote == 0 ? 0 : (count / totalVote * 100);
+    Color progressColor =
+        style?.unSelectedOptionColor ?? theme.palette.getAccent100();
+    Color background =
+        style?.pollOptionsBackgroundColor ?? theme.palette.getBackground();
+
+    if (id == chosenId) {
+      progressColor =
+          style?.selectedOptionColor ?? theme.palette.getPrimary200();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 6.0, right: 4, left: 4),
       child: GestureDetector(
         onTap: () {
+<<<<<<< HEAD
           if (loggedInUser != null && senderUid != null && senderUid == loggedInUser) {
             return;
           }
 
           int previousChosen = options.indexWhere((PollOptions element) => element.id == chosenId);
+=======
+          if (loggedInUser != null &&
+              senderUid != null &&
+              senderUid == loggedInUser) {
+            return;
+          }
+
+          int previousChosen = options
+              .indexWhere((PollOptions element) => element.id == chosenId);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           if (previousChosen != -1) {
             options[previousChosen].voteCount--;
           } else {
@@ -170,8 +251,15 @@ class CometChatPollsBubble extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                                 fontSize: theme.typography.subtitle1.fontSize,
+<<<<<<< HEAD
                                 fontWeight: theme.typography.subtitle1.fontWeight,
                                 fontFamily: theme.typography.subtitle1.fontFamily,
+=======
+                                fontWeight:
+                                    theme.typography.subtitle1.fontWeight,
+                                fontFamily:
+                                    theme.typography.subtitle1.fontFamily,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                 color: theme.palette.getAccent())
                             .merge(style?.pollOptionsTextStyle),
                       ),
@@ -185,8 +273,15 @@ class CometChatPollsBubble extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                                 fontSize: theme.typography.subtitle2.fontSize,
+<<<<<<< HEAD
                                 fontWeight: theme.typography.subtitle2.fontWeight,
                                 fontFamily: theme.typography.subtitle2.fontFamily,
+=======
+                                fontWeight:
+                                    theme.typography.subtitle2.fontWeight,
+                                fontFamily:
+                                    theme.typography.subtitle2.fontFamily,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                 color: theme.palette.getAccent600())
                             .merge(style?.pollResultTextStyle),
                       ),
@@ -199,11 +294,21 @@ class CometChatPollsBubble extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   getPollResultWidget(List<PollOptions> options, int totalVote, String chosenId, String pollId, CometChatTheme theme) {
     return Column(
       children: [
         for (int index = 0; index < options.length; index++)
           getPollBar(index, options[index].id, options, totalVote, chosenId, pollId, theme)
+=======
+  getPollResultWidget(List<PollOptions> options, int totalVote, String chosenId,
+      String pollId, CometChatTheme theme) {
+    return Column(
+      children: [
+        for (int index = 0; index < options.length; index++)
+          getPollBar(index, options[index].id, options, totalVote, chosenId,
+              pollId, theme)
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       ],
     );
   }
@@ -214,6 +319,7 @@ class CometChatPollsBubble extends StatelessWidget {
     int totalVote = 0;
     CometChatPollsBubbleType bubbleType = CometChatPollsBubbleType.poll;
     List<PollOptions> options = [];
+<<<<<<< HEAD
     // String? _pollId;
     CometChatTheme theme = ctheme ?? cometChatTheme;
 
@@ -224,6 +330,13 @@ class CometChatPollsBubble extends StatelessWidget {
       //     Extensions.getPollsResult(messageObject!);
       // _pollId = messageObject?.customData?["id"];
 
+=======
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+
+    if (this.options != null) {
+      options = this.options!;
+    } else if (metadata != null) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       if (metadata != null && metadata!.isNotEmpty) {
         totalVote = metadata?["total"];
         Map<String, dynamic> opt = metadata?["options"] ?? {};
@@ -246,14 +359,18 @@ class CometChatPollsBubble extends StatelessWidget {
       }
     }
 
+<<<<<<< HEAD
     // if (totalVoteCount != null) {
     //   _totalVote = totalVoteCount!;
     // }
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (totalVote > 0) {
       bubbleType = CometChatPollsBubbleType.result;
     }
 
+<<<<<<< HEAD
     // if (pollId != null) {
     //   _pollId = pollId;
     // }
@@ -263,6 +380,15 @@ class CometChatPollsBubble extends StatelessWidget {
           minWidth: MediaQuery.of(context).size.width * .618, maxWidth: MediaQuery.of(context).size.width * .75),
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(8), color: style?.backgroundColor ?? Colors.transparent),
+=======
+    return Container(
+      constraints: BoxConstraints(
+          minWidth: MediaQuery.of(context).size.width * .618,
+          maxWidth: MediaQuery.of(context).size.width * .75),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: style?.backgroundColor ?? Colors.transparent),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -278,9 +404,17 @@ class CometChatPollsBubble extends StatelessWidget {
                   .merge(style?.questionTextStyle),
             ),
           ),
+<<<<<<< HEAD
           if (bubbleType == CometChatPollsBubbleType.poll) getPollWidget(options, chosenId, pollId ?? '', theme),
           if (bubbleType == CometChatPollsBubbleType.result)
             getPollResultWidget(options, totalVote, chosenId, pollId ?? '', theme),
+=======
+          if (bubbleType == CometChatPollsBubbleType.poll)
+            getPollWidget(options, chosenId, pollId ?? '', theme),
+          if (bubbleType == CometChatPollsBubbleType.result)
+            getPollResultWidget(
+                options, totalVote, chosenId, pollId ?? '', theme),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0, right: 12, left: 12),
             child: Text(
@@ -301,7 +435,15 @@ class CometChatPollsBubble extends StatelessWidget {
 
 class PollOptions {
   ///creates model for poll options and result
+<<<<<<< HEAD
   PollOptions({required this.optionText, required this.voteCount, required this.id, required this.votersUid});
+=======
+  PollOptions(
+      {required this.optionText,
+      required this.voteCount,
+      required this.id,
+      required this.votersUid});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[id] poll option id
   final String id;

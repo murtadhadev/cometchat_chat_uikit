@@ -45,6 +45,27 @@ class CometChatThreadedMessageController extends GetxController
   late String tag;
   late int replyCount;
 
+<<<<<<< HEAD
+=======
+  final GlobalKey messageComposerKey = GlobalKey();
+
+  Widget? composerPlaceHolder;
+  void getComposerPlaceHolder() {
+    BuildContext? context = messageComposerKey.currentContext;
+    if (context == null) {
+      composerPlaceHolder = const SizedBox();
+    } else {
+      RenderBox renderBox = context.findRenderObject() as RenderBox;
+      var size = renderBox.size;
+
+      composerPlaceHolder = SizedBox(
+        height: size.height,
+      );
+    }
+    update();
+  }
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   //-------------------------LifeCycle Methods-----------------------------
   @override
   void onInit() {

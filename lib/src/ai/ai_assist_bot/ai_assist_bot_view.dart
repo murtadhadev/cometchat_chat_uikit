@@ -16,7 +16,11 @@ import 'package:get/get.dart';
 
 class AIAssistBotView extends StatefulWidget {
   const AIAssistBotView(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.user,
       this.group,
       this.assistBotStyle,
@@ -33,8 +37,12 @@ class AIAssistBotView extends StatefulWidget {
       required this.aiBot,
       this.controllerTag,
       required this.loggedInUser,
+<<<<<<< HEAD
       this.apiConfiguration})
       : super(key: key);
+=======
+      this.apiConfiguration});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   /// set [User] object, one is mandatory either [user] or [group]
   final User? user;
@@ -106,7 +114,14 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
     tag = widget.controllerTag ?? "default_tag_for_bots_$dateString";
     aiBotController = Get.put<AIAssistBotController>(
         AIAssistBotController(
+<<<<<<< HEAD
             aiBot: widget.aiBot, user: widget.user, group: widget.group, apiConfiguration: widget.apiConfiguration),
+=======
+            aiBot: widget.aiBot,
+            user: widget.user,
+            group: widget.group,
+            apiConfiguration: widget.apiConfiguration),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         tag: tag);
   }
 
@@ -149,8 +164,15 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
   Widget _getSuitableContentView(AIAssistBotMessage botMessage) {
     return CometChatTextBubble(
       text: botMessage.message,
+<<<<<<< HEAD
       alignment: botMessage.isSentByMe == true ? BubbleAlignment.right : BubbleAlignment.left,
       ctheme: _theme,
+=======
+      alignment: botMessage.isSentByMe == true
+          ? BubbleAlignment.right
+          : BubbleAlignment.left,
+      theme: _theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     );
   }
 
@@ -161,7 +183,11 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
 
     DateTime lastMessageTime = messageObject.sentAt!;
     return CometChatDate(
+<<<<<<< HEAD
       cdate: lastMessageTime,
+=======
+      date: lastMessageTime,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       pattern: DateTimePattern.timeFormat,
       style: DateStyle(
         background: theme.palette.getBackground(),
@@ -182,18 +208,38 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
     if (message.sentStatus == AIMessageStatus.sent) {
       return getTime(_theme, message);
     }
+<<<<<<< HEAD
     ReceiptStatus status =
         message.sentStatus == AIMessageStatus.inProgress ? ReceiptStatus.waiting : ReceiptStatus.error;
     return CometChatReceipt(status: status);
   }
 
   Widget _getMessageWidget(AIAssistBotMessage botMessage, AIAssistBotController controller, CometChatTheme theme) {
+=======
+    ReceiptStatus status = message.sentStatus == AIMessageStatus.inProgress
+        ? ReceiptStatus.waiting
+        : ReceiptStatus.error;
+    return CometChatReceipt(status: status);
+  }
+
+  Widget _getMessageWidget(AIAssistBotMessage botMessage,
+      AIAssistBotController controller, CometChatTheme theme) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     BubbleContentVerifier contentVerifier = BubbleContentVerifier(
         showFooterView: true,
         showName: !botMessage.isSentByMe,
         showThumbnail: !botMessage.isSentByMe,
+<<<<<<< HEAD
         alignment: botMessage.isSentByMe ? BubbleAlignment.right : BubbleAlignment.left);
     Color backgroundColor = botMessage.isSentByMe == true ? theme.palette.getPrimary() : theme.palette.getAccent100();
+=======
+        alignment: botMessage.isSentByMe
+            ? BubbleAlignment.right
+            : BubbleAlignment.left);
+    Color backgroundColor = botMessage.isSentByMe == true
+        ? theme.palette.getPrimary()
+        : theme.palette.getAccent100();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     Widget? headerView;
     Widget? contentView;
 
@@ -210,12 +256,23 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
     Widget? leadingView;
 
     return Row(
+<<<<<<< HEAD
       mainAxisAlignment:
           contentVerifier.alignment == BubbleAlignment.left ? MainAxisAlignment.start : MainAxisAlignment.end,
       children: [
         GestureDetector(
           child: CometChatMessageBubble(
             style: MessageBubbleStyle(background: backgroundColor, widthFlex: 0.8),
+=======
+      mainAxisAlignment: contentVerifier.alignment == BubbleAlignment.left
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.end,
+      children: [
+        GestureDetector(
+          child: CometChatMessageBubble(
+            style:
+                MessageBubbleStyle(background: backgroundColor, widthFlex: 0.8),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             headerView: headerView,
             alignment: contentVerifier.alignment,
             contentView: contentView,
@@ -227,7 +284,12 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
     );
   }
 
+<<<<<<< HEAD
   Widget _getList(AIAssistBotController value, BuildContext context, CometChatTheme listTheme) {
+=======
+  Widget _getList(AIAssistBotController value, BuildContext context,
+      CometChatTheme listTheme) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     value.context = context;
     return ListView.builder(
       itemCount: value.list.length,
@@ -248,7 +310,13 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
             child: CometChatMessageInput(
                 textEditingController: controller.textEditingController,
                 hideBottomView: true,
+<<<<<<< HEAD
                 style: MessageInputStyle(background: _theme.palette.getAccent100(), borderRadius: 20.0),
+=======
+                style: MessageInputStyle(
+                    background: _theme.palette.getAccent100(),
+                    borderRadius: 20.0),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 onChange: (String val) {
                   controller.onChanged(val);
                 }),
@@ -279,9 +347,17 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
   @override
   Widget build(BuildContext context) {
     return Padding(
+<<<<<<< HEAD
       padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Container(
         color: widget.assistBotStyle?.background ?? _theme.palette.getBackground(),
+=======
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: Container(
+        color:
+            widget.assistBotStyle?.background ?? _theme.palette.getBackground(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -309,11 +385,23 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
                                     Text(
                                       widget.aiBot.name,
                                       style: TextStyle(
+<<<<<<< HEAD
                                               fontSize: _theme.typography.heading.fontSize,
                                               fontFamily: _theme.typography.heading.fontFamily,
                                               fontWeight: _theme.typography.heading.fontWeight,
                                               color: _theme.palette.getAccent())
                                           .merge(widget.assistBotStyle?.titleStyle),
+=======
+                                              fontSize: _theme
+                                                  .typography.heading.fontSize,
+                                              fontFamily: _theme.typography
+                                                  .heading.fontFamily,
+                                              fontWeight: _theme.typography
+                                                  .heading.fontWeight,
+                                              color: _theme.palette.getAccent())
+                                          .merge(widget
+                                              .assistBotStyle?.titleStyle),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                     ),
                                   ],
                                 ),
@@ -329,7 +417,12 @@ class _AIAssistBotViewState extends State<AIAssistBotView> {
                                 },
                                 icon: Icon(
                                   Icons.close,
+<<<<<<< HEAD
                                   color: widget.assistBotStyle?.closeIconTint ?? _theme.palette.getAccent(),
+=======
+                                  color: widget.assistBotStyle?.closeIconTint ??
+                                      _theme.palette.getAccent(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                 ))
                           ],
                         ),

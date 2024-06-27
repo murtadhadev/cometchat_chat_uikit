@@ -9,6 +9,7 @@ class UIStyle extends BaseStyles {
     this.activeBackground,
     this.activeIconColor,
     this.barBackgroundColor,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
@@ -20,6 +21,14 @@ class UIStyle extends BaseStyles {
             background: background,
             gradient: gradient,
             border: border);
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.gradient,
+    Border? super.border,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[iconTint] customize color of tab item icon
   final Color? iconTint;

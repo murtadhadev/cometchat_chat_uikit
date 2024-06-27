@@ -37,7 +37,10 @@ class MessageListConfiguration {
     this.deliveredIcon,
     this.sentIcon,
     this.waitIcon,
+<<<<<<< HEAD
     this.replyIcon,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.alignment,
     this.showAvatar,
     this.datePattern,
@@ -49,12 +52,18 @@ class MessageListConfiguration {
     this.onThreadRepliesClick,
     this.headerView,
     this.footerView,
+<<<<<<< HEAD
     this.avatarView,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.dateSeparatorPattern,
     this.onError,
     this.theme,
     this.disableReceipt = false,
+<<<<<<< HEAD
     this.replyEnabled = true,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.messageInformationConfiguration,
     this.dateSeparatorStyle,
     this.reactionListConfiguration,
@@ -64,10 +73,16 @@ class MessageListConfiguration {
     this.addReactionIcon,
     this.addReactionIconTap,
     this.emojiKeyboardStyle,
+<<<<<<< HEAD
     this.selfColor,
     this.otherColor,
     this.showDateSeperator = true,
     this.showBottomInfo = false,
+=======
+    this.textFormatters,
+    this.disableMentions,
+    this.reactionsConfiguration,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   });
 
   ///[messagesRequestBuilder] custom request builder for fetching messages
@@ -97,8 +112,11 @@ class MessageListConfiguration {
   ///[hideError] toggle visibility of error dialog
   final bool? hideError;
 
+<<<<<<< HEAD
   final bool showDateSeperator;
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[avatarStyle] set style for avatar visible in leading view of message bubble
   final AvatarStyle? avatarStyle;
 
@@ -122,18 +140,24 @@ class MessageListConfiguration {
   ///custom wait icon visible at read receipt
   final Widget? waitIcon;
 
+<<<<<<< HEAD
   final Widget? replyIcon;
 
   final Widget? avatarView;
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///used to set the alignment of messages in CometChatMessageList. It can be either "leftAligned" or "standard"
   final ChatAlignment? alignment;
 
   ///toggle visibility for avatar
   final bool? showAvatar;
 
+<<<<<<< HEAD
   final bool replyEnabled;
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///datePattern custom date pattern visible in receipts
   final String Function(BaseMessage message)? datePattern;
 
@@ -158,12 +182,22 @@ class MessageListConfiguration {
   ///[footerView] sets custom widget to footer
   ///
   /// typically name is shown
+<<<<<<< HEAD
   final Widget? Function(BuildContext, {User? user, Group? group, int? parentMessageId})? headerView;
+=======
+  final Widget? Function(BuildContext,
+      {User? user, Group? group, int? parentMessageId})? headerView;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[footerView] sets custom widget to footer
   ///
   /// typically time and read receipt is shown
+<<<<<<< HEAD
   final Widget? Function(BuildContext, {User? user, Group? group, int? parentMessageId})? footerView;
+=======
+  final Widget? Function(BuildContext,
+      {User? user, Group? group, int? parentMessageId})? footerView;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[dateSeparatorPattern] pattern for  date separator
   final String Function(DateTime)? dateSeparatorPattern;
@@ -204,7 +238,18 @@ class MessageListConfiguration {
   ///[emojiKeyboardStyle] is a parameter used to set the style for the emoji keyboard
   final EmojiKeyboardStyle? emojiKeyboardStyle;
 
+<<<<<<< HEAD
   final Color? selfColor;
   final Color? otherColor;
   final bool showBottomInfo;
+=======
+  ///[textFormatters] is a list of text formatters for message bubbles with type text
+  final List<CometChatTextFormatter>? textFormatters;
+
+  ///[disableMentions] disables formatting of mentions in the subtitle of the conversation
+  final bool? disableMentions;
+
+  ///[reactionsConfiguration] sets configuration properties for reactions
+  final ReactionsConfiguration? reactionsConfiguration;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

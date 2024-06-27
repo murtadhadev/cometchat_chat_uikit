@@ -6,13 +6,21 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///else a simple text is shown if it cannot be changed
 class CometChatGroupScope extends StatefulWidget {
   const CometChatGroupScope(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.onCLick,
       required this.member,
       required this.group,
       this.loggedInUserId,
+<<<<<<< HEAD
       this.groupScopeStyle = const GroupScopeStyle()})
       : super(key: key);
+=======
+      this.groupScopeStyle = const GroupScopeStyle()});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[onCLick] is a call back function which will be invoked when clicked on dropdown ,
   ///This will not work in case scope is participant

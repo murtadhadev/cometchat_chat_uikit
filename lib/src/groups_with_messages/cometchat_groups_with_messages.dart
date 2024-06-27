@@ -19,7 +19,11 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 /// ```
 class CometChatGroupsWithMessages extends StatefulWidget {
   const CometChatGroupsWithMessages({
+<<<<<<< HEAD
     Key? key,
+=======
+    super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.group,
     this.theme,
     this.groupsConfiguration = const GroupsConfiguration(),
@@ -28,7 +32,11 @@ class CometChatGroupsWithMessages extends StatefulWidget {
     this.createGroupConfiguration = const CreateGroupConfiguration(),
     this.createGroupIcon,
     this.onCreateGroupIconClick,
+<<<<<<< HEAD
   }) : super(key: key);
+=======
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[group] if null will return [CometChatGroups] screen else will navigate to [CometChatMessages]
   final Group? group;

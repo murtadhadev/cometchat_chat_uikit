@@ -58,7 +58,10 @@ export 'src/conversations/cometchat_conversations.dart';
 export 'src/conversations/cometchat_conversations_controller.dart';
 export 'src/conversations/conversations_builder_protocol.dart';
 export 'src/conversations/conversations_configuration.dart';
+<<<<<<< HEAD
 // export 'src/utils/status_indicator_utils.dart';
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
 //Message List
 export 'src/messages/message_option_sheet.dart';
@@ -71,7 +74,10 @@ export 'src/message_list/message_list_configuration.dart';
 //message composer
 export 'src/message_composer/cometchat_message_composer.dart';
 export 'src/message_composer/cometchat_message_composer_controller.dart';
+<<<<<<< HEAD
 // export 'src/shared/models/cometchat_message_composer_action.dart';
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 export 'src/message_composer/message_composer_style.dart';
 export 'src/message_composer/message_composer_configuration.dart';
 
@@ -123,8 +129,11 @@ export 'src/join_protected_group/join_protected_group_configuration.dart';
 //Extension
 export 'src/extensions/extension.dart';
 
+<<<<<<< HEAD
 // Start conversation
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 export 'src/contacts/cometchat_contacts.dart';
 export 'src/contacts/cometchat_contacts_controller.dart';
 export 'src/contacts/contacts_style.dart';
@@ -142,7 +151,11 @@ export 'src/messages/cometchat_messages_controller.dart';
 export 'package:cometchat_sdk/cometchat_sdk.dart';
 export 'package:cometchat_sdk/handlers/call_listener.dart';
 
+<<<<<<< HEAD
 // Ai features
+=======
+/// Ai features
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 export 'src/ai/ai.dart';
 
 export 'src/message_composer/emoji_keyboard_style.dart';

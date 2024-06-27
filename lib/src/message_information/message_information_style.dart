@@ -32,12 +32,21 @@ class MessageInformationStyle extends BaseStyles {
   final Color? loadingIconTint;
 
   const MessageInformationStyle({
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
     BoxBorder? border,
     double? borderRadius,
     Gradient? gradient,
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.titleStyle,
     this.closeIconTint,
     this.deliveredIconTint,
@@ -47,6 +56,7 @@ class MessageInformationStyle extends BaseStyles {
     this.emptyTextStyle,
     this.errorTextStyle,
     this.loadingIconTint,
+<<<<<<< HEAD
   }) : super(
             width: width,
             height: height,
@@ -54,4 +64,7 @@ class MessageInformationStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

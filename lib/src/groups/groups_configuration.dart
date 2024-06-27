@@ -183,6 +183,7 @@ class GroupsConfiguration {
   ///Group tag to create from , if this is passed its parent responsibility to close this
   final String? controllerTag;
 
+<<<<<<< HEAD
   //
   // GroupsConfiguration merge(GroupsConfiguration mergeWith) {
   //   return GroupsConfiguration(
@@ -226,6 +227,8 @@ class GroupsConfiguration {
   //   );
   // }
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   GroupsConfiguration merge(GroupsConfiguration mergeWith) {
     return GroupsConfiguration(
         groupsRequestBuilder:

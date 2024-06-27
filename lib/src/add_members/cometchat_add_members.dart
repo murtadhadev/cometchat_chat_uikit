@@ -13,7 +13,11 @@ import '../../cometchat_chat_uikit.dart';
 /// ```
 class CometChatAddMembers extends StatelessWidget {
   CometChatAddMembers(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.title,
       this.searchPlaceholder,
       this.backButton,
@@ -47,8 +51,12 @@ class CometChatAddMembers extends StatelessWidget {
       this.statusIndicatorStyle,
       this.submitIcon})
       : _cometChatAddMembersController =
+<<<<<<< HEAD
             CometChatAddMembersController(group: group, onError: onError),
         super(key: key);
+=======
+            CometChatAddMembersController(group: group, onError: onError);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] Title of the component
   final String? title;
@@ -156,7 +164,11 @@ class CometChatAddMembers extends StatelessWidget {
         builder: (CometChatAddMembersController controller) {
           return CometChatUsers(
             theme: theme ?? cometChatTheme,
+<<<<<<< HEAD
             title: title ?? Translations.of(context).add_members,
+=======
+            title: title ?? Translations.of(context).addMembers,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             showBackButton: showBackButton,
             hideSearch: hideSearch ?? false,
             searchPlaceholder: searchPlaceholder,

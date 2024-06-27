@@ -15,7 +15,11 @@ import '../../../cometchat_chat_uikit.dart' as cc;
 /// ```
 class CometChatBannedMembers extends StatelessWidget {
   CometChatBannedMembers(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       required this.group,
       this.bannedMemberProtocol,
       this.subtitleView,
@@ -24,7 +28,11 @@ class CometChatBannedMembers extends StatelessWidget {
       this.bannedMembersStyle = const BannedMembersStyle(),
       this.options,
       this.controller,
+<<<<<<< HEAD
       this.ctheme,
+=======
+      this.theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.searchPlaceholder,
       this.backButton,
       this.showBackButton = true,
@@ -56,16 +64,28 @@ class CometChatBannedMembers extends StatelessWidget {
       : bannedMembersController = CometChatBannedMembersController(
             bannedMemberBuilderProtocol: bannedMemberProtocol ??
                 UIBannedMemberBuilder(
+<<<<<<< HEAD
                   bannedMemberRequestBuilder ?? BannedGroupMembersRequestBuilder(guid: group.guid),
                 ),
             mode: selectionMode,
             theme: ctheme ?? cometChatTheme,
+=======
+                  bannedMemberRequestBuilder ??
+                      BannedGroupMembersRequestBuilder(guid: group.guid),
+                ),
+            mode: selectionMode,
+            theme: theme ?? cometChatTheme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             group: group,
             disableUsersPresence: disableUsersPresence,
             onError: onError,
             unbanIconUrl: unbanIconUrl,
+<<<<<<< HEAD
             unbanIconUrlPackageName: unbanIconUrlPackageName),
         super(key: key);
+=======
+            unbanIconUrlPackageName: unbanIconUrlPackageName);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[group] stores a reference to the group for which banned members will be shown
   final Group group;
@@ -96,7 +116,14 @@ class CometChatBannedMembers extends StatelessWidget {
 
   ///[options]  set options which will be visible at slide of each banned member
   final List<CometChatOption>? Function(
+<<<<<<< HEAD
       Group group, GroupMember member, CometChatBannedMembersController controller, BuildContext context)? options;
+=======
+      Group group,
+      GroupMember member,
+      CometChatBannedMembersController controller,
+      BuildContext context)? options;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[searchPlaceholder] placeholder text of search input
   final String? searchPlaceholder;
@@ -114,7 +141,11 @@ class CometChatBannedMembers extends StatelessWidget {
   final bool hideSearch;
 
   ///[theme] can pass custom theme
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
+=======
+  final CometChatTheme? theme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[selectionMode] specifies mode banned members module is opening in
   final SelectionMode? selectionMode;
@@ -189,11 +220,21 @@ class CometChatBannedMembers extends StatelessWidget {
     Color? backgroundColor;
     Widget? icon;
 
+<<<<<<< HEAD
     StatusIndicatorUtils statusIndicatorUtils = StatusIndicatorUtils.getStatusIndicatorFromParams(
       isSelected: controller.selectionMap[bannedMember.uid] != null,
       theme: theme,
       groupMember: bannedMember,
       onlineStatusIndicatorColor: bannedMembersStyle.onlineStatusColor ?? theme.palette.getSuccess(),
+=======
+    StatusIndicatorUtils statusIndicatorUtils =
+        StatusIndicatorUtils.getStatusIndicatorFromParams(
+      isSelected: controller.selectionMap[bannedMember.uid] != null,
+      theme: theme,
+      groupMember: bannedMember,
+      onlineStatusIndicatorColor:
+          bannedMembersStyle.onlineStatusColor ?? theme.palette.getSuccess(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       disableUsersPresence: disableUsersPresence,
     );
 
@@ -214,8 +255,15 @@ class CometChatBannedMembers extends StatelessWidget {
       },
       onTap: () {
         if (activateSelection == ActivateSelection.onClick ||
+<<<<<<< HEAD
             (activateSelection == ActivateSelection.onLongClick && controller.selectionMap.isNotEmpty) &&
                 !(selectionMode == null || selectionMode == SelectionMode.none)) {
+=======
+            (activateSelection == ActivateSelection.onLongClick &&
+                    controller.selectionMap.isNotEmpty) &&
+                !(selectionMode == null ||
+                    selectionMode == SelectionMode.none)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           controller.onTap(bannedMember);
           if (controller.selectionMap.isEmpty) {
             _isSelectionOn.value = false;
@@ -235,9 +283,17 @@ class CometChatBannedMembers extends StatelessWidget {
         avatarURL: bannedMember.avatar,
         title: bannedMember.name,
         subtitleView: subtitle,
+<<<<<<< HEAD
         statusIndicatorColor: disableUsersPresence == false ? backgroundColor : null,
         statusIndicatorIcon: disableUsersPresence == false ? icon : null,
         statusIndicatorStyle: statusIndicatorStyle ?? const StatusIndicatorStyle(),
+=======
+        statusIndicatorColor:
+            disableUsersPresence == false ? backgroundColor : null,
+        statusIndicatorIcon: disableUsersPresence == false ? icon : null,
+        statusIndicatorStyle:
+            statusIndicatorStyle ?? const StatusIndicatorStyle(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         avatarStyle: avatarStyle ?? const AvatarStyle(),
         tailView: Text(
           cc.Translations.of(context).banned,
@@ -268,7 +324,14 @@ class CometChatBannedMembers extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   Widget getListItem(GroupMember bannedMember, CometChatBannedMembersController controller, CometChatTheme theme,
+=======
+  Widget getListItem(
+      GroupMember bannedMember,
+      CometChatBannedMembersController controller,
+      CometChatTheme theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       BuildContext context) {
     if (listItemView != null) {
       return listItemView!(bannedMember);
@@ -285,19 +348,33 @@ class CometChatBannedMembers extends StatelessWidget {
         child: Image.asset(
           AssetConstants.spinner,
           package: UIConstants.packageName,
+<<<<<<< HEAD
           color: bannedMembersStyle.loadingIconTint ?? theme.palette.getAccent600(),
+=======
+          color: bannedMembersStyle.loadingIconTint ??
+              theme.palette.getAccent600(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         ),
       );
     }
   }
 
+<<<<<<< HEAD
   Widget _getNoBannedMemberIndicator(BuildContext context, CometChatTheme theme) {
+=======
+  Widget _getNoBannedMemberIndicator(
+      BuildContext context, CometChatTheme theme) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (emptyStateView != null) {
       return Center(child: emptyStateView!(context));
     } else {
       return Center(
         child: Text(
+<<<<<<< HEAD
           emptyStateText ?? cc.Translations.of(context).no_banned_members_found,
+=======
+          emptyStateText ?? cc.Translations.of(context).noBannedMembersFound,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           style: bannedMembersStyle.emptyTextStyle ??
               TextStyle(
                   fontSize: theme.typography.title1.fontSize,
@@ -309,8 +386,18 @@ class CometChatBannedMembers extends StatelessWidget {
   }
 
   Widget _getBannedMemberListDivider(
+<<<<<<< HEAD
       CometChatBannedMembersController controller, int index, BuildContext context, CometChatTheme theme) {
     if (index == 0 || controller.list[index].name.substring(0, 1) != controller.list[index - 1].name.substring(0, 1)) {
+=======
+      CometChatBannedMembersController controller,
+      int index,
+      BuildContext context,
+      CometChatTheme theme) {
+    if (index == 0 ||
+        controller.list[index].name.substring(0, 1) !=
+            controller.list[index - 1].name.substring(0, 1)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       return SectionSeparator(
         text: controller.list[index].name.substring(0, 1),
         dividerColor: theme.palette.getAccent100(),
@@ -328,8 +415,13 @@ class CometChatBannedMembers extends StatelessWidget {
     }
   }
 
+<<<<<<< HEAD
   _showErrorDialog(
       String errorText, BuildContext context, CometChatTheme theme, CometChatBannedMembersController controller) {
+=======
+  _showErrorDialog(String errorText, BuildContext context, CometChatTheme theme,
+      CometChatBannedMembersController controller) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     showCometChatConfirmDialog(
         context: context,
         messageText: Text(
@@ -341,12 +433,22 @@ class CometChatBannedMembers extends StatelessWidget {
                   color: theme.palette.getAccent(),
                   fontFamily: theme.typography.title2.fontFamily),
         ),
+<<<<<<< HEAD
         confirmButtonText: cc.Translations.of(context).try_again,
         cancelButtonText: cc.Translations.of(context).cancel_capital,
         style: ConfirmDialogStyle(
             backgroundColor: theme.palette.mode == PaletteThemeModes.light
                 ? theme.palette.getBackground()
                 : Color.alphaBlend(theme.palette.getAccent200(), theme.palette.getBackground()),
+=======
+        confirmButtonText: cc.Translations.of(context).tryAgain,
+        cancelButtonText: cc.Translations.of(context).cancelCapital,
+        style: ConfirmDialogStyle(
+            backgroundColor: theme.palette.mode == PaletteThemeModes.light
+                ? theme.palette.getBackground()
+                : Color.alphaBlend(theme.palette.getAccent200(),
+                    theme.palette.getBackground()),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             shadowColor: theme.palette.getAccent300(),
             confirmButtonTextStyle: TextStyle(
                 fontSize: theme.typography.text2.fontSize,
@@ -366,6 +468,7 @@ class CometChatBannedMembers extends StatelessWidget {
         });
   }
 
+<<<<<<< HEAD
   _showError(CometChatBannedMembersController controller, BuildContext context, CometChatTheme theme) {
     if (hideError == true) return;
     String error;
@@ -373,11 +476,23 @@ class CometChatBannedMembers extends StatelessWidget {
       error = Utils.getErrorTranslatedText(context, (controller.error as CometChatException).code);
     } else {
       error = cc.Translations.of(context).no_banned_members_found;
+=======
+  _showError(CometChatBannedMembersController controller, BuildContext context,
+      CometChatTheme theme) {
+    if (hideError == true) return;
+    String error;
+    if (controller.error != null && controller.error is CometChatException) {
+      error = Utils.getErrorTranslatedText(
+          context, (controller.error as CometChatException).code);
+    } else {
+      error = cc.Translations.of(context).noBannedMembersFound;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
     if (errorStateView != null) {}
     _showErrorDialog(error, context, theme, controller);
   }
 
+<<<<<<< HEAD
   Widget _getList(CometChatBannedMembersController controller, BuildContext context, CometChatTheme theme) {
     return GetBuilder(
       init: controller,
@@ -386,6 +501,19 @@ class CometChatBannedMembers extends StatelessWidget {
       builder: (CometChatBannedMembersController value) {
         if (value.hasError == true) {
           WidgetsBinding.instance.addPostFrameCallback((_) => _showError(value, context, theme));
+=======
+  Widget _getList(CometChatBannedMembersController bannedMemberController,
+      BuildContext context, CometChatTheme theme) {
+    return GetBuilder(
+      init: bannedMemberController,
+      global: false,
+      dispose: (GetBuilderState<CometChatBannedMembersController> state) =>
+          state.controller?.onClose(),
+      builder: (CometChatBannedMembersController value) {
+        if (value.hasError == true) {
+          WidgetsBinding.instance
+              .addPostFrameCallback((_) => _showError(value, context, theme));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
           if (errorStateView != null) {
             return errorStateView!(context);
@@ -399,8 +527,14 @@ class CometChatBannedMembers extends StatelessWidget {
           return _getNoBannedMemberIndicator(context, theme);
         } else {
           return ListView.builder(
+<<<<<<< HEAD
             //controller: controller,
             itemCount: value.hasMoreItems ? value.list.length + 1 : value.list.length,
+=======
+            controller: controller,
+            itemCount:
+                value.hasMoreItems ? value.list.length + 1 : value.list.length,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             itemBuilder: (context, index) {
               if (index >= value.list.length) {
                 value.loadMoreElements();
@@ -409,7 +543,12 @@ class CometChatBannedMembers extends StatelessWidget {
 
               return Column(
                 children: [
+<<<<<<< HEAD
                   if (hideSeparator == false) _getBannedMemberListDivider(value, index, context, theme),
+=======
+                  if (hideSeparator == false)
+                    _getBannedMemberListDivider(value, index, context, theme),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   getListItem(value.list[index], value, theme, context),
                 ],
               );
@@ -420,17 +559,33 @@ class CometChatBannedMembers extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   Widget getSelectionWidget(CometChatBannedMembersController bannedMembersController, CometChatTheme theme) {
     if (_isSelectionOn.value) {
       return IconButton(
           onPressed: () {
             List<GroupMember>? bannedMembers = bannedMembersController.getSelectedList();
+=======
+  Widget getSelectionWidget(
+      CometChatBannedMembersController bannedMembersController,
+      CometChatTheme theme) {
+    if (_isSelectionOn.value) {
+      return IconButton(
+          onPressed: () {
+            List<GroupMember>? bannedMembers =
+                bannedMembersController.getSelectedList();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             if (onSelection != null) {
               onSelection!(bannedMembers);
             }
           },
           icon: Image.asset(AssetConstants.checkmark,
+<<<<<<< HEAD
               package: UIConstants.packageName, color: theme.palette.getPrimary()));
+=======
+              package: UIConstants.packageName,
+              color: theme.palette.getPrimary()));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return const SizedBox(
         height: 0,
@@ -441,6 +596,7 @@ class CometChatBannedMembers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     CometChatTheme theme = ctheme ?? cometChatTheme;
 
     if (stateCallBack != null) {
@@ -449,6 +605,17 @@ class CometChatBannedMembers extends StatelessWidget {
 
     return CometChatListBase(
         title: title ?? cc.Translations.of(context).banned_members,
+=======
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+
+    if (stateCallBack != null) {
+      WidgetsBinding.instance
+          .addPostFrameCallback((_) => stateCallBack!(bannedMembersController));
+    }
+
+    return CometChatListBase(
+        title: title ?? cc.Translations.of(context).bannedMembers,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         hideSearch: hideSearch,
         backIcon: backButton,
         onBack: onBack,
@@ -456,6 +623,7 @@ class CometChatBannedMembers extends StatelessWidget {
         showBackButton: showBackButton,
         searchBoxIcon: searchBoxIcon,
         onSearch: bannedMembersController.onSearch,
+<<<<<<< HEAD
         ctheme: theme,
         menuOptions: [
           if (appBarOptions != null && appBarOptions!.isNotEmpty) ...appBarOptions!,
@@ -463,6 +631,18 @@ class CometChatBannedMembers extends StatelessWidget {
         ],
         style: ListBaseStyle(
             background: bannedMembersStyle.gradient == null ? bannedMembersStyle.background : Colors.transparent,
+=======
+        theme: theme,
+        menuOptions: [
+          if (appBarOptions != null && appBarOptions!.isNotEmpty)
+            ...appBarOptions!,
+          Obx(() => getSelectionWidget(bannedMembersController, theme))
+        ],
+        style: ListBaseStyle(
+            background: bannedMembersStyle.gradient == null
+                ? bannedMembersStyle.background
+                : Colors.transparent,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             titleStyle: bannedMembersStyle.titleStyle,
             gradient: bannedMembersStyle.gradient,
             height: bannedMembersStyle.height,

@@ -18,7 +18,10 @@ class MessageComposerConfiguration {
     this.footerView,
     this.secondaryButtonView,
     this.sendButtonView,
+<<<<<<< HEAD
     this.sendButtonViewDisabled,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.attachmentOptions,
     this.text,
     this.onChange,
@@ -49,12 +52,21 @@ class MessageComposerConfiguration {
     this.hideVoiceRecording,
     this.voiceRecordingIcon,
     this.aiOptionStyle,
+<<<<<<< HEAD
     this.actionOnSendButton,
     this.aiIconPackageName,
     this.aiIcon,
     this.aiIconURL,
     this.replyTitleStyle,
     this.replySubTitleStyle,
+=======
+    this.aiIconPackageName,
+    this.aiIcon,
+    this.aiIconURL,
+    this.textFormatters,
+    this.disableMentions,
+    this.textEditingController,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   });
 
   ///[messageComposerStyle] message composer style
@@ -75,10 +87,13 @@ class MessageComposerConfiguration {
   ///[sendButtonView] ui component to be forwarded to message input component
   final Widget? sendButtonView;
 
+<<<<<<< HEAD
   final Widget? sendButtonViewDisabled;
 
   final Function(String)? actionOnSendButton;
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[attachmentOptions] options to display on tapping attachment button
   final ComposerActionsBuilder? attachmentOptions;
 
@@ -110,7 +125,12 @@ class MessageComposerConfiguration {
   final String? attachmentIconURL;
 
   ///[onSendButtonTap] some task to execute if user presses the primary/send button
+<<<<<<< HEAD
   final Function(BuildContext, BaseMessage, PreviewMessageMode?)? onSendButtonTap;
+=======
+  final Function(BuildContext, BaseMessage, PreviewMessageMode?)?
+      onSendButtonTap;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[theme] sets the theme for this component
   final CometChatTheme? theme;
@@ -175,6 +195,17 @@ class MessageComposerConfiguration {
   ///[aiIconPackageName] package name to show icon from
   final String? aiIconPackageName;
 
+<<<<<<< HEAD
   final TextStyle? replyTitleStyle;
   final TextStyle? replySubTitleStyle;
+=======
+  ///[textFormatters] is a list of [CometChatTextFormatter] which is used to format the text
+  final List<CometChatTextFormatter>? textFormatters;
+
+  ///[disableMentions] disables mentions in the composer
+  final bool? disableMentions;
+
+  ///[textEditingController] controls the state of the text field
+  final TextEditingController? textEditingController;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

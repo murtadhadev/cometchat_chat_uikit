@@ -9,6 +9,7 @@ class MessageListStyle extends BaseStyles {
     this.emptyTextStyle,
     this.errorTextStyle,
     this.contentPadding,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
@@ -22,6 +23,15 @@ class MessageListStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[loadingIconTint] provides color to loading icon
   final Color? loadingIconTint;

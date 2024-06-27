@@ -11,9 +11,14 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
 
   User? loggedInUser;
 
+<<<<<<< HEAD
   CollaborativeWhiteBoardExtensionDecorator(DataSource dataSource,
       {this.configuration})
       : super(dataSource) {
+=======
+  CollaborativeWhiteBoardExtensionDecorator(super.dataSource,
+      {this.configuration}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     getLoggedInUser();
   }
 
@@ -76,7 +81,11 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
     if (message != null &&
         message.type == collaborativeWhiteBoardExtensionTypeConstant &&
         message.category == MessageCategoryConstants.custom) {
+<<<<<<< HEAD
       return Translations.of(context).custom_message_whiteboard;
+=======
+      return Translations.of(context).customMessageWhiteboard;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return super.getLastConversationMessage(conversation, context);
     }
@@ -89,7 +98,12 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
         type: collaborativeWhiteBoardExtensionTypeConstant,
         category: CometChatMessageCategory.custom,
         contentView: (BaseMessage message, BuildContext context,
+<<<<<<< HEAD
             BubbleAlignment alignment) {
+=======
+            BubbleAlignment alignment,
+            {AdditionalConfigurations? additionalConfigurations}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           return getContentView(message as CustomMessage, theme0, context);
         },
         options: CometChatUIKit.getDataSource().getCommonOptions,
@@ -138,8 +152,13 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
                 color: theme.palette.getAccent(),
                 fontFamily: theme.typography.title2.fontFamily),
           ),
+<<<<<<< HEAD
           confirmButtonText: Translations.of(context).try_again,
           cancelButtonText: Translations.of(context).cancel_capital,
+=======
+          confirmButtonText: Translations.of(context).tryAgain,
+          cancelButtonText: Translations.of(context).cancelCapital,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           onConfirm: () {
             Navigator.pop(context);
             sendCollaborativeWhiteBoard(
@@ -153,7 +172,11 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
     return CometChatMessageComposerAction(
         id: collaborativeWhiteBoardExtensionTypeConstant,
         title: configuration?.optionTitle ??
+<<<<<<< HEAD
             Translations.of(context).collaborative_whiteboard,
+=======
+            Translations.of(context).collaborativeWhiteboard,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         iconUrl: configuration?.optionIconUrl ??
             AssetConstants.collaborativeWhiteboard,
         iconUrlPackageName:
@@ -202,10 +225,17 @@ class CollaborativeWhiteBoardExtensionDecorator extends DataSourceDecorator {
 
   String getErrorTranslatedText(BuildContext context, String errorCode) {
     if (errorCode == "ERROR_INTERNET_UNAVAILABLE") {
+<<<<<<< HEAD
       return Translations.of(context).error_internet_unavailable;
     } else {}
 
     return Translations.of(context).something_went_wrong_error;
+=======
+      return Translations.of(context).errorInternetUnavailable;
+    } else {}
+
+    return Translations.of(context).somethingWentWrongError;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   bool isNotThread(Map<String, dynamic>? id) {

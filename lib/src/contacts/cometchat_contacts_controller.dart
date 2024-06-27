@@ -72,7 +72,10 @@ class CometChatContactsController extends GetxController {
   @override
   void onInit() {
     dateTime = DateTime.now().microsecondsSinceEpoch.toString();
+<<<<<<< HEAD
     // dateTime2 = DateTime.now().microsecondsSinceEpoch.toString()+"group";
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     currentView = [
       if (tabVisibility == TabVisibility.usersAndGroups ||
           tabVisibility == TabVisibility.users)
@@ -163,13 +166,20 @@ class CometChatContactsController extends GetxController {
   void dispose() {
     super.dispose();
     tabController.dispose();
+<<<<<<< HEAD
     // CometChatUsersController userController = Get.find<CometChatUsersController>(tag: "dateTime");
     // userController.onClose();
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     Get.delete<CometChatUsersController>(tag: dateTime);
     Get.delete<CometChatGroupsController>(tag: dateTime);
   }
 
+<<<<<<< HEAD
   // Tab controller listener
+=======
+  /// Tab controller listener
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   void tabControllerListener() {
     if (tabController.index == 0) {
       tabType = CometChatStartConversationType.user;

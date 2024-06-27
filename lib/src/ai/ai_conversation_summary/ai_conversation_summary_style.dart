@@ -14,6 +14,7 @@ class AIConversationSummaryStyle extends BaseStyles {
     this.loadingIconTint,
     this.shadowColor,
     this.decoratedContainerSummaryStyle,
+<<<<<<< HEAD
     Color? background,
     BoxBorder? border,
     double? borderRadius,
@@ -24,6 +25,13 @@ class AIConversationSummaryStyle extends BaseStyles {
             borderRadius: borderRadius,
             gradient: gradient);
 
+=======
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[loadingTextStyle] changes style of suggested loading text
   final TextStyle? loadingTextStyle;
@@ -49,11 +57,17 @@ class AIConversationSummaryStyle extends BaseStyles {
   ///[shadowColor] changes shadow color of reply text chip/bubbles
   final Color? shadowColor;
 
+<<<<<<< HEAD
 
   ///[decoratedContainerSummaryStyle] set style for summary's decorated style
   final DecoratedContainerStyle? decoratedContainerSummaryStyle;
 
 
+=======
+  ///[decoratedContainerSummaryStyle] set style for summary's decorated style
+  final DecoratedContainerStyle? decoratedContainerSummaryStyle;
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   /// Copies current [AIConversationSummaryStyle] with some changes
   AIConversationSummaryStyle copyWith({
     TextStyle? replyTextStyle,

@@ -18,7 +18,11 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 ///
 class CometChatTransferOwnership extends StatelessWidget {
   CometChatTransferOwnership(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       required Group group,
       this.title,
       this.searchPlaceholder,
@@ -48,9 +52,17 @@ class CometChatTransferOwnership extends StatelessWidget {
       this.onBack,
       OnError? onError,
       this.listItemView})
+<<<<<<< HEAD
       : _cometChatTransferOwnershipController = CometChatTransferOwnershipController(
             group: group, onTransferOwnership: onTransferOwnership, onError: onError),
         super(key: key);
+=======
+      : _cometChatTransferOwnershipController =
+            CometChatTransferOwnershipController(
+                group: group,
+                onTransferOwnership: onTransferOwnership,
+                onError: onError);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[disableUsersPresence] controls visibility of user online status indicator
   final bool? disableUsersPresence;
@@ -127,13 +139,23 @@ class CometChatTransferOwnership extends StatelessWidget {
   ///[onBack] callback triggered on closing this screen
   final VoidCallback? onBack;
 
+<<<<<<< HEAD
   final CometChatTransferOwnershipController _cometChatTransferOwnershipController;
+=======
+  final CometChatTransferOwnershipController
+      _cometChatTransferOwnershipController;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[listItemView] set custom view for each groupMember
   final Widget Function(GroupMember)? listItemView;
 
+<<<<<<< HEAD
   Widget _tailView(
       BuildContext context, GroupMember groupMember, CometChatTransferOwnershipController transferOwnershipController) {
+=======
+  Widget _tailView(BuildContext context, GroupMember groupMember,
+      CometChatTransferOwnershipController transferOwnershipController) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     final CometChatTheme theme = this.theme ?? cometChatTheme;
     String scope;
     if (groupMember.uid == transferOwnershipController.group.owner) {
@@ -158,8 +180,16 @@ class CometChatTransferOwnership extends StatelessWidget {
     return GetBuilder(
         init: _cometChatTransferOwnershipController,
         global: false,
+<<<<<<< HEAD
         dispose: (GetBuilderState<CometChatTransferOwnershipController> state) => state.controller?.onClose(),
         builder: (CometChatTransferOwnershipController transferOwnershipController) {
+=======
+        dispose:
+            (GetBuilderState<CometChatTransferOwnershipController> state) =>
+                state.controller?.onClose(),
+        builder:
+            (CometChatTransferOwnershipController transferOwnershipController) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           return CometChatGroupMembers(
             group: transferOwnershipController.group,
             groupMembersRequestBuilder: groupMembersRequestBuilder,
@@ -174,8 +204,15 @@ class CometChatTransferOwnership extends StatelessWidget {
             backButton: backButton,
             showBackButton: showBackButton ?? true,
             searchBoxIcon: searchBoxIcon,
+<<<<<<< HEAD
             onSelection: (members) => transferOwnershipController.getOnSelection(context, members),
             tailView: (context, groupMember) => _tailView(context, groupMember, transferOwnershipController),
+=======
+            onSelection: (members) =>
+                transferOwnershipController.getOnSelection(context, members),
+            tailView: (context, groupMember) =>
+                _tailView(context, groupMember, transferOwnershipController),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             emptyStateText: emptyStateText,
             errorStateText: errorStateText,
             emptyStateView: emptyStateView,
@@ -190,7 +227,12 @@ class CometChatTransferOwnership extends StatelessWidget {
                 Image.asset(
                   AssetConstants.checkmark,
                   package: UIConstants.packageName,
+<<<<<<< HEAD
                   color: transferOwnershipStyle?.submitIconTint ?? theme.palette.getPrimary(),
+=======
+                  color: transferOwnershipStyle?.submitIconTint ??
+                      theme.palette.getPrimary(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 ),
             selectIcon: selectIcon ??
                 Icon(
@@ -200,7 +242,11 @@ class CometChatTransferOwnership extends StatelessWidget {
                 ),
             onBack: onBack,
             activateSelection: ActivateSelection.onClick,
+<<<<<<< HEAD
             ctheme: theme,
+=======
+            theme: theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           );
         });
   }

@@ -37,9 +37,12 @@ class MessageConfiguration {
       this.customSoundForOutgoingMessages,
       this.hideMessageComposer,
       this.theme,
+<<<<<<< HEAD
       this.wrapper,
       this.customHeader,
       this.onGifSelected,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.threadedMessagesConfiguration,
       this.hideDetails});
 
@@ -59,6 +62,7 @@ class MessageConfiguration {
   final MessageComposerConfiguration? messageComposerConfiguration;
 
   /// [messageHeaderView] to set custom header
+<<<<<<< HEAD
   final PreferredSizeWidget Function(User? user, Group? group, BuildContext context)? messageHeaderView;
 
   ///[messageComposerView] to set custom message composer
@@ -66,6 +70,18 @@ class MessageConfiguration {
 
   ///[messageListView] to set custom message list
   final Widget Function(User? user, Group? group, BuildContext context)? messageListView;
+=======
+  final PreferredSizeWidget Function(
+      User? user, Group? group, BuildContext context)? messageHeaderView;
+
+  ///[messageComposerView] to set custom message composer
+  final Widget Function(User? user, Group? group, BuildContext context)?
+      messageComposerView;
+
+  ///[messageListView] to set custom message list
+  final Widget Function(User? user, Group? group, BuildContext context)?
+      messageListView;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[hideMessageHeader] toggle visibility for message header
   final bool? hideMessageHeader;
@@ -99,10 +115,13 @@ class MessageConfiguration {
 
   ///[hideDetails] toggle visibility for details icons
   final bool? hideDetails;
+<<<<<<< HEAD
 
   final Widget Function(Widget child, BuildContext context)? wrapper;
 
   final Widget? customHeader;
 
   final OnGifSelected? onGifSelected;
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

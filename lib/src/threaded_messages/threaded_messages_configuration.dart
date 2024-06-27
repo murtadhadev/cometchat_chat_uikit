@@ -20,7 +20,13 @@ class ThreadedMessagesConfiguration {
       this.threadedMessagesStyle,
       this.hideMessageComposer,
       this.bubbleView,
+<<<<<<< HEAD
       this.theme});
+=======
+      this.theme,
+      this.messageComposerView,
+      this.messageListView});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] to be shown at head
   final String? title;
@@ -48,4 +54,15 @@ class ThreadedMessagesConfiguration {
 
   ///[theme] can pass custom theme
   final CometChatTheme? theme;
+<<<<<<< HEAD
+=======
+
+  ///[messageComposerView] to set custom message composer
+  final Widget Function(User? user, Group? group, BuildContext context,
+      BaseMessage parentMessage)? messageComposerView;
+
+  ///[messageListView] to set custom message list
+  final Widget Function(User? user, Group? group, BuildContext context,
+      BaseMessage parentMessage)? messageListView;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

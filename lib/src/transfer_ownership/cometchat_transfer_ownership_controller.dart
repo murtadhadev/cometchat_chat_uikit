@@ -31,7 +31,10 @@ class CometChatTransferOwnershipController extends GetxController {
   }
 
   initializeInternalDependencies() async {
+<<<<<<< HEAD
     // _loggedInUser = await CometChat.getLoggedInUser();
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _conversation ??= (await CometChat.getConversation(
         group.guid, ConversationType.group, onSuccess: (conversation) {
       if (conversation.lastMessage != null) {}

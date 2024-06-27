@@ -21,7 +21,10 @@ class CometChatMessagesController extends GetxController
   bool isOverlayOpen = false;
   List<Widget> liveAnimationList = [];
   CometChatMessageComposerController? composerState;
+<<<<<<< HEAD
   // late StreamController<MessageListEvent> messageListEventStreamController;
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   CometChatDetailsController? detailsState;
   User? user;
   Group? group;
@@ -44,6 +47,27 @@ class CometChatMessagesController extends GetxController
     counter++;
   }
 
+<<<<<<< HEAD
+=======
+  final GlobalKey messageComposerKey = GlobalKey();
+
+  Widget? composerPlaceHolder;
+  void getComposerPlaceHolder() {
+    BuildContext? context = messageComposerKey.currentContext;
+    if (context == null) {
+      composerPlaceHolder = const SizedBox();
+    } else {
+      RenderBox renderBox = context.findRenderObject() as RenderBox;
+
+      var size = renderBox.size;
+      composerPlaceHolder = SizedBox(
+        height: size.height,
+      );
+    }
+    update();
+  }
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   @override
   void onInit() {
     super.onInit();
@@ -87,6 +111,7 @@ class CometChatMessagesController extends GetxController
     _addAnimations(reaction);
   }
 
+<<<<<<< HEAD
   //-----MessageListListener methods-----
 
   // @override
@@ -104,6 +129,8 @@ class CometChatMessagesController extends GetxController
   //               parentMessage: parentMessage, loggedInUser: loggedInUser!)));
   // }
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   //----------User Event Listeners--------------
   @override
   void ccUserBlocked(User user) {
@@ -190,6 +217,13 @@ class CometChatMessagesController extends GetxController
                       threadedMessagesConfiguration?.threadedMessagesStyle,
                   hideMessageComposer:
                       threadedMessagesConfiguration?.hideMessageComposer,
+<<<<<<< HEAD
+=======
+                  messageComposerView:
+                      threadedMessagesConfiguration?.messageComposerView,
+                  messageListView:
+                      threadedMessagesConfiguration?.messageListView,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 )),
       );
     }

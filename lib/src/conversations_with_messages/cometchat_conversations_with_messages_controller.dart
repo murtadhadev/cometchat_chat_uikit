@@ -5,9 +5,20 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///[CometChatConversationsWithMessagesController] is the view model for [CometChatConversationsWithMessages]
 ///it contains all the business logic involved in changing the state of the UI of [CometChatConversationsWithMessages]
 class CometChatConversationsWithMessagesController extends GetxController
+<<<<<<< HEAD
     with CometChatConversationEventListener, CometChatUIEventListener {
   CometChatConversationsWithMessagesController(
       {this.messageConfiguration, this.theme, this.startConversationConfiguration});
+=======
+    with
+        CometChatConversationEventListener,
+        CometChatUIEventListener,
+        CometChatMessageEventListener {
+  CometChatConversationsWithMessagesController(
+      {this.messageConfiguration,
+      this.theme,
+      this.startConversationConfiguration});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[messageConfiguration] CometChatMessage configurations
   final MessageConfiguration? messageConfiguration;
@@ -32,15 +43,30 @@ class CometChatConversationsWithMessagesController extends GetxController
     _dateString = DateTime.now().millisecondsSinceEpoch.toString();
 
     conversationEventListenerId = "${_dateString}CWMMessageListener";
+<<<<<<< HEAD
     CometChatConversationEvents.addConversationListListener(conversationEventListenerId, this);
 
     CometChatUIEvents.addUiListener(_dateString + conversationEventListenerId, this);
+=======
+    CometChatConversationEvents.addConversationListListener(
+        conversationEventListenerId, this);
+
+    CometChatUIEvents.addUiListener(
+        _dateString + conversationEventListenerId, this);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   @override
   void onClose() {
+<<<<<<< HEAD
     CometChatConversationEvents.removeConversationListListener(conversationEventListenerId);
     CometChatUIEvents.removeUiListener(_dateString + conversationEventListenerId);
+=======
+    CometChatConversationEvents.removeConversationListListener(
+        conversationEventListenerId);
+    CometChatUIEvents.removeUiListener(
+        _dateString + conversationEventListenerId);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     super.onClose();
   }
 
@@ -52,7 +78,13 @@ class CometChatConversationsWithMessagesController extends GetxController
     navigateToMessagesScreen(user: user, group: group);
   }
 
+<<<<<<< HEAD
   void ccMessageForwarded(BaseMessage message, List<User>? usersSent, List<Group>? groupsSent, MessageStatus status) {
+=======
+  @override
+  void ccMessageForwarded(BaseMessage message, List<User>? usersSent,
+      List<Group>? groupsSent, MessageStatus status) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (status == MessageStatus.inProgress) return;
 
     if (((usersSent?.length ?? 0) + (groupsSent?.length ?? 0)) == 1) {
@@ -76,13 +108,23 @@ class CometChatConversationsWithMessagesController extends GetxController
     navigateToMessagesScreen(user: user, group: group);
   }
 
+<<<<<<< HEAD
   void navigateToMessagesScreen({User? user, Group? group, BuildContext? context, bool? pushReplacement}) {
     CometChatMessages cometChatMessages = CometChatMessages(
       key: ValueKey(user!.uid),
+=======
+  void navigateToMessagesScreen(
+      {User? user,
+      Group? group,
+      BuildContext? context,
+      bool? pushReplacement}) {
+    CometChatMessages cometChatMessages = CometChatMessages(
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       user: user,
       group: group,
       theme: messageConfiguration?.theme ?? theme,
       messageComposerConfiguration:
+<<<<<<< HEAD
           messageConfiguration?.messageComposerConfiguration ?? const MessageComposerConfiguration(),
       messageListConfiguration: messageConfiguration?.messageListConfiguration ?? const MessageListConfiguration(),
       onGifSelected: messageConfiguration?.onGifSelected,
@@ -92,6 +134,24 @@ class CometChatConversationsWithMessagesController extends GetxController
       customSoundForIncomingMessages: messageConfiguration?.customSoundForIncomingMessages,
       customSoundForOutgoingMessagePackage: messageConfiguration?.customSoundForOutgoingMessagePackage,
       customSoundForOutgoingMessages: messageConfiguration?.customSoundForOutgoingMessages,
+=======
+          messageConfiguration?.messageComposerConfiguration ??
+              const MessageComposerConfiguration(),
+      messageListConfiguration:
+          messageConfiguration?.messageListConfiguration ??
+              const MessageListConfiguration(),
+      messageHeaderConfiguration:
+          messageConfiguration?.messageHeaderConfiguration ??
+              const MessageHeaderConfiguration(),
+      customSoundForIncomingMessagePackage:
+          messageConfiguration?.customSoundForIncomingMessagePackage,
+      customSoundForIncomingMessages:
+          messageConfiguration?.customSoundForIncomingMessages,
+      customSoundForOutgoingMessagePackage:
+          messageConfiguration?.customSoundForOutgoingMessagePackage,
+      customSoundForOutgoingMessages:
+          messageConfiguration?.customSoundForOutgoingMessages,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       detailsConfiguration: messageConfiguration?.detailsConfiguration,
       disableSoundForMessages: messageConfiguration?.disableSoundForMessages,
       disableTyping: messageConfiguration?.disableTyping ?? false,
@@ -101,6 +161,7 @@ class CometChatConversationsWithMessagesController extends GetxController
       messageHeaderView: messageConfiguration?.messageHeaderView,
       messageListView: messageConfiguration?.messageListView,
       messagesStyle: messageConfiguration?.messagesStyle,
+<<<<<<< HEAD
       threadedMessagesConfiguration: messageConfiguration?.threadedMessagesConfiguration,
       hideDetails: messageConfiguration?.hideDetails,
     );
@@ -110,12 +171,22 @@ class CometChatConversationsWithMessagesController extends GetxController
     } else {
       wdg = cometChatMessages;
     }
+=======
+      threadedMessagesConfiguration:
+          messageConfiguration?.threadedMessagesConfiguration,
+      hideDetails: messageConfiguration?.hideDetails,
+    );
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (pushReplacement == true) {
       Navigator.pushReplacement(
           context ?? this.context,
           MaterialPageRoute(
+<<<<<<< HEAD
             builder: (context) => wdg,
+=======
+            builder: (context) => cometChatMessages,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           )).then((value) {
         if (value != null && value > 0) {
           Navigator.of(context ?? this.context).pop(value - 1);
@@ -125,7 +196,11 @@ class CometChatConversationsWithMessagesController extends GetxController
       Navigator.push(
           context ?? this.context,
           MaterialPageRoute(
+<<<<<<< HEAD
             builder: (context) => wdg,
+=======
+            builder: (context) => cometChatMessages,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           )).then((value) {
         if (value != null && value > 0) {
           Navigator.of(context ?? this.context).pop(value - 1);
@@ -136,10 +211,21 @@ class CometChatConversationsWithMessagesController extends GetxController
 
   void navigateToStartConversation({BuildContext? context}) {
     UsersConfiguration defaultUsersConfiguration = UsersConfiguration(
+<<<<<<< HEAD
         usersRequestBuilder: RequestBuilderConstants.getDefaultUsersRequestBuilder()..hideBlockedUsers = true);
 
     GroupsConfiguration defaultGroupsConfiguration = GroupsConfiguration(
         groupsRequestBuilder: RequestBuilderConstants.getDefaultGroupsRequestBuilder()..joinedOnly = true);
+=======
+        usersRequestBuilder:
+            RequestBuilderConstants.getDefaultUsersRequestBuilder()
+              ..hideBlockedUsers = true);
+
+    GroupsConfiguration defaultGroupsConfiguration = GroupsConfiguration(
+        groupsRequestBuilder:
+            RequestBuilderConstants.getDefaultGroupsRequestBuilder()
+              ..joinedOnly = true);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     Navigator.push(
       context ?? this.context,
@@ -148,7 +234,12 @@ class CometChatConversationsWithMessagesController extends GetxController
           onItemTap: startConversationConfiguration?.onItemTap ??
               (BuildContext context, user, group) {
                 if (user != null || group != null) {
+<<<<<<< HEAD
                   navigateToMessagesScreen(user: user, group: group, pushReplacement: true);
+=======
+                  navigateToMessagesScreen(
+                      user: user, group: group, pushReplacement: true);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 }
               },
           onClose: startConversationConfiguration?.onClose ??
@@ -162,6 +253,7 @@ class CometChatConversationsWithMessagesController extends GetxController
                 color: theme?.palette.getPrimary(),
               ),
           title: startConversationConfiguration?.title,
+<<<<<<< HEAD
           usersConfiguration: startConversationConfiguration?.usersConfiguration?.merge(defaultUsersConfiguration) ??
               defaultUsersConfiguration,
           theme: startConversationConfiguration?.theme ?? theme,
@@ -176,6 +268,31 @@ class CometChatConversationsWithMessagesController extends GetxController
           selectionMode: startConversationConfiguration?.selectionMode ?? SelectionMode.none,
           submitIcon: startConversationConfiguration?.submitIcon,
           tabVisibility: startConversationConfiguration?.tabVisibility ?? TabVisibility.usersAndGroups,
+=======
+          usersConfiguration: startConversationConfiguration?.usersConfiguration
+                  ?.merge(defaultUsersConfiguration) ??
+              defaultUsersConfiguration,
+          theme: startConversationConfiguration?.theme ?? theme,
+          groupsConfiguration: startConversationConfiguration
+                  ?.groupsConfiguration
+                  ?.merge(defaultGroupsConfiguration) ??
+              defaultGroupsConfiguration,
+          groupsTabTitle: startConversationConfiguration?.groupsTabTitle ??
+              Translations.of(context).groups,
+          contactsStyle: startConversationConfiguration?.contactsStyle ??
+              const ContactsStyle(),
+          usersTabTitle: startConversationConfiguration?.usersTabTitle ??
+              Translations.of(context).users,
+          hideSubmitIcon:
+              startConversationConfiguration?.hideSubmitIcon ?? true,
+          onSubmitIconTap: startConversationConfiguration?.onSubmitIconTap,
+          selectionLimit: startConversationConfiguration?.selectionLimit,
+          selectionMode: startConversationConfiguration?.selectionMode ??
+              SelectionMode.none,
+          submitIcon: startConversationConfiguration?.submitIcon,
+          tabVisibility: startConversationConfiguration?.tabVisibility ??
+              TabVisibility.usersAndGroups,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         ),
       ),
     );

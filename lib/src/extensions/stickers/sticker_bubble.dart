@@ -12,8 +12,12 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 /// ```
 class CometChatStickerBubble extends StatelessWidget {
   const CometChatStickerBubble(
+<<<<<<< HEAD
       {Key? key, this.messageObject, this.stickerUrl, this.stickerName})
       : super(key: key);
+=======
+      {super.key, this.messageObject, this.stickerUrl, this.stickerName});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[messageObject] custom message object
   final CustomMessage? messageObject;

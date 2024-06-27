@@ -17,6 +17,7 @@ class MessageComposerStyle extends BaseStyles {
     this.voiceRecordingIconTint,
     this.contentPadding,
     this.aiIconTint,
+<<<<<<< HEAD
     this.replyTitle,
     this.replySubTitle,
     double? width,
@@ -32,6 +33,16 @@ class MessageComposerStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+    this.messageInputPadding,
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[inputBackground] background color of text field
   final Color? inputBackground;
@@ -69,6 +80,11 @@ class MessageComposerStyle extends BaseStyles {
   ///[aiIconTint] sets the tint to ai icon
   final Color? aiIconTint;
 
+<<<<<<< HEAD
   final TextStyle? replyTitle;
   final TextStyle? replySubTitle;
+=======
+  ///[messageInputPadding] sets the padding to the message input field
+  final EdgeInsets? messageInputPadding;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

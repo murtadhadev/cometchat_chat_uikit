@@ -19,6 +19,7 @@ class GroupScopeStyle extends BaseStyles {
     this.dropDownItemStyle,
     this.scopeTextStyle,
     this.selectedItemTextStyle,
+<<<<<<< HEAD
     double? width,
     double? height,
     BoxBorder? border,
@@ -30,4 +31,12 @@ class GroupScopeStyle extends BaseStyles {
           border: border,
           borderRadius: borderRadius,
         );
+=======
+    super.width,
+    super.height,
+    super.border,
+    super.borderRadius,
+    Color? backgroundColor,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

@@ -10,7 +10,10 @@ class CreatePollsStyle {
       this.titleStyle,
       this.closeIconColor,
       this.deleteIconColor,
+<<<<<<< HEAD
       this.deleteIconBackgroundColor,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.createPollIconColor,
       this.inputTextStyle,
       this.hintTextStyle,
@@ -32,8 +35,11 @@ class CreatePollsStyle {
   ///[deleteIconColor]
   final Color? deleteIconColor;
 
+<<<<<<< HEAD
   final Color? deleteIconBackgroundColor;
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[borderColor] border color of text field
   final Color? borderColor;
 

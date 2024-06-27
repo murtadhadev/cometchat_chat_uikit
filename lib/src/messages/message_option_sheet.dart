@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 
+<<<<<<< HEAD
 
 ///[MessageOptionSheet] renders a bottom modal sheet
 ///that contains all the actions available to execute on a particular type of message
@@ -22,6 +23,27 @@ class MessageOptionSheet extends StatefulWidget {
         this.addReactionIcon,
       })
       : super(key: key);
+=======
+///[MessageOptionSheet] renders a bottom modal sheet
+///that contains all the actions available to execute on a particular type of message
+class MessageOptionSheet extends StatefulWidget {
+  const MessageOptionSheet({
+    super.key,
+    required this.messageObject,
+    required this.actionItems,
+    this.backgroundColor,
+    this.title,
+    this.titleStyle,
+    this.state,
+    this.data,
+    this.theme,
+    this.favoriteReactions,
+    this.hideReactions = false,
+    this.onReactionTap,
+    this.onAddReactionIconTap,
+    this.addReactionIcon,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[actionItems] is a list of [ActionItem] which is used to set the actions
   final List<ActionItem> actionItems;
@@ -46,11 +68,19 @@ class MessageOptionSheet extends StatefulWidget {
   final List<String>? favoriteReactions;
 
   ///[messageObject] is a parameter used to set the message object
+<<<<<<< HEAD
   final BaseMessage messageObject ;
 
   ///[hideReactions] is a parameter used to hide the reactions
   final bool? hideReactions;
   
+=======
+  final BaseMessage messageObject;
+
+  ///[hideReactions] is a parameter used to hide the reactions
+  final bool? hideReactions;
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[onReactionTap] is a callback which gets called when a reaction is pressed
   final Function(BaseMessage message, String? reaction)? onReactionTap;
 
@@ -60,9 +90,14 @@ class MessageOptionSheet extends StatefulWidget {
   ///[onAddReactionIconTap] sets custom onTap for adding reaction
   final Function(BaseMessage)? onAddReactionIconTap;
 
+<<<<<<< HEAD
 
   @override
   _MessageOptionSheetState createState() => _MessageOptionSheetState();
+=======
+  @override
+  State<MessageOptionSheet> createState() => _MessageOptionSheetState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _MessageOptionSheetState extends State<MessageOptionSheet> {
@@ -70,7 +105,12 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
   @override
   void initState() {
     super.initState();
+<<<<<<< HEAD
     favoriteReactions = widget.favoriteReactions ?? ['👍', '❤️','😂', '😢','🙏'];
+=======
+    favoriteReactions =
+        widget.favoriteReactions ?? ['👍', '❤️', '😂', '😢', '🙏'];
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   @override
@@ -83,7 +123,11 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
       expand: false,
       builder: (BuildContext context, ScrollController scrollController) {
         return Container(
+<<<<<<< HEAD
           padding: const EdgeInsets.only( bottom: 24),
+=======
+          padding: const EdgeInsets.only(bottom: 24),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           decoration: BoxDecoration(
               color: widget.backgroundColor ?? const Color(0xffFFFFFF),
               borderRadius:
@@ -100,6 +144,7 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
                       borderRadius: BorderRadius.circular(2)),
                 ),
               ),
+<<<<<<< HEAD
               if(!(widget.hideReactions??false))
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, ),
@@ -152,6 +197,63 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
                 thickness: .5,
                 color: theme.palette.getAccent300(),
               ),
+=======
+              if (!(widget.hideReactions ?? false))
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ...favoriteReactions.map((reaction) => GestureDetector(
+                            onTap: () async {
+                              Navigator.of(context).pop();
+                              if (widget.onReactionTap != null) {
+                                widget.onReactionTap!(
+                                    widget.messageObject, reaction);
+                              }
+                            },
+                            child: CircleAvatar(
+                              radius: 24,
+                              backgroundColor: theme.palette.getAccent50(),
+                              child: Text(
+                                reaction,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: theme.typography.heading.fontSize,
+                                    fontWeight:
+                                        theme.typography.name.fontWeight),
+                              ),
+                            ),
+                          )),
+                      CircleAvatar(
+                        radius: 24,
+                        backgroundColor: theme.palette.getAccent50(),
+                        child: IconButton(
+                            onPressed: () async {
+                              if (widget.onAddReactionIconTap != null) {
+                                widget.onAddReactionIconTap!(
+                                    widget.messageObject);
+                              }
+                            },
+                            icon: Image.asset(
+                              AssetConstants.addReaction,
+                              package: UIConstants.packageName,
+                              height: theme.typography.heading.fontSize + 4,
+                              width: theme.typography.heading.fontSize + 4,
+                            )),
+                      )
+                    ],
+                  ),
+                ),
+              if (!(widget.hideReactions ?? false))
+                Divider(
+                  thickness: .5,
+                  color: theme.palette.getAccent300(),
+                ),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               //---reactions---
               Expanded(
                 child: SingleChildScrollView(
@@ -164,8 +266,11 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
                         for (ActionItem item in widget.actionItems)
                           GestureDetector(
                             onTap: () {
+<<<<<<< HEAD
                               // Navigator.pop(context, item);
                               // item.onItemClick!(widget.data, widget.state!);
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                               Navigator.of(context).pop(item);
                             },
                             child: SizedBox(
@@ -181,8 +286,11 @@ class _MessageOptionSheetState extends State<MessageOptionSheet> {
                                             item.iconUrl!,
                                             color: item.iconTint ??
                                                 theme.palette.getAccent600(),
+<<<<<<< HEAD
                                             // const Color(0xff141414)
                                             //     .withOpacity(0.58),
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                             package: item.iconUrlPackageName,
                                           )
                                         : null,
@@ -221,12 +329,20 @@ Future<ActionItem?> showMessageOptionSheet(
     final CometChatTheme? theme,
     required final dynamic message,
     required final CometChatMessageListController state,
+<<<<<<< HEAD
       final Function(BaseMessage,String?)? onReactionTap,
     final Widget? addReactionIcon,
     final Function(BaseMessage)? addReactionIconTap,
       bool hideReactions = false,
       List<String>? favoriteReactions
     }) {
+=======
+    final Function(BaseMessage, String?)? onReactionTap,
+    final Widget? addReactionIcon,
+    final Function(BaseMessage)? addReactionIconTap,
+    bool hideReactions = false,
+    List<String>? favoriteReactions}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   return showModalBottomSheet<ActionItem>(
       context: context,
       isScrollControlled: true,
@@ -235,7 +351,11 @@ Future<ActionItem?> showMessageOptionSheet(
           const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(16))),
       builder: (BuildContext context) => MessageOptionSheet(
+<<<<<<< HEAD
         messageObject: message,
+=======
+            messageObject: message,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             actionItems: actionItems,
             backgroundColor: backgroundColor ?? const Color(0xffFFFFFF),
             title: title,
@@ -243,10 +363,18 @@ Future<ActionItem?> showMessageOptionSheet(
             data: message,
             state: state,
             theme: theme,
+<<<<<<< HEAD
         addReactionIcon: addReactionIcon,
         onAddReactionIconTap: addReactionIconTap,
         hideReactions: hideReactions,
         favoriteReactions: favoriteReactions,
         onReactionTap: onReactionTap,
+=======
+            addReactionIcon: addReactionIcon,
+            onAddReactionIconTap: addReactionIconTap,
+            hideReactions: hideReactions,
+            favoriteReactions: favoriteReactions,
+            onReactionTap: onReactionTap,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           ));
 }

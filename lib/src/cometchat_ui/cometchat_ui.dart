@@ -9,7 +9,11 @@ enum Visibility { onTap, always }
 
 class CometChatUI extends StatefulWidget {
   const CometChatUI(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.tabAlignment,
       this.tabSeparatorColor,
       this.style,
@@ -21,8 +25,12 @@ class CometChatUI extends StatefulWidget {
           const GroupsWithMessagesConfiguration(),
       this.showTitle,
       this.tabs,
+<<<<<<< HEAD
       this.theme})
       : super(key: key);
+=======
+      this.theme});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[tabAlignment] sets the alignment of the tab navigation bar. By default it is set to bottom
   final TabAlignment? tabAlignment;
@@ -53,7 +61,11 @@ class CometChatUI extends StatefulWidget {
   final CometChatTheme? theme;
 
   @override
+<<<<<<< HEAD
   _CometChatUIState createState() => _CometChatUIState();
+=======
+  State<CometChatUI> createState() => _CometChatUIState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _CometChatUIState extends State<CometChatUI> {
@@ -188,19 +200,31 @@ class _CometChatUIState extends State<CometChatUI> {
 
 class BottomBar extends StatefulWidget {
   const BottomBar(
+<<<<<<< HEAD
       {Key? key,
       required this.tabItems,
       this.style,
       this.theme,
       this.tabSeparatorColor})
       : super(key: key);
+=======
+      {super.key,
+      required this.tabItems,
+      this.style,
+      this.theme,
+      this.tabSeparatorColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   final List<TabItem> tabItems;
   final UIStyle? style;
   final CometChatTheme? theme;
   final Color? tabSeparatorColor;
 
   @override
+<<<<<<< HEAD
   _BottomBarState createState() => _BottomBarState();
+=======
+  State<BottomBar> createState() => _BottomBarState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _BottomBarState extends State<BottomBar> {
@@ -271,19 +295,31 @@ class _BottomBarState extends State<BottomBar> {
 
 class TopTab extends StatefulWidget {
   const TopTab(
+<<<<<<< HEAD
       {Key? key,
       required this.tabItems,
       this.style,
       this.theme,
       this.tabSeparatorColor})
       : super(key: key);
+=======
+      {super.key,
+      required this.tabItems,
+      this.style,
+      this.theme,
+      this.tabSeparatorColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   final List<TabItem> tabItems;
   final UIStyle? style;
   final CometChatTheme? theme;
   final Color? tabSeparatorColor;
 
   @override
+<<<<<<< HEAD
   _TopTabState createState() => _TopTabState();
+=======
+  State<TopTab> createState() => _TopTabState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _TopTabState extends State<TopTab> {

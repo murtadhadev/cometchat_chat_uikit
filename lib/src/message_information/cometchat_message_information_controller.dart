@@ -5,9 +5,13 @@ import '../../cometchat_chat_uikit.dart';
 ///[CometchatMessageInformationController] is the view model for [CometChatMessageInformation]
 ///it contains all the business logic involved in changing the state of the UI of [CometChatMessageInformation]
 class CometchatMessageInformationController extends GetxController
+<<<<<<< HEAD
     with
         CometChatMessageEventListener,
         CometChatGroupEventListener {
+=======
+    with CometChatMessageEventListener, CometChatGroupEventListener {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   //--------------------Constructor-----------------------
   CometchatMessageInformationController(
     this.parentMessage,

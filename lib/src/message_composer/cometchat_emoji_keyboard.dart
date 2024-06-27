@@ -34,14 +34,22 @@ Future<String?> showCometChatEmojiKeyboard(
 
 class CometChatEmojiKeyboard extends StatefulWidget {
   const CometChatEmojiKeyboard(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.backgroundColor,
       this.titleStyle,
       this.dividerColor,
       this.categoryLabel,
       this.selectedCategoryIconColor,
+<<<<<<< HEAD
       this.unselectedCategoryIconColor})
       : super(key: key);
+=======
+      this.unselectedCategoryIconColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   final Color? backgroundColor;
   final TextStyle? titleStyle;
@@ -134,7 +142,11 @@ class _CometChatEmojiKeyboardState extends State<CometChatEmojiKeyboard> {
                       Align(
                         alignment: Alignment.bottomLeft,
                         child: Text(
+<<<<<<< HEAD
                           Translations.of(context).select_reaction,
+=======
+                          Translations.of(context).selectReaction,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                           style: widget.titleStyle ??
                               const TextStyle(
                                   fontSize: 17,
@@ -174,6 +186,7 @@ class _CometChatEmojiKeyboardState extends State<CometChatEmojiKeyboard> {
                             key: data.key,
                             alignment: Alignment.center,
                             child: Padding(
+<<<<<<< HEAD
                               padding: const EdgeInsets.only(
                                   top: 6.0, bottom: 12),
                               child:
@@ -202,6 +215,29 @@ class _CometChatEmojiKeyboardState extends State<CometChatEmojiKeyboard> {
                               )
 
                             ),
+=======
+                                padding:
+                                    const EdgeInsets.only(top: 6.0, bottom: 12),
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                      style: const TextStyle(
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: 10,
+                                          height: 1.6),
+                                      children: [
+                                        for (Emoji emoji in data.emojies)
+                                          TextSpan(
+                                              text: emoji.emoji,
+                                              recognizer: TapGestureRecognizer()
+                                                ..onTap = () async {
+                                                  Navigator.pop(
+                                                      context, emoji.emoji);
+                                                })
+                                      ]),
+                                )),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                           ),
                       ],
                     ),

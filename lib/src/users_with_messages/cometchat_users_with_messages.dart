@@ -38,12 +38,20 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 
 class CometChatUsersWithMessages extends StatefulWidget {
   const CometChatUsersWithMessages(
+<<<<<<< HEAD
       {Key? key,
       this.theme,
       this.usersConfiguration = const UsersConfiguration(),
       this.messageConfiguration = const MessageConfiguration(),
       this.user})
       : super(key: key);
+=======
+      {super.key,
+      this.theme,
+      this.usersConfiguration = const UsersConfiguration(),
+      this.messageConfiguration = const MessageConfiguration(),
+      this.user});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[theme] can pass custom theme
   final CometChatTheme? theme;

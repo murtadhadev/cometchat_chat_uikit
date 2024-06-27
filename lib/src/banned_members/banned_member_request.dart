@@ -1,7 +1,11 @@
 import '../../../cometchat_chat_uikit.dart';
 
 /// [UIBannedGroupMemberRequestBuilder] is an interface that is used to construct the request body for fetching banned group members using [BannedGroupMembersRequestBuilder]
+<<<<<<< HEAD
 abstract class UIBannedGroupMemberRequestBuilder {
+=======
+mixin UIBannedGroupMemberRequestBuilder {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   /// [requestBuilder] is an instance of [BannedGroupMembersRequestBuilder]
   late BannedGroupMembersRequestBuilder requestBuilder;
 

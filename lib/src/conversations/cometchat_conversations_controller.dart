@@ -5,7 +5,12 @@ import '../../../cometchat_chat_uikit.dart' as cc;
 
 ///[CometChatConversationsController] is the view model for [CometChatConversations]
 ///it contains all the business logic involved in changing the state of the UI of [CometChatConversations]
+<<<<<<< HEAD
 class CometChatConversationsController extends CometChatSearchListController<Conversation, String>
+=======
+class CometChatConversationsController
+    extends CometChatListController<Conversation, String>
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     with
         CometChatSelectable,
         CometChatMessageEventListener,
@@ -24,12 +29,23 @@ class CometChatConversationsController extends CometChatSearchListController<Con
       required this.theme,
       this.disableSoundForMessages = false,
       this.customSoundForMessages,
+<<<<<<< HEAD
       this.disableUsersPresence,
       this.disableReceipt = false,
       this.disableTyping,
       this.deleteConversationDialogStyle,
       OnError? onError})
       : super(builderProtocol: conversationsBuilderProtocol, onError: onError) {
+=======
+      this.disableUsersPresence = false,
+      this.disableReceipt = false,
+      this.disableTyping,
+      this.deleteConversationDialogStyle,
+      OnError? onError,
+      this.textFormatters,
+      this.disableMentions})
+      : super(conversationsBuilderProtocol.getRequest(), onError: onError) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     selectionMode = mode ?? SelectionMode.none;
     dateStamp = DateTime.now().microsecondsSinceEpoch.toString();
 
@@ -53,7 +69,11 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   late String _uiUserListener;
   late String _conversationListenerId;
 
+<<<<<<< HEAD
   Set<String> typingIndicatorMap = {};
+=======
+  Map<String, TypingIndicator> typingMap = {};
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   User? loggedInUser;
 
   ///[disableSoundForMessages] if true will disable sound for messages
@@ -70,7 +90,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   final bool? disableReceipt;
 
   String loggedInUserId = "";
+<<<<<<< HEAD
   String? activeConversation; //active user or groupID, null when no message list is active
+=======
+  String?
+      activeConversation; //active user or groupID, null when no message list is active
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ConversationsStyle? style;
 
@@ -82,12 +107,25 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   ///[deleteConversationDialogStyle] provides customization for the dialog box that pops up when tapping the delete conversation option
   final ConfirmDialogStyle? deleteConversationDialogStyle;
 
+<<<<<<< HEAD
+=======
+  ///[textFormatters] is a list of [CometChatTextFormatter] which is used to format the text
+  List<CometChatTextFormatter>? textFormatters;
+
+  ///[disableMentions] if true will disable mentions in the conversation
+  bool? disableMentions;
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   @override
   void onInit() {
     CometChatMessageEvents.addMessagesListener(messageUIListenerID, this);
     CometChatGroupEvents.addGroupsListener(groupUIListenerID, this);
+<<<<<<< HEAD
 
     if (disableUsersPresence == false) {
+=======
+    if (!(disableUsersPresence ?? false)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       CometChat.addUserListener(userSDKListenerID, this);
     }
     CometChat.addGroupListener(groupSDKListenerID, this);
@@ -96,6 +134,10 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     CometChatCallEvents.addCallEventsListener(_conversationListenerId, this);
     CometChat.addCallListener(_conversationListenerId, this);
     CometChat.addConnectionListener(_conversationListenerId, this);
+<<<<<<< HEAD
+=======
+    initializeTextFormatters();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     super.onInit();
   }
 
@@ -104,7 +146,11 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     CometChatMessageEvents.removeMessagesListener(messageUIListenerID);
     CometChatGroupEvents.removeGroupsListener(groupUIListenerID);
     CometChat.removeMessageListener(messageSDKListenerID);
+<<<<<<< HEAD
     if (disableUsersPresence == false) {
+=======
+    if (!(disableUsersPresence ?? false)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       CometChat.removeUserListener(userSDKListenerID);
     }
     //CometChat.removeGroupListener(groupSDKListenerID);
@@ -141,6 +187,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   void ccMessageSent(BaseMessage message, MessageStatus messageStatus) {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(message)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (messageStatus == MessageStatus.sent) {
       updateLastMessage(message);
     }
@@ -181,7 +233,15 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberAdded(List<cc.Action> messages, List<User> usersAdded, Group groupAddedIn, User addedBy) {
+=======
+  void ccGroupMemberAdded(List<cc.Action> messages, List<User> usersAdded,
+      Group groupAddedIn, User addedBy) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(messages.last, true);
   }
 
@@ -201,29 +261,57 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   void onTextMessageReceived(TextMessage textMessage) async {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(textMessage)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _onMessageReceived(textMessage, false);
   }
 
   @override
   void onMediaMessageReceived(MediaMessage mediaMessage) async {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(mediaMessage)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _onMessageReceived(mediaMessage, false);
   }
 
   @override
   void onCustomMessageReceived(CustomMessage customMessage) async {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(customMessage)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _onMessageReceived(customMessage, false);
   }
 
   @override
   void onMessagesDelivered(MessageReceipt messageReceipt) {
+<<<<<<< HEAD
     if (messageReceipt.receiverType == ReceiverTypeConstants.user && disableReceipt != true) {
+=======
+    if (messageReceipt.receiverType == ReceiverTypeConstants.user &&
+        disableReceipt != true) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       setReceipts(messageReceipt);
     }
   }
 
   @override
   void onMessagesRead(MessageReceipt messageReceipt) {
+<<<<<<< HEAD
     if (messageReceipt.receiverType == ReceiverTypeConstants.user && disableReceipt != true) {
+=======
+    if (messageReceipt.receiverType == ReceiverTypeConstants.user &&
+        disableReceipt != true) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       setReceipts(messageReceipt);
     }
   }
@@ -249,17 +337,38 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   void onFormMessageReceived(FormMessage formMessage) {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(formMessage)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _onMessageReceived(formMessage, false);
   }
 
   @override
   void onCardMessageReceived(CardMessage cardMessage) {
+<<<<<<< HEAD
+=======
+    if (_checkMessageSettings(cardMessage)) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     _onMessageReceived(cardMessage, false);
   }
 
   @override
+<<<<<<< HEAD
   void onCustomInteractiveMessageReceived(CustomInteractiveMessage cardMessage) {
     _onMessageReceived(cardMessage, false);
+=======
+  void onCustomInteractiveMessageReceived(
+      CustomInteractiveMessage customInteractiveMessage) {
+    if (_checkMessageSettings(customInteractiveMessage)) {
+      return;
+    }
+    _onMessageReceived(customInteractiveMessage, false);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   //----------------Message Listeners end----------------------------------------------
@@ -288,11 +397,23 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   onGroupMemberJoined(cc.Action action, User joinedUser, Group joinedGroup) {
+<<<<<<< HEAD
+=======
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(action, true);
   }
 
   @override
   onGroupMemberLeft(cc.Action action, User leftUser, Group leftGroup) {
+<<<<<<< HEAD
+=======
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (loggedInUserId == leftUser.uid) {
       refreshSingleConversation(action, true, remove: true);
     } else {
@@ -301,7 +422,15 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   onGroupMemberKicked(cc.Action action, User kickedUser, User kickedBy, Group kickedFrom) {
+=======
+  onGroupMemberKicked(
+      cc.Action action, User kickedUser, User kickedBy, Group kickedFrom) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (loggedInUserId == kickedUser.uid) {
       refreshSingleConversation(action, true, remove: true);
     } else {
@@ -310,7 +439,15 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberKicked(cc.Action message, User kickedUser, User kickedBy, Group kickedFrom) {
+=======
+  void ccGroupMemberKicked(
+      cc.Action message, User kickedUser, User kickedBy, Group kickedFrom) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (loggedInUserId == kickedUser.uid) {
       refreshSingleConversation(message, true, remove: true);
     } else {
@@ -319,7 +456,15 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   onGroupMemberBanned(cc.Action action, User bannedUser, User bannedBy, Group bannedFrom) {
+=======
+  onGroupMemberBanned(
+      cc.Action action, User bannedUser, User bannedBy, Group bannedFrom) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (loggedInUserId == bannedUser.uid) {
       refreshSingleConversation(action, true, remove: true);
     } else {
@@ -328,23 +473,56 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   onGroupMemberUnbanned(cc.Action action, User unbannedUser, User unbannedBy, Group unbannedFrom) {
+=======
+  onGroupMemberUnbanned(cc.Action action, User unbannedUser, User unbannedBy,
+      Group unbannedFrom) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(action, true);
   }
 
   @override
+<<<<<<< HEAD
   onGroupMemberScopeChanged(
       cc.Action action, User updatedBy, User updatedUser, String scopeChangedTo, String scopeChangedFrom, Group group) {
+=======
+  onGroupMemberScopeChanged(cc.Action action, User updatedBy, User updatedUser,
+      String scopeChangedTo, String scopeChangedFrom, Group group) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(action, true);
   }
 
   @override
+<<<<<<< HEAD
   onMemberAddedToGroup(cc.Action action, User addedby, User userAdded, Group addedTo) {
+=======
+  onMemberAddedToGroup(
+      cc.Action action, User addedby, User userAdded, Group addedTo) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(action, true);
   }
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberBanned(cc.Action message, User bannedUser, User bannedBy, Group bannedFrom) {
+=======
+  void ccGroupMemberBanned(
+      cc.Action message, User bannedUser, User bannedBy, Group bannedFrom) {
+    if (_checkGroupSettings() == false) {
+      return;
+    }
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (loggedInUserId == bannedUser.uid) {
       refreshSingleConversation(message, true, remove: true);
     } else {
@@ -356,7 +534,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   @override
   updateUserStatus(User user, String status) {
     int matchingIndex = list.indexWhere((element) =>
+<<<<<<< HEAD
         (element.conversationType == ReceiverTypeConstants.user && (element.conversationWith as User).uid == user.uid));
+=======
+        (element.conversationType == ReceiverTypeConstants.user &&
+            (element.conversationWith as User).uid == user.uid));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (matchingIndex != -1) {
       (list[matchingIndex].conversationWith as User).status = status;
@@ -387,7 +570,10 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   @override
   updateLastMessage(BaseMessage message) async {
     int matchingIndex = getMatchingIndexFromKey(message.conversationId!);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (matchingIndex != -1) {
       Conversation conversation = list[matchingIndex];
       conversation.lastMessage = message;
@@ -395,16 +581,30 @@ class CometChatConversationsController extends CometChatSearchListController<Con
       removeElementAt(matchingIndex);
       addElement(conversation);
     } else {
+<<<<<<< HEAD
       CometChat.getConversationFromMessage(message, onSuccess: (Conversation conversation) {
         addElement(conversation);
       }, onError: (_) {});
+=======
+      final conversation =
+          await CometChatHelper.getConversationFromMessage(message);
+      if (conversation != null) {
+        addElement(conversation);
+      }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
   }
 
   @override
   updateGroup(Group group) {
+<<<<<<< HEAD
     int matchingIndex = list.indexWhere(
         (element) => ((element.conversationWith is Group) && ((element.conversationWith as Group).guid == group.guid)));
+=======
+    int matchingIndex = list.indexWhere((element) =>
+        ((element.conversationWith is Group) &&
+            ((element.conversationWith as Group).guid == group.guid)));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (matchingIndex != -1) {
       list[matchingIndex].conversationWith = group;
@@ -414,8 +614,14 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   removeGroup(String guid) {
+<<<<<<< HEAD
     int matchingIndex = list.indexWhere(
         (element) => ((element.conversationWith is Group) && ((element.conversationWith as Group).guid == guid)));
+=======
+    int matchingIndex = list.indexWhere((element) =>
+        ((element.conversationWith is Group) &&
+            ((element.conversationWith as Group).guid == guid)));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (matchingIndex != -1) {
       removeElementAt(matchingIndex);
@@ -435,8 +641,16 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   refreshSingleConversation(BaseMessage message, bool isActionMessage, {bool? remove}) async {
     CometChat.getConversationFromMessage(message, onSuccess: (Conversation conversation) {
+=======
+  refreshSingleConversation(BaseMessage message, bool isActionMessage,
+      {bool? remove}) async {
+    final conversation =
+        await CometChatHelper.getConversationFromMessage(message);
+    if (conversation != null) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       conversation.lastMessage = message;
       conversation.updatedAt = message.updatedAt;
       if (remove == true) {
@@ -444,7 +658,11 @@ class CometChatConversationsController extends CometChatSearchListController<Con
       } else {
         updateConversation(conversation);
       }
+<<<<<<< HEAD
     }, onError: (_) {});
+=======
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   ///Update the conversation with new conversation Object matched according to conversation id ,  if not matched inserted at top
@@ -452,6 +670,7 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   updateConversation(Conversation conversation) {
     int matchingIndex = getMatchingIndex(conversation);
 
+<<<<<<< HEAD
     Map<String, dynamic>? metaData = conversation.lastMessage!.metadata;
     bool incrementUnreadCount = false;
     bool isCategoryMessage = (conversation.lastMessage!.category == MessageCategoryConstants.message) ||
@@ -459,21 +678,51 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     if (metaData != null) {
       if (metaData.containsKey("incrementUnreadCount")) {
         incrementUnreadCount = metaData["incrementUnreadCount"] as bool;
+=======
+    bool incrementUnreadCount = false;
+    bool isCategoryMessage = (conversation.lastMessage!.category ==
+            MessageCategoryConstants.message) ||
+        (conversation.lastMessage!.category ==
+            MessageCategoryConstants.interactive) ||
+        (conversation.lastMessage!.category == MessageCategoryConstants.call);
+    if (conversation.lastMessage is CustomMessage) {
+      final message = conversation.lastMessage as CustomMessage;
+      if (message.updateConversation == true ||
+          (conversation.lastMessage?.metadata?[
+                      UpdateSettingsConstant.incrementUnreadCount] ??
+                  false) ==
+              true ||
+          (CometChatUIKit.conversationUpdateSettings?.customMessages ??
+              true == true)) {
+        incrementUnreadCount = true;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       }
     }
 
     if (matchingIndex != -1) {
       Conversation oldConversation = list[matchingIndex];
 
+<<<<<<< HEAD
       if ((incrementUnreadCount || isCategoryMessage) && conversation.lastMessage?.sender?.uid != loggedInUserId) {
         conversation.unreadMessageCount = (oldConversation.unreadMessageCount ?? 0) + 1;
+=======
+      if ((incrementUnreadCount || isCategoryMessage) &&
+          conversation.lastMessage?.sender?.uid != loggedInUserId) {
+        conversation.unreadMessageCount =
+            (oldConversation.unreadMessageCount ?? 0) + 1;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       } else {
         conversation.unreadMessageCount = oldConversation.unreadMessageCount;
       }
       removeElementAt(matchingIndex);
       addElement(conversation);
     } else {
+<<<<<<< HEAD
       if ((incrementUnreadCount || isCategoryMessage) && conversation.lastMessage?.sender?.uid != loggedInUserId) {
+=======
+      if ((incrementUnreadCount || isCategoryMessage) &&
+          conversation.lastMessage?.sender?.uid != loggedInUserId) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         int oldCount = conversation.unreadMessageCount ?? 0;
         conversation.unreadMessageCount = oldCount + 1;
       }
@@ -517,11 +766,17 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   @override
+<<<<<<< HEAD
   setTypingIndicator(TypingIndicator typingIndicator, bool isTypingStarted) async {
+=======
+  setTypingIndicator(
+      TypingIndicator typingIndicator, bool isTypingStarted) async {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     int matchingIndex;
     if (typingIndicator.receiverType == ReceiverTypeConstants.user) {
       matchingIndex = list.indexWhere((Conversation conversation) =>
           (conversation.conversationType == ReceiverTypeConstants.user &&
+<<<<<<< HEAD
               (conversation.conversationWith as User).uid == typingIndicator.sender.uid));
     } else {
       matchingIndex = list.indexWhere((Conversation conversation) =>
@@ -534,6 +789,23 @@ class CometChatConversationsController extends CometChatSearchListController<Con
         typingIndicatorMap.add(list[matchingIndex].conversationId!);
       } else {
         typingIndicatorMap.remove(list[matchingIndex].conversationId!);
+=======
+              (conversation.conversationWith as User).uid ==
+                  typingIndicator.sender.uid));
+    } else {
+      matchingIndex = list.indexWhere((Conversation conversation) =>
+          (conversation.conversationType == ReceiverTypeConstants.group &&
+              (conversation.conversationWith as Group).guid ==
+                  typingIndicator.receiverId));
+    }
+    if (matchingIndex != -1) {
+      if (isTypingStarted == true) {
+        typingMap[list[matchingIndex].conversationId!] = typingIndicator;
+      } else {
+        if (typingMap.containsKey(list[matchingIndex].conversationId!)) {
+          typingMap.remove(list[matchingIndex].conversationId!);
+        }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       }
       update();
     }
@@ -543,7 +815,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   void deleteConversationFromIndex(int index) async {
     late String conversationWith;
     late String conversationType;
+<<<<<<< HEAD
     if (list[index].conversationType.toLowerCase() == ReceiverTypeConstants.group.toLowerCase()) {
+=======
+    if (list[index].conversationType.toLowerCase() ==
+        ReceiverTypeConstants.group.toLowerCase()) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       conversationWith = (list[index].conversationWith as Group).guid;
       conversationType = ReceiverTypeConstants.group;
     } else {
@@ -553,10 +830,17 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     if (context != null) {
       showCometChatConfirmDialog(
           context: context!,
+<<<<<<< HEAD
           confirmButtonText: Translations.of(context!).delete_capital,
           cancelButtonText: Translations.of(context!).cancel_capital,
           messageText: Text(
             Translations.of(context!).delete_confirm,
+=======
+          confirmButtonText: Translations.of(context!).deleteCapital,
+          cancelButtonText: Translations.of(context!).cancelCapital,
+          messageText: Text(
+            Translations.of(context!).deleteConfirm,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             style: TextStyle(
                 fontSize: theme?.typography.title2.fontSize,
                 fontWeight: theme?.typography.title2.fontWeight,
@@ -570,8 +854,15 @@ class CometChatConversationsController extends CometChatSearchListController<Con
               backgroundColor: deleteConversationDialogStyle?.backgroundColor ??
                   (theme?.palette.mode == PaletteThemeModes.light
                       ? theme?.palette.getBackground()
+<<<<<<< HEAD
                       : Color.alphaBlend(theme!.palette.getAccent200(), theme!.palette.getBackground())),
               shadowColor: deleteConversationDialogStyle?.shadowColor ?? theme?.palette.getAccent300(),
+=======
+                      : Color.alphaBlend(theme!.palette.getAccent200(),
+                          theme!.palette.getBackground())),
+              shadowColor: deleteConversationDialogStyle?.shadowColor ??
+                  theme?.palette.getAccent300(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               confirmButtonTextStyle: TextStyle(
                       fontSize: theme?.typography.text2.fontSize,
                       fontWeight: theme?.typography.text2.fontWeight,
@@ -583,7 +874,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
                       color: theme?.palette.getPrimary())
                   .merge(deleteConversationDialogStyle?.cancelButtonTextStyle)),
           onConfirm: () async {
+<<<<<<< HEAD
             await CometChat.deleteConversation(conversationWith, conversationType, onSuccess: (_) {
+=======
+            await CometChat.deleteConversation(
+                conversationWith, conversationType, onSuccess: (_) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               removeElementAt(index);
               CometChatConversationEvents.ccConversationDeleted(list[index]);
             }, onError: onError);
@@ -596,7 +892,13 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   @override
   playNotificationSound(BaseMessage message) {
     //Write all conditions here to stop sound
+<<<<<<< HEAD
     if (message.type == MessageTypeConstants.custom && (message.metadata?["incrementUnreadCount"] != true)) {
+=======
+    if (message.type == MessageTypeConstants.custom &&
+        (message.metadata?[UpdateSettingsConstant.incrementUnreadCount] !=
+            true)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       return;
     } //not playing sound in case message type is custom and increment counter is not true
 
@@ -609,6 +911,7 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     }
     if (activeConversation == null) {
       //if no message list is open
+<<<<<<< HEAD
       /*  CometChatUIKit.soundManager.play(
           sound: Sound.incomingMessageFromOther,
           customSound: customSoundForMessages); */
@@ -616,6 +919,16 @@ class CometChatConversationsController extends CometChatSearchListController<Con
       if (activeConversation != message.conversationId) {
         //if open message list has different conversation id then message received conversation id
         /*  CometChatUIKit.soundManager.play(sound: Sound.incomingMessage, customSound: customSoundForMessages); */
+=======
+      CometChatUIKit.soundManager.play(
+          sound: Sound.incomingMessageFromOther,
+          customSound: customSoundForMessages);
+    } else {
+      if (activeConversation != message.conversationId) {
+        //if open message list has different conversation id then message received conversation id
+        CometChatUIKit.soundManager.play(
+            sound: Sound.incomingMessage, customSound: customSoundForMessages);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       }
     }
   }
@@ -635,7 +948,12 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   bool getHideReceipt(Conversation conversation, bool? disableReadReceipt) {
     if (disableReadReceipt == true || conversation.lastMessage == null) {
       return true;
+<<<<<<< HEAD
     } else if (conversation.lastMessage!.category == MessageCategoryConstants.call) {
+=======
+    } else if (conversation.lastMessage!.category ==
+        MessageCategoryConstants.call) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       return true;
     } else if (conversation.lastMessage!.sender!.uid == loggedInUser?.uid) {
       return false;
@@ -645,6 +963,7 @@ class CometChatConversationsController extends CometChatSearchListController<Con
   }
 
   //----------- get last message text-----------
+<<<<<<< HEAD
   @override
   String getLastMessage(Conversation conversation, BuildContext context) {
     BaseMessage? lastMessage = conversation.lastMessage;
@@ -659,6 +978,37 @@ class CometChatConversationsController extends CometChatSearchListController<Con
     }
   }
 
+=======
+
+  void initializeTextFormatters() {
+    List<CometChatTextFormatter> textFormatters = this.textFormatters ?? [];
+
+    if ((textFormatters.isEmpty ||
+            textFormatters.indexWhere(
+                    (element) => element is CometChatMentionsFormatter) ==
+                -1) &&
+        disableMentions != true) {
+      textFormatters.add(CometChatMentionsFormatter());
+    }
+
+    this.textFormatters = textFormatters;
+  }
+
+  List<CometChatTextFormatter> getTextFormatters(
+      BaseMessage message, CometChatTheme theme) {
+    List<CometChatTextFormatter> textFormatters = this.textFormatters ?? [];
+    if (message is TextMessage) {
+      for (CometChatTextFormatter textFormatter in textFormatters) {
+        textFormatter.message = message;
+        textFormatter.theme = theme;
+      }
+    }
+    return textFormatters;
+  }
+
+  /// ----------------------------EVENT LISTENERS -----------------------------------
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   @override
   void onConnected() {
     if (!isLoading) {
@@ -672,51 +1022,147 @@ class CometChatConversationsController extends CometChatSearchListController<Con
 
   @override
   void ccCallAccepted(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void ccOutgoingCall(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void ccCallRejected(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void ccCallEnded(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onIncomingCallReceived(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onOutgoingCallAccepted(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onOutgoingCallRejected(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onIncomingCallCancelled(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onCallEndedMessageReceived(Call call) {
+<<<<<<< HEAD
+=======
+    if (_checkCallSettings() == false) {
+      return;
+    }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     refreshSingleConversation(call, true);
   }
 
   @override
   void onSchedulerMessageReceived(SchedulerMessage schedulerMessage) {
+<<<<<<< HEAD
     _onMessageReceived(schedulerMessage, false);
   }
+=======
+    if (_checkMessageSettings(schedulerMessage)) {
+      return;
+    }
+    _onMessageReceived(schedulerMessage, false);
+  }
+
+  // Check settings for custom message and thread message condition
+  bool _checkMessageSettings(BaseMessage message) {
+    if (message.parentMessageId != 0 &&
+        CometChatUIKit.conversationUpdateSettings != null &&
+        !CometChatUIKit.conversationUpdateSettings!.messageReplies) {
+      return true;
+    } else if (message is CustomMessage &&
+        (message.updateConversation == false) &&
+        ((message.metadata?[UpdateSettingsConstant.incrementUnreadCount] ??
+                false) ==
+            false) &&
+        (CometChatUIKit.conversationUpdateSettings?.customMessages == false)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // Check settings for call
+  bool _checkCallSettings() {
+    if (CometChatUIKit.conversationUpdateSettings != null) {
+      return CometChatUIKit.conversationUpdateSettings!.callActivities;
+    }
+    return true;
+  }
+
+// Check settings for Group Actions
+  bool _checkGroupSettings() {
+    if (CometChatUIKit.conversationUpdateSettings != null) {
+      return CometChatUIKit.conversationUpdateSettings!.groupActions;
+    }
+    return true;
+  }
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

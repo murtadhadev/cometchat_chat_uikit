@@ -13,8 +13,12 @@ class PollsBubbleStyle {
       this.pollOptionsBackgroundColor,
       this.selectedOptionColor,
       this.unSelectedOptionColor,
+<<<<<<< HEAD
       this.backgroundColor
       });
+=======
+      this.backgroundColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[questionTextStyle] question text style
   final TextStyle? questionTextStyle;

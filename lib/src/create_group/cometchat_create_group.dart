@@ -11,7 +11,11 @@ import 'package:get/get.dart';
 ///
 class CometChatCreateGroup extends StatefulWidget {
   const CometChatCreateGroup(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.title,
       this.createIcon,
       this.namePlaceholderText,
@@ -22,8 +26,12 @@ class CometChatCreateGroup extends StatefulWidget {
       this.theme,
       this.passwordPlaceholderText,
       this.onBack,
+<<<<<<< HEAD
       this.onError})
       : super(key: key);
+=======
+      this.onError});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] Title of the component
   final String? title;
@@ -62,17 +70,30 @@ class CometChatCreateGroup extends StatefulWidget {
   State<CometChatCreateGroup> createState() => _CometChatCreateGroupState();
 }
 
+<<<<<<< HEAD
 class _CometChatCreateGroupState extends State<CometChatCreateGroup> with SingleTickerProviderStateMixin {
+=======
+class _CometChatCreateGroupState extends State<CometChatCreateGroup>
+    with SingleTickerProviderStateMixin {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   late CometChatCreateGroupController createGroupController;
   late CometChatTheme theme;
 
   @override
   void initState() {
     theme = widget.theme ?? cometChatTheme;
+<<<<<<< HEAD
     createGroupController =
         CometChatCreateGroupController(theme, onCreateTap: widget.onCreateTap, onError: widget.onError);
     createGroupController.tabController = TabController(length: 3, vsync: this);
     createGroupController.tabController.addListener(createGroupController.tabControllerListener);
+=======
+    createGroupController = CometChatCreateGroupController(theme,
+        onCreateTap: widget.onCreateTap, onError: widget.onError);
+    createGroupController.tabController = TabController(length: 3, vsync: this);
+    createGroupController.tabController
+        .addListener(createGroupController.tabControllerListener);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     super.initState();
   }
 
@@ -83,21 +104,42 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
         tag: createGroupController.tag,
         builder: (CometChatCreateGroupController createGroupController) {
           return CometChatListBase(
+<<<<<<< HEAD
               title: widget.title ?? cc.Translations.of(context).new_group,
               ctheme: theme,
+=======
+              title: widget.title ?? cc.Translations.of(context).newGroup,
+              theme: theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               backIcon: widget.closeIcon ??
                   Image.asset(
                     AssetConstants.close,
                     package: UIConstants.packageName,
+<<<<<<< HEAD
                     color: widget.createGroupStyle.closeIconTint ?? theme.palette.getPrimary(),
+=======
+                    color: widget.createGroupStyle.closeIconTint ??
+                        theme.palette.getPrimary(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   ),
               showBackButton: !(widget.disableCloseButton == true),
               onBack: widget.onBack,
               hideSearch: true,
               style: ListBaseStyle(
+<<<<<<< HEAD
                   backIconTint: widget.createGroupStyle.closeIconTint ?? theme.palette.getPrimary(),
                   background: widget.createGroupStyle.background ?? theme.palette.getBackground(),
                   titleStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: theme.palette.getAccent())
+=======
+                  backIconTint: widget.createGroupStyle.closeIconTint ??
+                      theme.palette.getPrimary(),
+                  background: widget.createGroupStyle.background ??
+                      theme.palette.getBackground(),
+                  titleStyle: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color: theme.palette.getAccent())
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       .merge(widget.createGroupStyle.titleTextStyle),
                   gradient: widget.createGroupStyle.gradient,
                   border: widget.createGroupStyle.border,
@@ -113,7 +155,12 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                         Image.asset(
                           AssetConstants.checkmark,
                           package: UIConstants.packageName,
+<<<<<<< HEAD
                           color: widget.createGroupStyle.createIconTint ?? theme.palette.getPrimary(),
+=======
+                          color: widget.createGroupStyle.createIconTint ??
+                              theme.palette.getPrimary(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                         ))
               ],
               container: Padding(
@@ -123,7 +170,12 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                     Container(
                       height: 36,
                       decoration: BoxDecoration(
+<<<<<<< HEAD
                         color: widget.createGroupStyle.tabColor ?? theme.palette.getAccent100(),
+=======
+                        color: widget.createGroupStyle.tabColor ??
+                            theme.palette.getAccent100(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                         borderRadius: BorderRadius.circular(
                           18.0,
                         ),
@@ -134,12 +186,24 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                           borderRadius: BorderRadius.circular(
                             18.0,
                           ),
+<<<<<<< HEAD
                           color: widget.createGroupStyle.selectedTabColor ?? theme.palette.getPrimary(),
                         ),
                         labelColor:
                             widget.createGroupStyle.selectedTabTextStyle?.color ?? theme.palette.getBackground(),
                         unselectedLabelColor:
                             widget.createGroupStyle.tabTextStyle?.color ?? theme.palette.getAccent600(),
+=======
+                          color: widget.createGroupStyle.selectedTabColor ??
+                              theme.palette.getPrimary(),
+                        ),
+                        labelColor: widget
+                                .createGroupStyle.selectedTabTextStyle?.color ??
+                            theme.palette.getBackground(),
+                        unselectedLabelColor:
+                            widget.createGroupStyle.tabTextStyle?.color ??
+                                theme.palette.getAccent600(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                         labelStyle: TextStyle(
                           color: theme.palette.getBackground(),
                           fontSize: theme.typography.text1.fontSize,
@@ -177,23 +241,41 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                               initialValue: createGroupController.groupName,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
+<<<<<<< HEAD
                                   return cc.Translations.of(context).enter_group_name;
+=======
+                                  return cc.Translations.of(context)
+                                      .enterGroupName;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                 }
                                 return null;
                               },
                               onChanged: createGroupController.onNameChange,
                               maxLength: 25,
+<<<<<<< HEAD
                               style: widget.createGroupStyle.nameInputTextStyle ??
                                   TextStyle(
                                     color: theme.palette.getAccent(),
                                     fontSize: theme.typography.body.fontSize,
                                     fontFamily: theme.typography.body.fontFamily,
                                     fontWeight: theme.typography.body.fontWeight,
+=======
+                              style: widget
+                                      .createGroupStyle.nameInputTextStyle ??
+                                  TextStyle(
+                                    color: theme.palette.getAccent(),
+                                    fontSize: theme.typography.body.fontSize,
+                                    fontFamily:
+                                        theme.typography.body.fontFamily,
+                                    fontWeight:
+                                        theme.typography.body.fontWeight,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                   ),
                               decoration: InputDecoration(
                                   counterText: '',
                                   border: UnderlineInputBorder(
                                     borderSide: BorderSide(
+<<<<<<< HEAD
                                         color: widget.createGroupStyle.borderColor ?? theme.palette.getAccent100()),
                                   ),
                                   enabledBorder: UnderlineInputBorder(
@@ -224,10 +306,59 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                                   if (createGroupController.groupType == GroupTypeConstants.password &&
                                       (value == null || value.isEmpty)) {
                                     return cc.Translations.of(context).enter_group_password;
+=======
+                                        color: widget
+                                                .createGroupStyle.borderColor ??
+                                            theme.palette.getAccent100()),
+                                  ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: widget
+                                                .createGroupStyle.borderColor ??
+                                            theme.palette.getAccent100()),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: theme.palette.getAccent100()),
+                                  ),
+                                  hintText: widget.namePlaceholderText ??
+                                      cc.Translations.of(context).name,
+                                  hintStyle: widget.createGroupStyle
+                                          .namePlaceholderTextStyle ??
+                                      TextStyle(
+                                        color: theme.palette.getAccent600(),
+                                        fontSize:
+                                            theme.typography.body.fontSize,
+                                        fontFamily:
+                                            theme.typography.body.fontFamily,
+                                        fontWeight:
+                                            theme.typography.body.fontWeight,
+                                      )),
+                              keyboardAppearance:
+                                  theme.palette.mode == PaletteThemeModes.light
+                                      ? Brightness.light
+                                      : Brightness.dark,
+                            ),
+                          ),
+                          if (createGroupController.groupType ==
+                              GroupTypeConstants.password)
+                            SizedBox(
+                              height: 56,
+                              child: TextFormField(
+                                initialValue:
+                                    createGroupController.groupPassword,
+                                validator: (value) {
+                                  if (createGroupController.groupType ==
+                                          GroupTypeConstants.password &&
+                                      (value == null || value.isEmpty)) {
+                                    return cc.Translations.of(context)
+                                        .enterGroupPassword;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                   }
                                   return null;
                                 },
                                 maxLength: 16,
+<<<<<<< HEAD
                                 onChanged: createGroupController.onPasswordChange,
                                 style: widget.createGroupStyle.passwordInputTextStyle ??
                                     TextStyle(
@@ -235,11 +366,25 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                                       fontSize: theme.typography.body.fontSize,
                                       fontFamily: theme.typography.body.fontFamily,
                                       fontWeight: theme.typography.body.fontWeight,
+=======
+                                onChanged:
+                                    createGroupController.onPasswordChange,
+                                style: widget.createGroupStyle
+                                        .passwordInputTextStyle ??
+                                    TextStyle(
+                                      color: theme.palette.getAccent(),
+                                      fontSize: theme.typography.body.fontSize,
+                                      fontFamily:
+                                          theme.typography.body.fontFamily,
+                                      fontWeight:
+                                          theme.typography.body.fontWeight,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                     ),
                                 decoration: InputDecoration(
                                     counterText: '',
                                     border: UnderlineInputBorder(
                                       borderSide: BorderSide(
+<<<<<<< HEAD
                                           color: widget.createGroupStyle.borderColor ?? theme.palette.getAccent100()),
                                     ),
                                     enabledBorder: UnderlineInputBorder(
@@ -259,6 +404,39 @@ class _CometChatCreateGroupState extends State<CometChatCreateGroup> with Single
                                         )),
                                 keyboardAppearance:
                                     theme.palette.mode == PaletteThemeModes.light ? Brightness.light : Brightness.dark,
+=======
+                                          color: widget.createGroupStyle
+                                                  .borderColor ??
+                                              theme.palette.getAccent100()),
+                                    ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: widget.createGroupStyle
+                                                  .borderColor ??
+                                              theme.palette.getAccent100()),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: theme.palette.getAccent100()),
+                                    ),
+                                    hintText: widget.passwordPlaceholderText ??
+                                        cc.Translations.of(context).password,
+                                    hintStyle: widget.createGroupStyle
+                                            .passwordPlaceholderTextStyle ??
+                                        TextStyle(
+                                          color: theme.palette.getAccent600(),
+                                          fontSize:
+                                              theme.typography.body.fontSize,
+                                          fontFamily:
+                                              theme.typography.body.fontFamily,
+                                          fontWeight:
+                                              theme.typography.body.fontWeight,
+                                        )),
+                                keyboardAppearance: theme.palette.mode ==
+                                        PaletteThemeModes.light
+                                    ? Brightness.light
+                                    : Brightness.dark,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                               ),
                             )
                         ],

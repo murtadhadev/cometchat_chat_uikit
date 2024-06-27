@@ -17,14 +17,22 @@ import '../../../cometchat_chat_uikit.dart' as cc;
 ///
 class CometChatGroupMembers extends StatelessWidget {
   CometChatGroupMembers(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.groupMembersProtocol,
       this.subtitleView,
       this.hideSeparator,
       this.listItemView,
       this.groupMemberStyle = const GroupMembersStyle(),
       this.controller,
+<<<<<<< HEAD
       this.ctheme,
+=======
+      this.theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.searchPlaceholder,
       this.backButton,
       this.showBackButton = true,
@@ -56,8 +64,12 @@ class CometChatGroupMembers extends StatelessWidget {
       this.onBack,
       this.onItemTap,
       this.onItemLongPress,
+<<<<<<< HEAD
       this.activateSelection})
       : super(key: key);
+=======
+      this.activateSelection});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///property to be set internally by using passed parameters [groupMembersProtocol] ,[selectionMode] ,[options]
   ///these are passed to the [CometChatGroupMembersController] which is responsible for the business logic
@@ -85,7 +97,14 @@ class CometChatGroupMembers extends StatelessWidget {
 
   ///[options]  set options which will be visible at slide of each groupMember
   final List<CometChatOption>? Function(
+<<<<<<< HEAD
       Group group, GroupMember member, CometChatGroupMembersController controller, BuildContext context)? options;
+=======
+      Group group,
+      GroupMember member,
+      CometChatGroupMembersController controller,
+      BuildContext context)? options;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[searchPlaceholder] placeholder text of search input
   final String? searchPlaceholder;
@@ -103,7 +122,11 @@ class CometChatGroupMembers extends StatelessWidget {
   final bool hideSearch;
 
   ///[theme] can pass custom theme
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
+=======
+  final CometChatTheme? theme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[selectionMode] specifies mode groupMembers module is opening in
   final SelectionMode? selectionMode;
@@ -183,7 +206,14 @@ class CometChatGroupMembers extends StatelessWidget {
   final RxBool _isSelectionOn = false.obs;
 
   Widget getDefaultItem(
+<<<<<<< HEAD
       GroupMember member, CometChatGroupMembersController controller, CometChatTheme theme, BuildContext context) {
+=======
+      GroupMember member,
+      CometChatGroupMembersController controller,
+      CometChatTheme theme,
+      BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     Widget? subtitle;
     Widget? tail;
     Color? backgroundColor;
@@ -199,11 +229,21 @@ class CometChatGroupMembers extends StatelessWidget {
       tail = _getTail(member, theme, controller);
     }
 
+<<<<<<< HEAD
     StatusIndicatorUtils statusIndicatorUtils = StatusIndicatorUtils.getStatusIndicatorFromParams(
       isSelected: controller.selectionMap[member.uid] != null,
       theme: theme,
       groupMember: member,
       onlineStatusIndicatorColor: groupMemberStyle.onlineStatusColor ?? theme.palette.getSuccess(),
+=======
+    StatusIndicatorUtils statusIndicatorUtils =
+        StatusIndicatorUtils.getStatusIndicatorFromParams(
+      isSelected: controller.selectionMap[member.uid] != null,
+      theme: theme,
+      groupMember: member,
+      onlineStatusIndicatorColor:
+          groupMemberStyle.onlineStatusColor ?? theme.palette.getSuccess(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       disableUsersPresence: disableUsersPresence,
       selectIcon: selectIcon,
     );
@@ -225,8 +265,15 @@ class CometChatGroupMembers extends StatelessWidget {
       },
       onTap: () {
         if (activateSelection == ActivateSelection.onClick ||
+<<<<<<< HEAD
             (activateSelection == ActivateSelection.onLongClick && controller.selectionMap.isNotEmpty) &&
                 !(selectionMode == null || selectionMode == SelectionMode.none)) {
+=======
+            (activateSelection == ActivateSelection.onLongClick &&
+                    controller.selectionMap.isNotEmpty) &&
+                !(selectionMode == null ||
+                    selectionMode == SelectionMode.none)) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           controller.onTap(member);
           if (controller.selectionMap.isEmpty) {
             _isSelectionOn.value = false;
@@ -250,8 +297,14 @@ class CometChatGroupMembers extends StatelessWidget {
           avatarStyle: avatarStyle ?? const AvatarStyle(),
           statusIndicatorColor: backgroundColor,
           statusIndicatorIcon: icon,
+<<<<<<< HEAD
           statusIndicatorStyle: statusIndicatorStyle ?? const StatusIndicatorStyle(),
           ctheme: theme,
+=======
+          statusIndicatorStyle:
+              statusIndicatorStyle ?? const StatusIndicatorStyle(),
+          theme: theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           hideSeparator: hideSeparator ?? false,
           options: options != null
               ? options!(group, member, controller, context)
@@ -268,7 +321,14 @@ class CometChatGroupMembers extends StatelessWidget {
   }
 
   Widget getListItem(
+<<<<<<< HEAD
       GroupMember member, CometChatGroupMembersController controller, CometChatTheme theme, BuildContext context) {
+=======
+      GroupMember member,
+      CometChatGroupMembersController controller,
+      CometChatTheme theme,
+      BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (listItemView != null) {
       return listItemView!(member);
     } else {
@@ -284,19 +344,33 @@ class CometChatGroupMembers extends StatelessWidget {
         child: Image.asset(
           AssetConstants.spinner,
           package: UIConstants.packageName,
+<<<<<<< HEAD
           color: groupMemberStyle.loadingIconTint ?? theme.palette.getAccent600(),
+=======
+          color:
+              groupMemberStyle.loadingIconTint ?? theme.palette.getAccent600(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         ),
       );
     }
   }
 
+<<<<<<< HEAD
   Widget _getNoGroupMemberIndicator(BuildContext context, CometChatTheme theme) {
+=======
+  Widget _getNoGroupMemberIndicator(
+      BuildContext context, CometChatTheme theme) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (emptyStateView != null) {
       return Center(child: emptyStateView!(context));
     } else {
       return Center(
         child: Text(
+<<<<<<< HEAD
           emptyStateText ?? cc.Translations.of(context).no_groups_found,
+=======
+          emptyStateText ?? cc.Translations.of(context).noGroupsFound,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           style: groupMemberStyle.emptyTextStyle ??
               TextStyle(
                   fontSize: theme.typography.title1.fontSize,
@@ -307,8 +381,13 @@ class CometChatGroupMembers extends StatelessWidget {
     }
   }
 
+<<<<<<< HEAD
   _showErrorDialog(
       String errorText, BuildContext context, CometChatTheme theme, CometChatGroupMembersController controller) {
+=======
+  _showErrorDialog(String errorText, BuildContext context, CometChatTheme theme,
+      CometChatGroupMembersController controller) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     showCometChatConfirmDialog(
         context: context,
         messageText: Text(
@@ -320,12 +399,22 @@ class CometChatGroupMembers extends StatelessWidget {
                   color: theme.palette.getAccent(),
                   fontFamily: theme.typography.title2.fontFamily),
         ),
+<<<<<<< HEAD
         confirmButtonText: cc.Translations.of(context).try_again,
         cancelButtonText: cc.Translations.of(context).cancel_capital,
         style: ConfirmDialogStyle(
             backgroundColor: theme.palette.mode == PaletteThemeModes.light
                 ? theme.palette.getBackground()
                 : Color.alphaBlend(theme.palette.getAccent200(), theme.palette.getBackground()),
+=======
+        confirmButtonText: cc.Translations.of(context).tryAgain,
+        cancelButtonText: cc.Translations.of(context).cancelCapital,
+        style: ConfirmDialogStyle(
+            backgroundColor: theme.palette.mode == PaletteThemeModes.light
+                ? theme.palette.getBackground()
+                : Color.alphaBlend(theme.palette.getAccent200(),
+                    theme.palette.getBackground()),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             shadowColor: theme.palette.getAccent300(),
             confirmButtonTextStyle: TextStyle(
                 fontSize: theme.typography.text2.fontSize,
@@ -345,6 +434,7 @@ class CometChatGroupMembers extends StatelessWidget {
         });
   }
 
+<<<<<<< HEAD
   _showError(CometChatGroupMembersController controller, BuildContext context, CometChatTheme theme) {
     if (hideError == true) return;
     String error;
@@ -352,11 +442,23 @@ class CometChatGroupMembers extends StatelessWidget {
       error = Utils.getErrorTranslatedText(context, (controller.error as CometChatException).code);
     } else {
       error = cc.Translations.of(context).cant_load_chats;
+=======
+  _showError(CometChatGroupMembersController controller, BuildContext context,
+      CometChatTheme theme) {
+    if (hideError == true) return;
+    String error;
+    if (controller.error != null && controller.error is CometChatException) {
+      error = Utils.getErrorTranslatedText(
+          context, (controller.error as CometChatException).code);
+    } else {
+      error = cc.Translations.of(context).error;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
     if (errorStateView != null) {}
     _showErrorDialog(error, context, theme, controller);
   }
 
+<<<<<<< HEAD
   Widget _getList(CometChatGroupMembersController scontroller, BuildContext context, CometChatTheme theme) {
     return Padding(
       padding: groupMemberStyle.listPadding ?? const EdgeInsets.only(top: 8),
@@ -367,6 +469,21 @@ class CometChatGroupMembers extends StatelessWidget {
         builder: (CometChatGroupMembersController value) {
           if (value.hasError == true) {
             WidgetsBinding.instance.addPostFrameCallback((_) => _showError(value, context, theme));
+=======
+  Widget _getList(CometChatGroupMembersController controller,
+      BuildContext context, CometChatTheme theme) {
+    return Padding(
+      padding: groupMemberStyle.listPadding ?? const EdgeInsets.only(top: 8),
+      child: GetBuilder(
+        init: controller,
+        global: false,
+        dispose: (GetBuilderState<CometChatGroupMembersController> state) =>
+            state.controller?.onClose(),
+        builder: (CometChatGroupMembersController value) {
+          if (value.hasError == true) {
+            WidgetsBinding.instance
+                .addPostFrameCallback((_) => _showError(value, context, theme));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
             if (errorStateView != null) {
               return errorStateView!(context);
@@ -380,8 +497,15 @@ class CometChatGroupMembers extends StatelessWidget {
             return _getNoGroupMemberIndicator(context, theme);
           } else {
             return ListView.builder(
+<<<<<<< HEAD
               controller: controller,
               itemCount: value.hasMoreItems ? value.list.length + 1 : value.list.length,
+=======
+              controller: this.controller,
+              itemCount: value.hasMoreItems
+                  ? value.list.length + 1
+                  : value.list.length,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               itemBuilder: (context, index) {
                 if (index >= value.list.length) {
                   value.loadMoreElements();
@@ -401,7 +525,12 @@ class CometChatGroupMembers extends StatelessWidget {
     );
   }
 
+<<<<<<< HEAD
   Widget _getTail(GroupMember groupMember, CometChatTheme theme, CometChatGroupMembersController controller) {
+=======
+  Widget _getTail(GroupMember groupMember, CometChatTheme theme,
+      CometChatGroupMembersController controller) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (groupMember.uid == controller.group.owner) {
       return Text(GroupMemberScope.owner,
           style: groupScopeStyle?.scopeTextStyle ??
@@ -433,7 +562,12 @@ class CometChatGroupMembers extends StatelessWidget {
     }
   }
 
+<<<<<<< HEAD
   Widget getSelectionWidget(CometChatGroupMembersController memberController, CometChatTheme theme) {
+=======
+  Widget getSelectionWidget(
+      CometChatGroupMembersController memberController, CometChatTheme theme) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (_isSelectionOn.value) {
       return IconButton(
           onPressed: () {
@@ -444,7 +578,12 @@ class CometChatGroupMembers extends StatelessWidget {
           },
           icon: submitIcon ??
               Image.asset(AssetConstants.checkmark,
+<<<<<<< HEAD
                   package: UIConstants.packageName, color: theme.palette.getPrimary()));
+=======
+                  package: UIConstants.packageName,
+                  color: theme.palette.getPrimary()));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return const SizedBox(
         height: 0,
@@ -455,6 +594,7 @@ class CometChatGroupMembers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     CometChatTheme theme = ctheme ?? cometChatTheme;
 
     CometChatGroupMembersController groupMembersController = CometChatGroupMembersController(
@@ -471,6 +611,27 @@ class CometChatGroupMembers extends StatelessWidget {
 
     if (stateCallBack != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) => stateCallBack!(groupMembersController));
+=======
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+
+    CometChatGroupMembersController groupMembersController =
+        CometChatGroupMembersController(
+            groupMembersBuilderProtocol: groupMembersProtocol ??
+                UIGroupMembersBuilder(
+                  groupMembersRequestBuilder ??
+                      GroupMembersRequestBuilder(group.guid),
+                ),
+            mode: selectionMode,
+            //options: options,
+
+            group: group,
+            theme: theme,
+            onError: onError);
+
+    if (stateCallBack != null) {
+      WidgetsBinding.instance
+          .addPostFrameCallback((_) => stateCallBack!(groupMembersController));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
 
     return CometChatListBase(
@@ -482,6 +643,7 @@ class CometChatGroupMembers extends StatelessWidget {
         showBackButton: showBackButton,
         searchBoxIcon: searchBoxIcon,
         onSearch: groupMembersController.onSearch,
+<<<<<<< HEAD
         ctheme: theme,
         menuOptions: [
           if (appBarOptions != null && appBarOptions!.isNotEmpty) ...appBarOptions!,
@@ -489,6 +651,18 @@ class CometChatGroupMembers extends StatelessWidget {
         ],
         style: ListBaseStyle(
             background: groupMemberStyle.gradient == null ? groupMemberStyle.background : Colors.transparent,
+=======
+        theme: theme,
+        menuOptions: [
+          if (appBarOptions != null && appBarOptions!.isNotEmpty)
+            ...appBarOptions!,
+          Obx(() => getSelectionWidget(groupMembersController, theme))
+        ],
+        style: ListBaseStyle(
+            background: groupMemberStyle.gradient == null
+                ? groupMemberStyle.background
+                : Colors.transparent,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             titleStyle: groupMemberStyle.titleStyle,
             gradient: groupMemberStyle.gradient,
             height: groupMemberStyle.height,

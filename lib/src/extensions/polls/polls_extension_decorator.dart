@@ -9,7 +9,11 @@ class PollsExtensionDecorator extends DataSourceDecorator {
 
   User? loggedInUser;
 
+<<<<<<< HEAD
   PollsExtensionDecorator(DataSource dataSource, {this.configuration}) : super(dataSource) {
+=======
+  PollsExtensionDecorator(super.dataSource, {this.configuration}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     getLoggedInUser();
   }
 
@@ -40,10 +44,19 @@ class PollsExtensionDecorator extends DataSourceDecorator {
   }
 
   @override
+<<<<<<< HEAD
   List<CometChatMessageTemplate> getAllMessageTemplates({CometChatTheme? theme}) {
     CometChatTheme theme0 = theme ?? cometChatTheme;
 
     List<CometChatMessageTemplate> templateList = super.getAllMessageTemplates(theme: theme0);
+=======
+  List<CometChatMessageTemplate> getAllMessageTemplates(
+      {CometChatTheme? theme}) {
+    CometChatTheme theme0 = theme ?? cometChatTheme;
+
+    List<CometChatMessageTemplate> templateList =
+        super.getAllMessageTemplates(theme: theme0);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     templateList.add(getTemplate(theme: theme0));
 
@@ -53,7 +66,12 @@ class PollsExtensionDecorator extends DataSourceDecorator {
   @override
   List<CometChatMessageComposerAction> getAttachmentOptions(
       CometChatTheme theme, BuildContext context, Map<String, dynamic>? id) {
+<<<<<<< HEAD
     List<CometChatMessageComposerAction> actions = super.getAttachmentOptions(theme, context, id);
+=======
+    List<CometChatMessageComposerAction> actions =
+        super.getAttachmentOptions(theme, context, id);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (isNotThread(id)) {
       actions.add(getAttachmentOption(theme, context, id));
@@ -63,10 +81,20 @@ class PollsExtensionDecorator extends DataSourceDecorator {
   }
 
   @override
+<<<<<<< HEAD
   String getLastConversationMessage(Conversation conversation, BuildContext context) {
     BaseMessage? message = conversation.lastMessage;
     if (message != null && message.type == pollsTypeConstant && message.category == MessageCategoryConstants.custom) {
       return Translations.of(context).custom_message_poll;
+=======
+  String getLastConversationMessage(
+      Conversation conversation, BuildContext context) {
+    BaseMessage? message = conversation.lastMessage;
+    if (message != null &&
+        message.type == pollsTypeConstant &&
+        message.category == MessageCategoryConstants.custom) {
+      return Translations.of(context).customMessagePoll;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return super.getLastConversationMessage(conversation, context);
     }
@@ -78,20 +106,35 @@ class PollsExtensionDecorator extends DataSourceDecorator {
     return CometChatMessageTemplate(
         type: pollsTypeConstant,
         category: CometChatMessageCategory.custom,
+<<<<<<< HEAD
         contentView: (BaseMessage message, BuildContext context, BubbleAlignment alignment) {
+=======
+        contentView: (BaseMessage message, BuildContext context,
+            BubbleAlignment alignment,
+            {AdditionalConfigurations? additionalConfigurations}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           return getContentView(message as CustomMessage, theme0, context);
         },
         options: CometChatUIKit.getDataSource().getCommonOptions,
         bottomView: CometChatUIKit.getDataSource().getBottomView);
   }
 
+<<<<<<< HEAD
   Widget getContentView(CustomMessage customMessage, CometChatTheme theme, BuildContext context) {
+=======
+  Widget getContentView(
+      CustomMessage customMessage, CometChatTheme theme, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (customMessage.deletedAt != null) {
       return super.getDeleteMessageBubble(customMessage, theme);
     }
     return CometChatPollsBubble(
       loggedInUser: loggedInUser?.uid,
+<<<<<<< HEAD
       ctheme: configuration?.theme ?? theme,
+=======
+      theme: configuration?.theme ?? theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       choosePoll: choosePoll,
       senderUid: customMessage.sender?.uid,
       pollQuestion: customMessage.customData?["question"] ?? "",
@@ -105,15 +148,28 @@ class PollsExtensionDecorator extends DataSourceDecorator {
       CometChatTheme theme, BuildContext context, Map<String, dynamic>? id) {
     return CometChatMessageComposerAction(
         id: pollsTypeConstant,
+<<<<<<< HEAD
         title: configuration?.optionTitle ?? '${Translations.of(context).poll}s',
         iconUrl: configuration?.optionIconUrl ?? AssetConstants.polls,
         iconUrlPackageName: configuration?.optionIconUrlPackageName ?? UIConstants.packageName,
+=======
+        title:
+            configuration?.optionTitle ?? '${Translations.of(context).poll}s',
+        iconUrl: configuration?.optionIconUrl ?? AssetConstants.polls,
+        iconUrlPackageName:
+            configuration?.optionIconUrlPackageName ?? UIConstants.packageName,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         titleStyle: TextStyle(
                 color: theme.palette.getAccent(),
                 fontSize: theme.typography.subtitle1.fontSize,
                 fontWeight: theme.typography.subtitle1.fontWeight)
             .merge(configuration?.optionStyle?.titleStyle),
+<<<<<<< HEAD
         iconTint: configuration?.optionStyle?.iconTint ?? theme.palette.getAccent700(),
+=======
+        iconTint: configuration?.optionStyle?.iconTint ??
+            theme.palette.getAccent700(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         background: configuration?.optionStyle?.background,
         cornerRadius: configuration?.optionStyle?.cornerRadius,
         iconBackground: configuration?.optionStyle?.iconBackground,
@@ -137,11 +193,21 @@ class PollsExtensionDecorator extends DataSourceDecorator {
                           style: configuration?.createPollsStyle,
                           addAnswerText: configuration?.addAnswerText,
                           answerHelpText: configuration?.answerHelpText,
+<<<<<<< HEAD
                           answerPlaceholderText: configuration?.answerPlaceholderText,
                           closeIcon: configuration?.closeIcon,
                           createPollIcon: configuration?.createPollIcon,
                           deleteIcon: configuration?.deleteIcon,
                           questionPlaceholderText: configuration?.questionPlaceholderText,
+=======
+                          answerPlaceholderText:
+                              configuration?.answerPlaceholderText,
+                          closeIcon: configuration?.closeIcon,
+                          createPollIcon: configuration?.createPollIcon,
+                          deleteIcon: configuration?.deleteIcon,
+                          questionPlaceholderText:
+                              configuration?.questionPlaceholderText,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                           title: configuration?.title,
                         )));
           }
@@ -151,15 +217,27 @@ class PollsExtensionDecorator extends DataSourceDecorator {
   Future<void> choosePoll(String vote, String id) async {
     Map<String, dynamic> body = {"vote": vote, "id": id};
 
+<<<<<<< HEAD
     await CometChat.callExtension(ExtensionConstants.polls, "POST", ExtensionUrls.votePoll, body,
         onSuccess: (Map<String, dynamic> map) {}, onError: (CometChatException e) {
+=======
+    await CometChat.callExtension(
+        ExtensionConstants.polls, "POST", ExtensionUrls.votePoll, body,
+        onSuccess: (Map<String, dynamic> map) {},
+        onError: (CometChatException e) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       debugPrint('${e.message}');
     });
   }
 
   Map<String, dynamic> getPollsResult(BaseMessage baseMessage) {
     Map<String, dynamic> result = {};
+<<<<<<< HEAD
     Map<String, Map>? extensionList = ExtensionModerator.extensionCheck(baseMessage);
+=======
+    Map<String, Map>? extensionList =
+        ExtensionModerator.extensionCheck(baseMessage);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (extensionList != null) {
       try {
         if (extensionList.containsKey(ExtensionConstants.polls)) {

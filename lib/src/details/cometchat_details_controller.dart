@@ -40,7 +40,12 @@ class CometChatDetailsController extends GetxController
   final void Function(CometChatDetailsController)? stateCallBack;
 
   ///used to override list of templates is passed which is used for displaying relevant options
+<<<<<<< HEAD
   final List<CometChatDetailsTemplate>? Function(Group? group, User? user)? data;
+=======
+  final List<CometChatDetailsTemplate>? Function(Group? group, User? user)?
+      data;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[onError] callback triggered in case any error happens when fetching users
   final OnError? onError;
@@ -48,7 +53,10 @@ class CometChatDetailsController extends GetxController
   ///[leaveGroupDialogStyle] used to customize the dialog box that pops up when trying to leave group
   final ConfirmDialogStyle? leaveGroupDialogStyle;
 
+<<<<<<< HEAD
   // class variables-----------------
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   late CometChatTheme theme;
   late String _dateString;
   late String _userListener;
@@ -98,7 +106,12 @@ class CometChatDetailsController extends GetxController
         id = group!.guid;
         conversationType = ConversationType.group;
       }
+<<<<<<< HEAD
       _conversation ??= (await CometChat.getConversation(id, conversationType, onSuccess: (conversation) {
+=======
+      _conversation ??= (await CometChat.getConversation(id, conversationType,
+          onSuccess: (conversation) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         if (conversation.lastMessage != null) {}
       }, onError: (_) {}));
       _conversationId ??= _conversation?.conversationId;
@@ -110,7 +123,13 @@ class CometChatDetailsController extends GetxController
     if (data != null) {
       templateList = data!(group, user) ?? [];
     } else {
+<<<<<<< HEAD
       templateList = DetailUtils.getDefaultDetailsTemplates(context, loggedInUser, user: user, group: group);
+=======
+      templateList = DetailUtils.getDefaultDetailsTemplates(
+          context, loggedInUser,
+          user: user, group: group);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
 
     _setOptions();
@@ -159,14 +178,31 @@ class CometChatDetailsController extends GetxController
   //-----------Group SDK listeners---------------------------------
   @override
   void onGroupMemberScopeChanged(
+<<<<<<< HEAD
       cc.Action action, User updatedBy, User updatedUser, String scopeChangedTo, String scopeChangedFrom, Group group) {
     if (group.guid == this.group?.guid) {
+=======
+      cc.Action action,
+      User updatedBy,
+      User updatedUser,
+      String scopeChangedTo,
+      String scopeChangedFrom,
+      Group group) {
+    if (group.guid == this.group?.guid &&
+        updatedUser.uid == loggedInUser?.uid) {
+      this.group?.scope = scopeChangedTo;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       update();
     }
   }
 
   @override
+<<<<<<< HEAD
   void onGroupMemberKicked(cc.Action action, User kickedUser, User kickedBy, Group kickedFrom) {
+=======
+  void onGroupMemberKicked(
+      cc.Action action, User kickedUser, User kickedBy, Group kickedFrom) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (kickedFrom.guid == group?.guid) {
       membersCount = kickedFrom.membersCount;
       update();
@@ -174,7 +210,12 @@ class CometChatDetailsController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   void onGroupMemberBanned(cc.Action action, User bannedUser, User bannedBy, Group bannedFrom) {
+=======
+  void onGroupMemberBanned(
+      cc.Action action, User bannedUser, User bannedBy, Group bannedFrom) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (bannedFrom.guid == group?.guid) {
       membersCount = bannedFrom.membersCount;
       update();
@@ -190,7 +231,12 @@ class CometChatDetailsController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   void onMemberAddedToGroup(cc.Action action, User addedby, User userAdded, Group addedTo) {
+=======
+  void onMemberAddedToGroup(
+      cc.Action action, User addedby, User userAdded, Group addedTo) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (addedTo.guid == group?.guid) {
       membersCount = addedTo.membersCount;
       update();
@@ -198,7 +244,12 @@ class CometChatDetailsController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   void onGroupMemberJoined(cc.Action action, User joinedUser, Group joinedGroup) {
+=======
+  void onGroupMemberJoined(
+      cc.Action action, User joinedUser, Group joinedGroup) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (joinedGroup.guid == group?.guid) {
       membersCount = joinedGroup.membersCount;
       update();
@@ -218,7 +269,12 @@ class CometChatDetailsController extends GetxController
   //From UI listeners
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberBanned(cc.Action message, User bannedUser, User bannedBy, Group bannedFrom) {
+=======
+  void ccGroupMemberBanned(
+      cc.Action message, User bannedUser, User bannedBy, Group bannedFrom) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group?.guid == bannedFrom.guid) {
       membersCount = bannedFrom.membersCount;
       update();
@@ -226,7 +282,12 @@ class CometChatDetailsController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberKicked(cc.Action message, User kickedUser, User kickedBy, Group kickedFrom) {
+=======
+  void ccGroupMemberKicked(
+      cc.Action message, User kickedUser, User kickedBy, Group kickedFrom) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group?.guid == kickedFrom.guid) {
       membersCount = kickedFrom.membersCount;
       update();
@@ -240,19 +301,39 @@ class CometChatDetailsController extends GetxController
         MaterialPageRoute(
             builder: (context) => CometChatGroupMembers(
                   group: group,
+<<<<<<< HEAD
                   activateSelection: groupMembersConfiguration?.activateSelection,
+=======
+                  activateSelection:
+                      groupMembersConfiguration?.activateSelection,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   appBarOptions: groupMembersConfiguration?.appBarOptions,
                   avatarStyle: groupMembersConfiguration?.avatarStyle,
                   backButton: groupMembersConfiguration?.backButton,
                   controller: groupMembersConfiguration?.controller,
+<<<<<<< HEAD
                   disableUsersPresence: groupMembersConfiguration?.disableUsersPresence ?? false,
+=======
+                  disableUsersPresence:
+                      groupMembersConfiguration?.disableUsersPresence ?? false,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   emptyStateText: groupMembersConfiguration?.emptyStateText,
                   emptyStateView: groupMembersConfiguration?.emptyStateView,
                   errorStateText: groupMembersConfiguration?.errorStateText,
                   errorStateView: groupMembersConfiguration?.errorStateView,
+<<<<<<< HEAD
                   groupMemberStyle: groupMembersConfiguration?.groupMemberStyle ?? const GroupMembersStyle(),
                   groupMembersProtocol: groupMembersConfiguration?.groupMembersProtocol,
                   groupMembersRequestBuilder: groupMembersConfiguration?.groupMembersRequestBuilder,
+=======
+                  groupMemberStyle:
+                      groupMembersConfiguration?.groupMemberStyle ??
+                          const GroupMembersStyle(),
+                  groupMembersProtocol:
+                      groupMembersConfiguration?.groupMembersProtocol,
+                  groupMembersRequestBuilder:
+                      groupMembersConfiguration?.groupMembersRequestBuilder,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   groupScopeStyle: groupMembersConfiguration?.groupScopeStyle,
                   hideError: groupMembersConfiguration?.hideError,
                   hideSearch: groupMembersConfiguration?.hideSearch ?? false,
@@ -267,6 +348,7 @@ class CometChatDetailsController extends GetxController
                   onSelection: groupMembersConfiguration?.onSelection,
                   options: groupMembersConfiguration?.options,
                   searchBoxIcon: groupMembersConfiguration?.searchBoxIcon,
+<<<<<<< HEAD
                   searchPlaceholder: groupMembersConfiguration?.searchPlaceholder,
                   selectIcon: groupMembersConfiguration?.selectIcon,
                   selectionMode: groupMembersConfiguration?.selectionMode,
@@ -277,12 +359,32 @@ class CometChatDetailsController extends GetxController
                   subtitleView: groupMembersConfiguration?.subtitleView,
                   tailView: groupMembersConfiguration?.tailView,
                   ctheme: groupMembersConfiguration?.theme ?? theme,
+=======
+                  searchPlaceholder:
+                      groupMembersConfiguration?.searchPlaceholder,
+                  selectIcon: groupMembersConfiguration?.selectIcon,
+                  selectionMode: groupMembersConfiguration?.selectionMode,
+                  showBackButton:
+                      groupMembersConfiguration?.showBackButton ?? true,
+                  stateCallBack: groupMembersConfiguration?.stateCallBack,
+                  statusIndicatorStyle:
+                      groupMembersConfiguration?.statusIndicatorStyle,
+                  submitIcon: groupMembersConfiguration?.submitIcon,
+                  subtitleView: groupMembersConfiguration?.subtitleView,
+                  tailView: groupMembersConfiguration?.tailView,
+                  theme: groupMembersConfiguration?.theme ?? theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   title: groupMembersConfiguration?.title,
                 )));
   }
 
   @override
+<<<<<<< HEAD
   void ccGroupMemberAdded(List<cc.Action> messages, List<User> usersAdded, Group groupAddedIn, User addedBy) {
+=======
+  void ccGroupMemberAdded(List<cc.Action> messages, List<User> usersAdded,
+      Group groupAddedIn, User addedBy) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (groupAddedIn.guid == group?.guid) {
       membersCount = groupAddedIn.membersCount;
       update();
@@ -300,12 +402,22 @@ class CometChatDetailsController extends GetxController
                   hideSearch: addMemberConfiguration?.hideSearch,
                   theme: addMemberConfiguration?.theme ?? theme,
                   backButton: addMemberConfiguration?.backButton,
+<<<<<<< HEAD
                   showBackButton: addMemberConfiguration?.showBackButton ?? true,
+=======
+                  showBackButton:
+                      addMemberConfiguration?.showBackButton ?? true,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   searchIcon: addMemberConfiguration?.searchIcon,
                   searchPlaceholder: addMemberConfiguration?.searchPlaceholder,
                   addMembersStyle: addMemberConfiguration?.addMembersStyle,
                   appBarOptions: addMemberConfiguration?.appBarOptions,
+<<<<<<< HEAD
                   disableUsersPresence: addMemberConfiguration?.disableUsersPresence,
+=======
+                  disableUsersPresence:
+                      addMemberConfiguration?.disableUsersPresence,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   emptyStateText: addMemberConfiguration?.emptyStateText,
                   emptyStateView: addMemberConfiguration?.emptyStateView,
                   errorStateText: addMemberConfiguration?.errorStateText,
@@ -317,15 +429,29 @@ class CometChatDetailsController extends GetxController
                   onBack: addMemberConfiguration?.onBack,
                   onSelection: addMemberConfiguration?.onSelection,
                   options: addMemberConfiguration?.options,
+<<<<<<< HEAD
                   selectionMode: addMemberConfiguration?.selectionMode ?? SelectionMode.multiple,
                   subtitleView: addMemberConfiguration?.subtitleView,
                   usersProtocol: addMemberConfiguration?.usersProtocol,
                   usersRequestBuilder: addMemberConfiguration?.usersRequestBuilder,
+=======
+                  selectionMode: addMemberConfiguration?.selectionMode ??
+                      SelectionMode.multiple,
+                  subtitleView: addMemberConfiguration?.subtitleView,
+                  usersProtocol: addMemberConfiguration?.usersProtocol,
+                  usersRequestBuilder:
+                      addMemberConfiguration?.usersRequestBuilder,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   selectionIcon: addMemberConfiguration?.selectionIcon,
                   onError: addMemberConfiguration?.onError,
                   avatarStyle: addMemberConfiguration?.avatarStyle,
                   listItemStyle: addMemberConfiguration?.listItemStyle,
+<<<<<<< HEAD
                   statusIndicatorStyle: addMemberConfiguration?.statusIndicatorStyle,
+=======
+                  statusIndicatorStyle:
+                      addMemberConfiguration?.statusIndicatorStyle,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   submitIcon: addMemberConfiguration?.submitIcon,
                 )));
   }
@@ -338,6 +464,7 @@ class CometChatDetailsController extends GetxController
             builder: (context) => CometChatTransferOwnership(
                   group: group,
                   title: transferOwnershipConfiguration?.title,
+<<<<<<< HEAD
                   transferOwnershipStyle: transferOwnershipConfiguration?.transferOwnershipStyle,
                   hideSearch: transferOwnershipConfiguration?.hideSearch,
                   showBackButton: transferOwnershipConfiguration?.showBackButton,
@@ -359,6 +486,44 @@ class CometChatDetailsController extends GetxController
                   statusIndicatorStyle: transferOwnershipConfiguration?.statusIndicatorStyle,
                   subtitleView: transferOwnershipConfiguration?.subtitleView,
                   onTransferOwnership: transferOwnershipConfiguration?.onTransferOwnership,
+=======
+                  transferOwnershipStyle:
+                      transferOwnershipConfiguration?.transferOwnershipStyle,
+                  hideSearch: transferOwnershipConfiguration?.hideSearch,
+                  showBackButton:
+                      transferOwnershipConfiguration?.showBackButton,
+                  backButton: transferOwnershipConfiguration?.backButton,
+                  searchBoxIcon: transferOwnershipConfiguration?.searchBoxIcon,
+                  searchPlaceholder:
+                      transferOwnershipConfiguration?.searchPlaceholder,
+                  disableUsersPresence:
+                      transferOwnershipConfiguration?.disableUsersPresence ??
+                          false,
+                  emptyStateText:
+                      transferOwnershipConfiguration?.emptyStateText,
+                  errorStateText:
+                      transferOwnershipConfiguration?.errorStateText,
+                  avatarStyle: transferOwnershipConfiguration?.avatarStyle,
+                  emptyStateView:
+                      transferOwnershipConfiguration?.emptyStateView,
+                  errorStateView:
+                      transferOwnershipConfiguration?.emptyStateView,
+                  groupMemberStyle:
+                      transferOwnershipConfiguration?.groupMemberStyle,
+                  groupMembersRequestBuilder: transferOwnershipConfiguration
+                      ?.groupMembersRequestBuilder,
+                  groupMembersProtocol:
+                      transferOwnershipConfiguration?.groupMembersProtocol,
+                  hideSeparator: transferOwnershipConfiguration?.hideSeparator,
+                  listItemStyle: transferOwnershipConfiguration?.listItemStyle,
+                  loadingStateView:
+                      transferOwnershipConfiguration?.loadingStateView,
+                  statusIndicatorStyle:
+                      transferOwnershipConfiguration?.statusIndicatorStyle,
+                  subtitleView: transferOwnershipConfiguration?.subtitleView,
+                  onTransferOwnership:
+                      transferOwnershipConfiguration?.onTransferOwnership,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   selectIcon: transferOwnershipConfiguration?.selectIcon,
                   submitIcon: transferOwnershipConfiguration?.submitIcon,
                   theme: transferOwnershipConfiguration?.theme ?? theme,
@@ -374,7 +539,11 @@ class CometChatDetailsController extends GetxController
         MaterialPageRoute(
           builder: (context) => CometChatBannedMembers(
             group: group,
+<<<<<<< HEAD
             ctheme: bannedMemberConfiguration?.theme ?? theme,
+=======
+            theme: bannedMemberConfiguration?.theme ?? theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             backButton: bannedMemberConfiguration?.backButton,
             controller: bannedMemberConfiguration?.controller,
             listItemView: bannedMemberConfiguration?.childView,
@@ -387,7 +556,12 @@ class CometChatDetailsController extends GetxController
             searchPlaceholder: bannedMemberConfiguration?.searchPlaceholder,
             selectionMode: bannedMemberConfiguration?.selectionMode,
             showBackButton: bannedMemberConfiguration?.showBackButton ?? true,
+<<<<<<< HEAD
             bannedMembersStyle: bannedMemberConfiguration?.bannedMembersStyle ?? const BannedMembersStyle(),
+=======
+            bannedMembersStyle: bannedMemberConfiguration?.bannedMembersStyle ??
+                const BannedMembersStyle(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             title: bannedMemberConfiguration?.title,
             subtitleView: bannedMemberConfiguration?.subtitleView,
             avatarStyle: bannedMemberConfiguration?.avatarStyle,
@@ -395,6 +569,7 @@ class CometChatDetailsController extends GetxController
             errorStateView: bannedMemberConfiguration?.errorStateView,
             loadingStateView: bannedMemberConfiguration?.loadingStateView,
             hideError: bannedMemberConfiguration?.hideError,
+<<<<<<< HEAD
             disableUsersPresence: bannedMemberConfiguration?.disableUsersPresence ?? false,
             statusIndicatorStyle: bannedMemberConfiguration?.statusIndicatorStyle,
             options: bannedMemberConfiguration?.options,
@@ -402,13 +577,31 @@ class CometChatDetailsController extends GetxController
             appBarOptions: bannedMemberConfiguration?.appBarOptions,
             bannedMemberProtocol: bannedMemberConfiguration?.bannedMemberProtocol,
             bannedMemberRequestBuilder: bannedMemberConfiguration?.bannedMemberRequestBuilder,
+=======
+            disableUsersPresence:
+                bannedMemberConfiguration?.disableUsersPresence ?? false,
+            statusIndicatorStyle:
+                bannedMemberConfiguration?.statusIndicatorStyle,
+            options: bannedMemberConfiguration?.options,
+            activateSelection: bannedMemberConfiguration?.activateSelection,
+            appBarOptions: bannedMemberConfiguration?.appBarOptions,
+            bannedMemberProtocol:
+                bannedMemberConfiguration?.bannedMemberProtocol,
+            bannedMemberRequestBuilder:
+                bannedMemberConfiguration?.bannedMemberRequestBuilder,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             listItemStyle: bannedMemberConfiguration?.listItemStyle,
             onBack: bannedMemberConfiguration?.onBack,
             onError: bannedMemberConfiguration?.onError ?? onError,
             onItemTap: bannedMemberConfiguration?.onItemTap,
             onItemLongPress: bannedMemberConfiguration?.onItemLongPress,
             unbanIconUrl: bannedMemberConfiguration?.unbanIconUrl,
+<<<<<<< HEAD
             unbanIconUrlPackageName: bannedMemberConfiguration?.unbanIconUrlPackageName,
+=======
+            unbanIconUrlPackageName:
+                bannedMemberConfiguration?.unbanIconUrlPackageName,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             stateCallBack: bannedMemberConfiguration?.stateCallBack,
           ),
         ));
@@ -419,6 +612,7 @@ class CometChatDetailsController extends GetxController
   //------------View Methods-------------------
 
 //predefined template option functions--------------------
+<<<<<<< HEAD
   _blockUser(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) async {
     if (user != null) {
       await CometChat.blockUser([user.uid], onSuccess: (Map<String, dynamic> map) {
@@ -426,24 +620,50 @@ class CometChatDetailsController extends GetxController
           this.user!.blockedByMe = true;
         }
         updateOption(section, UserOptionConstants.blockUser, DetailUtils.getUnBlockUserOption(context));
+=======
+  _blockUser(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) async {
+    if (user != null) {
+      await CometChat.blockUser([user.uid],
+          onSuccess: (Map<String, dynamic> map) {
+        if (this.user != null) {
+          this.user!.blockedByMe = true;
+        }
+        updateOption(section, UserOptionConstants.blockUser,
+            DetailUtils.getUnBlockUserOption(context));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         CometChatUserEvents.ccUserBlocked(user);
       }, onError: onError);
     }
   }
 
+<<<<<<< HEAD
   _unBlockUser(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) async {
     if (user != null) {
       await CometChat.unblockUser([user.uid], onSuccess: (Map<String, dynamic> map) {
+=======
+  _unBlockUser(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) async {
+    if (user != null) {
+      await CometChat.unblockUser([user.uid],
+          onSuccess: (Map<String, dynamic> map) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         if (this.user != null) {
           this.user!.blockedByMe = false;
         }
 
+<<<<<<< HEAD
         updateOption(section, UserOptionConstants.unblockUser, DetailUtils.getBlockUserOption(context));
+=======
+        updateOption(section, UserOptionConstants.unblockUser,
+            DetailUtils.getBlockUserOption(context));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         CometChatUserEvents.ccUserUnblocked(user);
       }, onError: onError);
     }
   }
 
+<<<<<<< HEAD
   _viewProfile(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) async {
     Navigator.push(
         context,
@@ -454,23 +674,38 @@ class CometChatDetailsController extends GetxController
   }
 
   _viewMember(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) {
+=======
+  _viewMember(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group != null) {
       onViewMemberClicked(group);
     }
   }
 
+<<<<<<< HEAD
   _addMember(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) {
+=======
+  _addMember(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group != null) {
       onAddMemberClicked(group);
     }
   }
 
+<<<<<<< HEAD
   _banMember(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) {
+=======
+  _banMember(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group != null) {
       onBanMemberClicked(group);
     }
   }
 
+<<<<<<< HEAD
   _deleteGroup(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) {
     if (group != null && (group.owner == loggedInUser?.uid)) {
       _showConfirmationDialog(
@@ -478,16 +713,33 @@ class CometChatDetailsController extends GetxController
           confirmButtonText: Translations.of(context).delete.toUpperCase(),
           confirmButtonTextStyle:
               TextStyle(fontSize: theme.typography.text2.fontSize, color: theme.palette.error.light),
+=======
+  _deleteGroup(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) {
+    if (group != null && (group.owner == loggedInUser?.uid)) {
+      _showConfirmationDialog(
+          messageText: Translations.of(context).deleteConfirm,
+          confirmButtonText: Translations.of(context).delete.toUpperCase(),
+          confirmButtonTextStyle: TextStyle(
+              fontSize: theme.typography.text2.fontSize,
+              color: theme.palette.error.light),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           onConfirm: _onDeleteGroupConfirmed);
     }
   }
 
+<<<<<<< HEAD
   _leaveGroup(User? user, Group? group, String section, CometChatDetailsControllerProtocol state) async {
+=======
+  _leaveGroup(User? user, Group? group, String section,
+      CometChatDetailsControllerProtocol state) async {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (group != null) {
       if (loggedInUser == null) return;
 
       if (group.owner == loggedInUser?.uid) {
         _showConfirmationDialog(
+<<<<<<< HEAD
             messageText: Translations.of(context).transfer_confirm,
             confirmButtonText: "TRANSFER OWNERSHIP",
             confirmButtonTextStyle: TextStyle(fontSize: theme.typography.text2.fontSize),
@@ -498,6 +750,20 @@ class CometChatDetailsController extends GetxController
           confirmButtonText: Translations.of(context).leave_group.toUpperCase(),
           confirmButtonTextStyle:
               TextStyle(fontSize: theme.typography.text2.fontSize, color: theme.palette.error.light),
+=======
+            messageText: Translations.of(context).transferOwnership,
+            confirmButtonText: "TRANSFER OWNERSHIP",
+            confirmButtonTextStyle:
+                TextStyle(fontSize: theme.typography.text2.fontSize),
+            onConfirm: _onTransferOwnershipConfirmed);
+      } else {
+        _showConfirmationDialog(
+          messageText: Translations.of(context).leaveConfirm,
+          confirmButtonText: Translations.of(context).leaveGroup.toUpperCase(),
+          confirmButtonTextStyle: TextStyle(
+              fontSize: theme.typography.text2.fontSize,
+              color: theme.palette.error.light),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           onConfirm: _onLeaveGroupConfirmed,
         );
       }
@@ -516,7 +782,12 @@ class CometChatDetailsController extends GetxController
   }
 
   //returns list of detail options after populating default options if function is null
+<<<<<<< HEAD
   List<CometChatDetailsOption>? _getPopulatedOptions(CometChatDetailsTemplate template) {
+=======
+  List<CometChatDetailsOption>? _getPopulatedOptions(
+      CometChatDetailsTemplate template) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     List<CometChatDetailsOption>? options;
     if (template.options != null) {
       options = template.options!(user, group, context, theme);
@@ -533,8 +804,14 @@ class CometChatDetailsController extends GetxController
   }
 
   //returns default options according to option id
+<<<<<<< HEAD
   Function(User? user, Group? group, String section, CometChatDetailsControllerProtocol state)? _getOptionOnClick(
       String optionId) {
+=======
+  Function(User? user, Group? group, String section,
+          CometChatDetailsControllerProtocol state)?
+      _getOptionOnClick(String optionId) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     switch (optionId) {
       case UserOptionConstants.blockUser:
         {
@@ -544,10 +821,13 @@ class CometChatDetailsController extends GetxController
         {
           return _unBlockUser;
         }
+<<<<<<< HEAD
       case UserOptionConstants.viewProfile:
         {
           return _viewProfile;
         }
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       case GroupOptionConstants.viewMembers:
         {
           return _viewMember;
@@ -580,10 +860,19 @@ class CometChatDetailsController extends GetxController
   //public methods----------------------
 
   @override
+<<<<<<< HEAD
   int updateOption(String templateId, String oldOptionID, CometChatDetailsOption updatedOption) {
     int actionIndex = -1;
     if (optionsMap[templateId] != null) {
       int? optionIndex = optionsMap[templateId]?.indexWhere((element) => (element.id == oldOptionID));
+=======
+  int updateOption(String templateId, String oldOptionID,
+      CometChatDetailsOption updatedOption) {
+    int actionIndex = -1;
+    if (optionsMap[templateId] != null) {
+      int? optionIndex = optionsMap[templateId]
+          ?.indexWhere((element) => (element.id == oldOptionID));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       if (optionIndex != null && optionIndex != -1) {
         updatedOption.onClick ??= _getOptionOnClick(updatedOption.id);
         optionsMap[templateId]![optionIndex] = updatedOption;
@@ -598,7 +887,12 @@ class CometChatDetailsController extends GetxController
   int removeOption(String templateId, String optionId) {
     int actionIndex = -1;
     if (optionsMap[templateId] != null) {
+<<<<<<< HEAD
       int? optionIndex = optionsMap[templateId]?.indexWhere((element) => (element.id == optionId));
+=======
+      int? optionIndex = optionsMap[templateId]
+          ?.indexWhere((element) => (element.id == optionId));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       if (optionIndex != null && optionIndex != -1) {
         optionsMap[templateId]!.removeAt(optionIndex);
         actionIndex = optionIndex;
@@ -609,7 +903,12 @@ class CometChatDetailsController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   int addOption(String templateId, CometChatDetailsOption newOption, {int? position}) {
+=======
+  int addOption(String templateId, CometChatDetailsOption newOption,
+      {int? position}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     int actionIndex = -1;
     if (optionsMap[templateId] != null) {
       if (position != null && position < optionsMap[templateId]!.length) {
@@ -628,7 +927,12 @@ class CometChatDetailsController extends GetxController
   @override
   useOption(CometChatDetailsOption option, String sectionId) {
     if (option.onClick != null) {
+<<<<<<< HEAD
       debugPrint("option clicked on ID is ${option.id} and title is ${option.title}");
+=======
+      debugPrint(
+          "option clicked on ID is ${option.id} and title is ${option.title}");
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       option.onClick!(user, group, sectionId, this);
     }
   }
@@ -656,11 +960,23 @@ class CometChatDetailsController extends GetxController
             backgroundColor: leaveGroupDialogStyle?.backgroundColor ??
                 (theme.palette.mode == PaletteThemeModes.light
                     ? theme.palette.getBackground()
+<<<<<<< HEAD
                     : Color.alphaBlend(theme.palette.getAccent200(), theme.palette.getBackground())),
             shadowColor: leaveGroupDialogStyle?.shadowColor ?? theme.palette.getAccent100(),
             confirmButtonTextStyle: confirmButtonTextStyle?.merge(leaveGroupDialogStyle?.confirmButtonTextStyle),
             cancelButtonTextStyle: TextStyle(fontSize: theme.typography.text2.fontSize)
                 .merge(leaveGroupDialogStyle?.cancelButtonTextStyle)));
+=======
+                    : Color.alphaBlend(theme.palette.getAccent200(),
+                        theme.palette.getBackground())),
+            shadowColor: leaveGroupDialogStyle?.shadowColor ??
+                theme.palette.getAccent100(),
+            confirmButtonTextStyle: confirmButtonTextStyle
+                ?.merge(leaveGroupDialogStyle?.confirmButtonTextStyle),
+            cancelButtonTextStyle:
+                TextStyle(fontSize: theme.typography.text2.fontSize)
+                    .merge(leaveGroupDialogStyle?.cancelButtonTextStyle)));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   _onLeaveGroupConfirmed() {

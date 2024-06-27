@@ -6,7 +6,14 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///[CometChatGroupsWithMessagesController] is the view model for [CometChatGroupsWithMessages]
 ///it contains all the business logic involved in changing the state of the UI of [CometChatGroupsWithMessages]
 class CometChatGroupsWithMessagesController extends GetxController
+<<<<<<< HEAD
     with CometChatGroupEventListener, CometChatMessageEventListener, CometChatUIEventListener {
+=======
+    with
+        CometChatGroupEventListener,
+        CometChatMessageEventListener,
+        CometChatUIEventListener {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   CometChatGroupsWithMessagesController(
       {this.messageConfiguration,
       required this.theme,
@@ -74,7 +81,12 @@ class CometChatGroupsWithMessagesController extends GetxController
   }
 
   @override
+<<<<<<< HEAD
   void ccMessageForwarded(BaseMessage message, List<User>? usersSent, List<Group>? groupsSent, MessageStatus status) {
+=======
+  void ccMessageForwarded(BaseMessage message, List<User>? usersSent,
+      List<Group>? groupsSent, MessageStatus status) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (status == MessageStatus.inProgress) return;
 
     if (((usersSent?.length ?? 0) + (groupsSent?.length ?? 0)) == 1) {
@@ -91,7 +103,12 @@ class CometChatGroupsWithMessagesController extends GetxController
     navigateToMessagesScreen(user: user, group: group);
   }
 
+<<<<<<< HEAD
   void navigateToMessagesScreen({User? user, Group? group, BuildContext? context}) {
+=======
+  void navigateToMessagesScreen(
+      {User? user, Group? group, BuildContext? context}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     Navigator.push(
         context ?? this.context,
         MaterialPageRoute(
@@ -99,6 +116,7 @@ class CometChatGroupsWithMessagesController extends GetxController
                   group: group,
                   user: user,
                   messageComposerConfiguration:
+<<<<<<< HEAD
                       messageConfiguration?.messageComposerConfiguration ?? const MessageComposerConfiguration(),
                   messageListConfiguration:
                       messageConfiguration?.messageListConfiguration ?? const MessageListConfiguration(),
@@ -114,11 +132,44 @@ class CometChatGroupsWithMessagesController extends GetxController
                   hideMessageComposer: messageConfiguration?.hideMessageComposer ?? false,
                   hideMessageHeader: messageConfiguration?.hideMessageHeader,
                   messageComposerView: messageConfiguration?.messageComposerView,
+=======
+                      messageConfiguration?.messageComposerConfiguration ??
+                          const MessageComposerConfiguration(),
+                  messageListConfiguration:
+                      messageConfiguration?.messageListConfiguration ??
+                          const MessageListConfiguration(),
+                  messageHeaderConfiguration:
+                      messageConfiguration?.messageHeaderConfiguration ??
+                          const MessageHeaderConfiguration(),
+                  customSoundForIncomingMessagePackage: messageConfiguration
+                      ?.customSoundForIncomingMessagePackage,
+                  customSoundForIncomingMessages:
+                      messageConfiguration?.customSoundForIncomingMessages,
+                  customSoundForOutgoingMessagePackage: messageConfiguration
+                      ?.customSoundForOutgoingMessagePackage,
+                  customSoundForOutgoingMessages:
+                      messageConfiguration?.customSoundForOutgoingMessages,
+                  detailsConfiguration:
+                      messageConfiguration?.detailsConfiguration,
+                  disableSoundForMessages:
+                      messageConfiguration?.disableSoundForMessages,
+                  disableTyping: messageConfiguration?.disableTyping ?? false,
+                  hideMessageComposer:
+                      messageConfiguration?.hideMessageComposer ?? false,
+                  hideMessageHeader: messageConfiguration?.hideMessageHeader,
+                  messageComposerView:
+                      messageConfiguration?.messageComposerView,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   messageHeaderView: messageConfiguration?.messageHeaderView,
                   messageListView: messageConfiguration?.messageListView,
                   messagesStyle: messageConfiguration?.messagesStyle,
                   theme: messageConfiguration?.theme ?? theme,
+<<<<<<< HEAD
                   threadedMessagesConfiguration: messageConfiguration?.threadedMessagesConfiguration,
+=======
+                  threadedMessagesConfiguration:
+                      messageConfiguration?.threadedMessagesConfiguration,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   hideDetails: messageConfiguration?.hideDetails,
                 ))).then((value) {
       if (value != null && value > 0) {
@@ -127,7 +178,12 @@ class CometChatGroupsWithMessagesController extends GetxController
     });
   }
 
+<<<<<<< HEAD
   void navigateToJoinProtectedGroupScreen({required Group group, BuildContext? context}) {
+=======
+  void navigateToJoinProtectedGroupScreen(
+      {required Group group, BuildContext? context}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     Navigator.push(
         context ?? this.context,
         MaterialPageRoute(
@@ -136,6 +192,7 @@ class CometChatGroupsWithMessagesController extends GetxController
                   onJoinTap: joinProtectedGroupConfiguration?.onJoinTap,
                   closeIcon: joinProtectedGroupConfiguration?.closeIcon,
                   joinIcon: joinProtectedGroupConfiguration?.joinIcon,
+<<<<<<< HEAD
                   passwordPlaceholderText: joinProtectedGroupConfiguration?.passwordPlaceholderText,
                   ctheme: joinProtectedGroupConfiguration?.theme ?? theme,
                   onError: joinProtectedGroupConfiguration?.onError,
@@ -144,6 +201,19 @@ class CometChatGroupsWithMessagesController extends GetxController
                   joinProtectedGroupStyle: joinProtectedGroupConfiguration?.joinProtectedGroupStyle,
                   onBack: joinProtectedGroupConfiguration?.onBack,
                   errorStateText: joinProtectedGroupConfiguration?.errorStateText,
+=======
+                  passwordPlaceholderText:
+                      joinProtectedGroupConfiguration?.passwordPlaceholderText,
+                  theme: joinProtectedGroupConfiguration?.theme ?? theme,
+                  onError: joinProtectedGroupConfiguration?.onError,
+                  title: joinProtectedGroupConfiguration?.title,
+                  description: joinProtectedGroupConfiguration?.description,
+                  joinProtectedGroupStyle:
+                      joinProtectedGroupConfiguration?.joinProtectedGroupStyle,
+                  onBack: joinProtectedGroupConfiguration?.onBack,
+                  errorStateText:
+                      joinProtectedGroupConfiguration?.errorStateText,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 )));
   }
 
@@ -153,6 +223,7 @@ class CometChatGroupsWithMessagesController extends GetxController
         MaterialPageRoute(
             builder: (context) => CometChatCreateGroup(
                   createGroupStyle: CreateGroupStyle(
+<<<<<<< HEAD
                       titleTextStyle: createGroupConfiguration?.createGroupStyle?.titleTextStyle,
                       selectedTabColor: createGroupConfiguration?.createGroupStyle?.selectedTabColor,
                       selectedTabTextStyle: createGroupConfiguration?.createGroupStyle?.selectedTabTextStyle,
@@ -171,10 +242,47 @@ class CometChatGroupsWithMessagesController extends GetxController
                       passwordPlaceholderTextStyle:
                           createGroupConfiguration?.createGroupStyle?.passwordPlaceholderTextStyle,
                       passwordInputTextStyle: createGroupConfiguration?.createGroupStyle?.passwordInputTextStyle,
+=======
+                      titleTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.titleTextStyle,
+                      selectedTabColor: createGroupConfiguration
+                          ?.createGroupStyle?.selectedTabColor,
+                      selectedTabTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.selectedTabTextStyle,
+                      tabTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.tabTextStyle,
+                      closeIconTint: createGroupConfiguration
+                          ?.createGroupStyle?.closeIconTint,
+                      createIconTint: createGroupConfiguration
+                          ?.createGroupStyle?.createIconTint,
+                      tabColor:
+                          createGroupConfiguration?.createGroupStyle?.tabColor,
+                      background: createGroupConfiguration
+                          ?.createGroupStyle?.background,
+                      borderColor: createGroupConfiguration
+                          ?.createGroupStyle?.borderColor,
+                      border:
+                          createGroupConfiguration?.createGroupStyle?.border,
+                      borderRadius: createGroupConfiguration
+                          ?.createGroupStyle?.borderRadius,
+                      gradient:
+                          createGroupConfiguration?.createGroupStyle?.gradient,
+                      height:
+                          createGroupConfiguration?.createGroupStyle?.height,
+                      namePlaceholderTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.namePlaceholderTextStyle,
+                      nameInputTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.nameInputTextStyle,
+                      passwordPlaceholderTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.passwordPlaceholderTextStyle,
+                      passwordInputTextStyle: createGroupConfiguration
+                          ?.createGroupStyle?.passwordInputTextStyle,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       width: createGroupConfiguration?.createGroupStyle?.width),
                   createIcon: createGroupConfiguration?.createIcon,
                   theme: createGroupConfiguration?.theme ?? theme,
                   title: createGroupConfiguration?.title,
+<<<<<<< HEAD
                   namePlaceholderText: createGroupConfiguration?.namePlaceholderText,
                   closeIcon: createGroupConfiguration?.closeIcon,
                   disableCloseButton: createGroupConfiguration?.disableCloseButton,
@@ -186,12 +294,34 @@ class CometChatGroupsWithMessagesController extends GetxController
   }
 
   _joinGroup({required String guid, required String groupType, String password = ""}) {
+=======
+                  namePlaceholderText:
+                      createGroupConfiguration?.namePlaceholderText,
+                  closeIcon: createGroupConfiguration?.closeIcon,
+                  disableCloseButton:
+                      createGroupConfiguration?.disableCloseButton,
+                  onCreateTap: createGroupConfiguration?.onCreateTap,
+                  onBack: createGroupConfiguration?.onBack,
+                  onError: createGroupConfiguration?.onError,
+                  passwordPlaceholderText:
+                      createGroupConfiguration?.passwordPlaceholderText,
+                )));
+  }
+
+  _joinGroup(
+      {required String guid, required String groupType, String password = ""}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     showLoadingIndicatorDialog(context,
         background: theme.palette.getBackground(),
         progressIndicatorColor: theme.palette.getPrimary(),
         shadowColor: theme.palette.getAccent300());
 
+<<<<<<< HEAD
     CometChat.joinGroup(guid, groupType, password: password, onSuccess: (Group group) async {
+=======
+    CometChat.joinGroup(guid, groupType, password: password,
+        onSuccess: (Group group) async {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       User? user = await CometChat.getLoggedInUser();
       if (kDebugMode) {
         debugPrint("Group Joined Successfully : $group ");
@@ -215,15 +345,27 @@ class CometChatGroupsWithMessagesController extends GetxController
               showCometChatConfirmDialog(
                   context: context,
                   style: ConfirmDialogStyle(
+<<<<<<< HEAD
                       backgroundColor: theme.palette.mode == PaletteThemeModes.light
                           ? theme.palette.getBackground()
                           : Color.alphaBlend(theme.palette.getAccent200(), theme.palette.getBackground()),
+=======
+                      backgroundColor:
+                          theme.palette.mode == PaletteThemeModes.light
+                              ? theme.palette.getBackground()
+                              : Color.alphaBlend(theme.palette.getAccent200(),
+                                  theme.palette.getBackground()),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       shadowColor: theme.palette.getAccent300(),
                       confirmButtonTextStyle: TextStyle(
                           fontSize: theme.typography.text2.fontSize,
                           fontWeight: theme.typography.text2.fontWeight,
                           color: theme.palette.getPrimary())),
+<<<<<<< HEAD
                   title: Text(Translations.of(context).something_went_wrong_error,
+=======
+                  title: Text(Translations.of(context).somethingWentWrongError,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       style: TextStyle(
                           fontSize: theme.typography.name.fontSize,
                           fontWeight: theme.typography.name.fontWeight,

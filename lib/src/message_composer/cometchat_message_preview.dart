@@ -5,14 +5,22 @@ import 'package:flutter/material.dart';
 ///the appearance is similar to quote block of markdown files
 class CometChatMessagePreview extends StatelessWidget {
   const CometChatMessagePreview(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       required this.messagePreviewTitle,
       required this.messagePreviewSubtitle,
       this.messagePreviewCloseButtonIcon,
       this.style = const CometChatMessagePreviewStyle(),
       this.onCloseClick,
+<<<<<<< HEAD
       this.hideCloseButton = false})
       : super(key: key);
+=======
+      this.hideCloseButton = false});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[messagePreviewTitle]
   final String messagePreviewTitle;
@@ -34,19 +42,35 @@ class CometChatMessagePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     // CometChatTheme _theme = cometChatTheme;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 7, 12, 3),
+=======
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 7, 12, 3),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       child: ClipRRect(
         borderRadius: BorderRadius.circular(2),
         child: Container(
           margin: const EdgeInsets.only(bottom: 10),
+<<<<<<< HEAD
           height: 42,
           decoration: BoxDecoration(
             color: style.messagePreviewBackground,
             border: style.messagePreviewBorder ??
                 Border(left: BorderSide(color: const Color(0xff141414).withOpacity(0.14), width: 3)),
+=======
+          height: 36,
+          decoration: BoxDecoration(
+            color: style.messagePreviewBackground,
+            border: style.messagePreviewBorder ??
+                Border(
+                    left: BorderSide(
+                        color: const Color(0xff141414).withOpacity(0.14),
+                        width: 3)),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           ),
           child: Padding(
             padding: const EdgeInsets.only(left: 9.0),
@@ -73,7 +97,12 @@ class CometChatMessagePreview extends StatelessWidget {
                               Icon(
                                 Icons.close,
                                 size: 16,
+<<<<<<< HEAD
                                 color: style.closeIconColor ?? const Color(0xff000000),
+=======
+                                color: style.closeIconColor ??
+                                    const Color(0xff000000),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                               ))
                   ],
                 ),
@@ -84,7 +113,13 @@ class CometChatMessagePreview extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: style.messagePreviewSubtitleStyle ??
                         TextStyle(
+<<<<<<< HEAD
                             fontSize: 13, fontWeight: FontWeight.w400, color: const Color(0xff141414).withOpacity(0.6)),
+=======
+                            fontSize: 13,
+                            fontWeight: FontWeight.w400,
+                            color: const Color(0xff141414).withOpacity(0.6)),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   ),
                 )
               ],

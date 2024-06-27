@@ -6,11 +6,19 @@ import 'package:flutter/material.dart';
 class EmojiKeyboardStyle {
   EmojiKeyboardStyle(
       {this.backgroundColor,
+<<<<<<< HEAD
         this.titleStyle,
         this.dividerColor,
         this.categoryLabelStyle,
         this.selectedCategoryIconColor,
         this.unselectedCategoryIconColor});
+=======
+      this.titleStyle,
+      this.dividerColor,
+      this.categoryLabelStyle,
+      this.selectedCategoryIconColor,
+      this.unselectedCategoryIconColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[backgroundColor] provides color to the emoji keyboard
   final Color? backgroundColor;

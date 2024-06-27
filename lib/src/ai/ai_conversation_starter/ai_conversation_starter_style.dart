@@ -14,6 +14,7 @@ class AIConversationStarterStyle extends BaseStyles {
     this.loadingTextStyle,
     this.loadingIconTint,
     this.shadowColor,
+<<<<<<< HEAD
     Color? background,
     BoxBorder? border,
     double? borderRadius,
@@ -24,6 +25,13 @@ class AIConversationStarterStyle extends BaseStyles {
             borderRadius: borderRadius,
             gradient: gradient
   );
+=======
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[replyTextStyle] changes style of suggested reply text
   final TextStyle? replyTextStyle;

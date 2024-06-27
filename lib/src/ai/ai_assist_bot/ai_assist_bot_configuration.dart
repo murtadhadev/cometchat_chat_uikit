@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 ///
 ///
 class AIAssistBotConfiguration {
+<<<<<<< HEAD
 
   AIAssistBotConfiguration({
     this.aiAssistBotStyle,
@@ -31,6 +32,24 @@ class AIAssistBotConfiguration {
     this.emptyIconUrl,
     this.onCloseIconTap
   });
+=======
+  AIAssistBotConfiguration(
+      {this.aiAssistBotStyle,
+      this.title,
+      this.apiConfiguration,
+      this.unreadMessageThreshold = 30,
+      this.theme,
+      this.loadingStateText,
+      this.errorStateText,
+      this.emptyStateText,
+      this.loadingIconUrl,
+      this.loadingStateView,
+      this.errorIconUrl,
+      this.errorStateView,
+      this.emptyStateView,
+      this.emptyIconUrl,
+      this.onCloseIconTap});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[aiAssistBotStyle] provides styling to the reply view
   final AIAssistBotStyle? aiAssistBotStyle;
@@ -72,11 +91,17 @@ class AIAssistBotConfiguration {
   final String? title;
 
   ///[apiConfiguration] set the configuration
+<<<<<<< HEAD
   final Future<Map<String, dynamic>> Function(User aiBot,  User? user,  Group? group)? apiConfiguration;
+=======
+  final Future<Map<String, dynamic>> Function(
+      User aiBot, User? user, Group? group)? apiConfiguration;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[unreadMessageThreshold] set the unread message count
   final int? unreadMessageThreshold;
 
+<<<<<<< HEAD
 
 
   /// Copies current [AIAssistBotConfiguration] with some changes
@@ -100,11 +125,37 @@ class AIAssistBotConfiguration {
     return AIAssistBotConfiguration(
       aiAssistBotStyle:
       aiAssistBotStyle ?? aiAssistBotStyle,
+=======
+  /// Copies current [AIAssistBotConfiguration] with some changes
+  AIAssistBotConfiguration copyWith(
+      {AIAssistBotStyle? aiAssistBotStyle,
+      CometChatTheme? theme,
+      String? emptyStateText,
+      String? loadingStateText,
+      String? errorStateText,
+      Widget Function(List<String> replies, BuildContext context)? customView,
+      Widget Function(List<String> replies, BuildContext context)?
+          conversationStarterEmptyView,
+      WidgetBuilder? emptyStateView,
+      WidgetBuilder? loadingStateView,
+      WidgetBuilder? errorStateView,
+      String? errorIconUrl,
+      String? emptyIconUrl,
+      String? loadingIconUrl,
+      Future<Map<String, dynamic>> Function(
+              User aiBot, User? user, Group? group)?
+          apiConfiguration}) {
+    return AIAssistBotConfiguration(
+      aiAssistBotStyle: aiAssistBotStyle ?? aiAssistBotStyle,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       theme: theme ?? theme,
       emptyStateText: emptyStateText ?? this.emptyStateText,
       loadingStateText: loadingStateText ?? this.loadingStateText,
       errorStateText: errorStateText ?? this.errorStateText,
+<<<<<<< HEAD
      // customView: customView ?? this.customView,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       emptyStateView: emptyStateView ?? this.emptyStateView,
       loadingStateView: loadingStateView ?? this.loadingStateView,
       errorStateView: errorStateView ?? this.errorStateView,
@@ -116,8 +167,12 @@ class AIAssistBotConfiguration {
   }
 
   /// Merges current [AIAssistBotConfiguration] with [other]
+<<<<<<< HEAD
   AIAssistBotConfiguration merge(
       AIAssistBotConfiguration? other) {
+=======
+  AIAssistBotConfiguration merge(AIAssistBotConfiguration? other) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (other == null) return this;
     return copyWith(
       aiAssistBotStyle: other.aiAssistBotStyle,

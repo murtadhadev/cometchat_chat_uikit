@@ -40,7 +40,10 @@ class CometChatMessageHeaderController extends GetxController
     this.disableUserPresence = disableUserPresence ?? false;
     if (groupObject != null) {
       membersCount = groupObject?.membersCount;
+<<<<<<< HEAD
       // print("GroupMember count in header ${groupObject?.membersCount}");
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
 
     tag = "tag$counter";
@@ -121,6 +124,7 @@ class CometChatMessageHeaderController extends GetxController
       update();
     }
   }
+<<<<<<< HEAD
 /*
   incrementMemberCount(Group _group) {
     if (groupObject != null && groupObject!.guid == _group.guid) {
@@ -138,6 +142,8 @@ class CometChatMessageHeaderController extends GetxController
     }
   }
   */
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   updateMemberCount(Group group) {
     if (groupObject != null && groupObject!.guid == group.guid) {

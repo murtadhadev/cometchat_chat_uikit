@@ -9,7 +9,12 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
 
   User? loggedInUser;
 
+<<<<<<< HEAD
   CollaborativeDocumentExtensionDecorator(DataSource dataSource, {this.configuration}) : super(dataSource) {
+=======
+  CollaborativeDocumentExtensionDecorator(super.dataSource,
+      {this.configuration}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     getLoggedInUser();
   }
 
@@ -40,10 +45,19 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
   }
 
   @override
+<<<<<<< HEAD
   List<CometChatMessageTemplate> getAllMessageTemplates({CometChatTheme? theme}) {
     CometChatTheme theme0 = theme ?? cometChatTheme;
 
     List<CometChatMessageTemplate> templateList = super.getAllMessageTemplates(theme: theme0);
+=======
+  List<CometChatMessageTemplate> getAllMessageTemplates(
+      {CometChatTheme? theme}) {
+    CometChatTheme theme0 = theme ?? cometChatTheme;
+
+    List<CometChatMessageTemplate> templateList =
+        super.getAllMessageTemplates(theme: theme0);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     templateList.add(getTemplate(theme: theme0));
 
@@ -53,7 +67,12 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
   @override
   List<CometChatMessageComposerAction> getAttachmentOptions(
       CometChatTheme theme, BuildContext context, Map<String, dynamic>? id) {
+<<<<<<< HEAD
     List<CometChatMessageComposerAction> actions = super.getAttachmentOptions(theme, context, id);
+=======
+    List<CometChatMessageComposerAction> actions =
+        super.getAttachmentOptions(theme, context, id);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (isNotThread(id)) {
       actions.add(getAttachmentOption(theme, context, id));
     }
@@ -61,12 +80,21 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
   }
 
   @override
+<<<<<<< HEAD
   String getLastConversationMessage(Conversation conversation, BuildContext context) {
+=======
+  String getLastConversationMessage(
+      Conversation conversation, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     BaseMessage? message = conversation.lastMessage;
     if (message != null &&
         message.type == collaborativeDocumentExtensionTypeConstant &&
         message.category == MessageCategoryConstants.custom) {
+<<<<<<< HEAD
       return Translations.of(context).custom_message_document;
+=======
+      return Translations.of(context).customMessageDocument;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return super.getLastConversationMessage(conversation, context);
     }
@@ -78,14 +106,25 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
     return CometChatMessageTemplate(
         type: collaborativeDocumentExtensionTypeConstant,
         category: CometChatMessageCategory.custom,
+<<<<<<< HEAD
         contentView: (BaseMessage message, BuildContext context, BubbleAlignment alignment) {
+=======
+        contentView: (BaseMessage message, BuildContext context,
+            BubbleAlignment alignment,
+            {AdditionalConfigurations? additionalConfigurations}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           return getContentView(message as CustomMessage, theme0, context);
         },
         options: CometChatUIKit.getDataSource().getCommonOptions,
         bottomView: CometChatUIKit.getDataSource().getBottomView);
   }
 
+<<<<<<< HEAD
   Widget getContentView(CustomMessage customMessage, CometChatTheme theme, BuildContext context) {
+=======
+  Widget getContentView(
+      CustomMessage customMessage, CometChatTheme theme, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (customMessage.deletedAt != null) {
       return super.getDeleteMessageBubble(customMessage, theme);
     }
@@ -95,7 +134,11 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
       subtitle: configuration?.subtitle,
       buttonText: configuration?.buttonText,
       icon: configuration?.icon,
+<<<<<<< HEAD
       ctheme: configuration?.theme,
+=======
+      theme: configuration?.theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       style: DocumentBubbleStyle(
           background: configuration?.style?.background,
           dividerColor: configuration?.style?.dividerColor,
@@ -109,9 +152,20 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
     );
   }
 
+<<<<<<< HEAD
   sendCollaborativeDocument(BuildContext context, String receiverID, String receiverType, CometChatTheme theme) {
     CometChat.callExtension(ExtensionConstants.document, "POST", ExtensionUrls.document,
         {"receiver": receiverID, "receiverType": receiverType}, onSuccess: (Map<String, dynamic> map) {
+=======
+  sendCollaborativeDocument(BuildContext context, String receiverID,
+      String receiverType, CometChatTheme theme) {
+    CometChat.callExtension(
+        ExtensionConstants.document,
+        "POST",
+        ExtensionUrls.document,
+        {"receiver": receiverID, "receiverType": receiverType},
+        onSuccess: (Map<String, dynamic> map) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       debugPrint("Success map $map");
     }, onError: (CometChatException e) {
       debugPrint('$e');
@@ -126,8 +180,13 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
                 color: theme.palette.getAccent(),
                 fontFamily: theme.typography.title2.fontFamily),
           ),
+<<<<<<< HEAD
           confirmButtonText: Translations.of(context).try_again,
           cancelButtonText: Translations.of(context).cancel_capital,
+=======
+          confirmButtonText: Translations.of(context).tryAgain,
+          cancelButtonText: Translations.of(context).cancelCapital,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           onConfirm: () {
             Navigator.pop(context);
             sendCollaborativeDocument(context, receiverID, receiverType, theme);
@@ -139,15 +198,29 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
       CometChatTheme theme, BuildContext context, Map<String, dynamic>? id) {
     return CometChatMessageComposerAction(
         id: collaborativeDocumentExtensionTypeConstant,
+<<<<<<< HEAD
         title: configuration?.optionTitle ?? Translations.of(context).collaborative_document,
         iconUrl: configuration?.optionIconUrl ?? AssetConstants.collaborativeDocument,
         iconUrlPackageName: configuration?.optionIconUrlPackageName ?? UIConstants.packageName,
+=======
+        title: configuration?.optionTitle ??
+            Translations.of(context).collaborativeDocument,
+        iconUrl: configuration?.optionIconUrl ??
+            AssetConstants.collaborativeDocument,
+        iconUrlPackageName:
+            configuration?.optionIconUrlPackageName ?? UIConstants.packageName,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         titleStyle: configuration?.optionStyle?.titleStyle ??
             TextStyle(
                 color: theme.palette.getAccent(),
                 fontSize: theme.typography.subtitle1.fontSize,
                 fontWeight: theme.typography.subtitle1.fontWeight),
+<<<<<<< HEAD
         iconTint: configuration?.optionStyle?.iconTint ?? theme.palette.getAccent700(),
+=======
+        iconTint: configuration?.optionStyle?.iconTint ??
+            theme.palette.getAccent700(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         background: configuration?.optionStyle?.background,
         cornerRadius: configuration?.optionStyle?.cornerRadius,
         iconBackground: configuration?.optionStyle?.iconBackground,
@@ -165,7 +238,12 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
           }
 
           if (uid != null || guid != null) {
+<<<<<<< HEAD
             sendCollaborativeDocument(context, uid ?? guid ?? '', receiverType, theme);
+=======
+            sendCollaborativeDocument(
+                context, uid ?? guid ?? '', receiverType, theme);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           }
         });
   }
@@ -184,10 +262,17 @@ class CollaborativeDocumentExtensionDecorator extends DataSourceDecorator {
 
   String getErrorTranslatedText(BuildContext context, String errorCode) {
     if (errorCode == "ERROR_INTERNET_UNAVAILABLE") {
+<<<<<<< HEAD
       return Translations.of(context).error_internet_unavailable;
     } else {}
 
     return Translations.of(context).something_went_wrong_error;
+=======
+      return Translations.of(context).errorInternetUnavailable;
+    } else {}
+
+    return Translations.of(context).somethingWentWrongError;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   bool isNotThread(Map<String, dynamic>? id) {

@@ -4,14 +4,22 @@ import 'package:webview_flutter/webview_flutter.dart';
 ///[CometChatCollaborativeWebView] is widget that renders a WebView
 class CometChatCollaborativeWebView extends StatefulWidget {
   const CometChatCollaborativeWebView(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       required this.title,
       required this.webviewUrl,
       this.titleStyle,
       this.backIcon,
       this.appBarColor,
+<<<<<<< HEAD
       this.backIconColor})
       : super(key: key);
+=======
+      this.backIconColor});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] of the page
   final String title;
@@ -32,7 +40,11 @@ class CometChatCollaborativeWebView extends StatefulWidget {
   final Color? backIconColor;
 
   @override
+<<<<<<< HEAD
   _CometChatCollaborativeWebViewState createState() =>
+=======
+  State<CometChatCollaborativeWebView> createState() =>
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       _CometChatCollaborativeWebViewState();
 }
 
@@ -66,12 +78,18 @@ class _CometChatCollaborativeWebViewState
         ),
       ),
       body: WebViewWidget(
+<<<<<<< HEAD
           // initialUrl: widget.webviewUrl,
           controller: WebViewController()
             ..loadRequest(Uri.parse(widget.webviewUrl))
             ..setJavaScriptMode(JavaScriptMode.unrestricted)
           // javascriptMode: ,
           ),
+=======
+          controller: WebViewController()
+            ..loadRequest(Uri.parse(widget.webviewUrl))
+            ..setJavaScriptMode(JavaScriptMode.unrestricted)),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     );
   }
 }

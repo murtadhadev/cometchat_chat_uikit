@@ -1,5 +1,6 @@
 name: cometchat_chat_uikit
 description: CometChat's Flutter UI Kit offers custom UI components for streamlined text and chat features in your app, designed with developers in mind to minimize development effort.
+<<<<<<< HEAD
 version: 4.3.0
 homepage: https://www.cometchat.com/
 publish_to: none
@@ -7,10 +8,19 @@ publish_to: none
 environment:
   sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
+=======
+version: 4.5.3
+homepage: https://www.cometchat.com/
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: ">=2.5.0"
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
 dependencies:
   flutter:
     sdk: flutter
+<<<<<<< HEAD
   cometchat_uikit_shared:
     path: ./cometchat_uikit_shared
 
@@ -24,11 +34,28 @@ dependencies:
   flutter_slidable: ^3.1.0
 
   cometchat_sdk: ^4.0.7
+=======
+  flutter_localizations:
+    sdk: flutter
+
+  intl: any
+  path_provider: ^2.1.2
+  webview_flutter: ^4.4.3
+  get: ^4.6.5
+  url_launcher: ^6.1.12
+  cometchat_uikit_shared: ^4.4.3
+  cometchat_sdk: ^4.0.13
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+<<<<<<< HEAD
   flutter_lints: ^2.0.1
+=======
+  flutter_lints: ^2.0.0
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -36,10 +63,13 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   generate: true
+<<<<<<< HEAD
   # This section identifies this Flutter project as a plugin project.
   # The 'pluginClass' and Android 'package' identifiers should not ordinarily
   # be modified. They are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   plugin:
     platforms:
       android:
@@ -53,6 +83,7 @@ flutter:
 #    - assets/sound/
 #    - assets/icons/
 #    - assets/icons/2x/
+<<<<<<< HEAD
 #
 # For details regarding assets in packages, see
 # https://flutter.dev/assets-and-images/#from-packages
@@ -79,3 +110,14 @@ flutter:
 #
 # For details regarding fonts in packages, see
 # https://flutter.dev/custom-fonts/#from-packages
+=======
+
+  # To add custom fonts to your plugin package, add a fonts section here,
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178

@@ -9,11 +9,18 @@ class LiveReactionAnimation extends StatefulWidget {
   final String reaction;
 
   const LiveReactionAnimation(
+<<<<<<< HEAD
       {Key? key, this.endAnimation, required this.reaction})
       : super(key: key);
 
   @override
   _LiveReactionAnimationState createState() => _LiveReactionAnimationState();
+=======
+      {super.key, this.endAnimation, required this.reaction});
+
+  @override
+  State<LiveReactionAnimation> createState() => _LiveReactionAnimationState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _LiveReactionAnimationState extends State<LiveReactionAnimation>

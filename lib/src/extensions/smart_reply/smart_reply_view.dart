@@ -26,8 +26,17 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///
 class SmartReplyView extends StatelessWidget {
   const SmartReplyView(
+<<<<<<< HEAD
       {Key? key, required this.replies, this.style, required this.onCloseTap, this.onClick, this.ctheme})
       : super(key: key);
+=======
+      {super.key,
+      required this.replies,
+      this.style,
+      required this.onCloseTap,
+      this.onClick,
+      this.theme});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[replies] list of replies generated from extension or passed by developer
   final List<String> replies;
@@ -42,12 +51,21 @@ class SmartReplyView extends StatelessWidget {
   final void Function(String)? onClick;
 
   ///[theme] sets custom theme
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
 
   @override
   Widget build(BuildContext context) {
     //List<String> replies = replies;
     CometChatTheme theme = ctheme ?? cometChatTheme;
+=======
+  final CometChatTheme? theme;
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> replies = this.replies;
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
     if (replies.isEmpty) {
       return const SizedBox(
@@ -72,9 +90,17 @@ class SmartReplyView extends StatelessWidget {
                     }
                   },
                   child: Chip(
+<<<<<<< HEAD
                     backgroundColor: style?.replyBackgroundColor ?? theme.palette.getBackground(),
                     elevation: 4,
                     shadowColor: style?.shadowColor ?? theme.palette.getBackground().withOpacity(0.8),
+=======
+                    backgroundColor: style?.replyBackgroundColor ??
+                        theme.palette.getBackground(),
+                    elevation: 4,
+                    shadowColor: style?.shadowColor ??
+                        theme.palette.getBackground().withOpacity(0.8),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                     label: Text(
                       reply,
                       style: style?.replyTextStyle ??
@@ -95,7 +121,12 @@ class SmartReplyView extends StatelessWidget {
                 child: Image.asset(
                   AssetConstants.close,
                   package: UIConstants.packageName,
+<<<<<<< HEAD
                   color: style?.closeIconColor ?? theme.palette.getAccent().withOpacity(0.40),
+=======
+                  color: style?.closeIconColor ??
+                      theme.palette.getAccent().withOpacity(0.40),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 ),
               ),
             )

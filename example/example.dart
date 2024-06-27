@@ -47,8 +47,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+<<<<<<< HEAD
   final String appId = "APP_ID"; //Replace with your app id
   static const String authKey = "AUTH_KEY"; //Replace with your auth key";
+=======
+  final String appId = "239314a25d5dac5e"; //Replace with your app id
+  static const String authKey = "4c2a8cf0afcbe7d1706bcd333863e1613645596d"; //Replace with your auth key";
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   static const String region = "us"; ////Replace with your Region code ";
 
   bool isLoading = true;
@@ -99,7 +104,11 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return const Scaffold(
+=======
+    return Scaffold(
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       body: Center(
         child: CircularProgressIndicator(),
       ),

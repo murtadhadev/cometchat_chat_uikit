@@ -18,7 +18,11 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart' as cc;
 
 class CometChatContacts extends StatefulWidget {
   const CometChatContacts(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.usersConfiguration,
       this.onItemTap,
       this.groupsConfiguration,
@@ -35,8 +39,12 @@ class CometChatContacts extends StatefulWidget {
       this.selectionLimit = 5,
       this.selectionMode,
       this.submitIcon,
+<<<<<<< HEAD
       this.snackBarConfiguration})
       : super(key: key);
+=======
+      this.snackBarConfiguration});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[usersConfiguration] set custom users request builder protocol
   final UsersConfiguration? usersConfiguration;
@@ -69,7 +77,12 @@ class CometChatContacts extends StatefulWidget {
   final CometChatTheme? theme;
 
   ///[onSubmitIconTap] triggered when clicked on submit icon
+<<<<<<< HEAD
   final Function(BuildContext context, List<User>? selectedUsersList, List<Group>? selectedGroupsList)? onSubmitIconTap;
+=======
+  final Function(BuildContext context, List<User>? selectedUsersList,
+      List<Group>? selectedGroupsList)? onSubmitIconTap;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[tabVisibility] parameter to alter visibility of different tabs
   final TabVisibility tabVisibility;
@@ -93,7 +106,12 @@ class CometChatContacts extends StatefulWidget {
   State<CometChatContacts> createState() => _CometChatContactsState();
 }
 
+<<<<<<< HEAD
 class _CometChatContactsState extends State<CometChatContacts> with SingleTickerProviderStateMixin {
+=======
+class _CometChatContactsState extends State<CometChatContacts>
+    with SingleTickerProviderStateMixin {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   late CometChatContactsController cometChatStartConversationController;
   late CometChatTheme theme;
 
@@ -106,10 +124,18 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
         groupsConfiguration: widget.groupsConfiguration,
         selectionMode: widget.selectionMode ?? SelectionMode.none,
         tabVisibility: widget.tabVisibility);
+<<<<<<< HEAD
     cometChatStartConversationController.tabController =
         TabController(length: widget.tabVisibility == TabVisibility.usersAndGroups ? 2 : 1, vsync: this);
     cometChatStartConversationController.tabController
         .addListener(cometChatStartConversationController.tabControllerListener);
+=======
+    cometChatStartConversationController.tabController = TabController(
+        length: widget.tabVisibility == TabVisibility.usersAndGroups ? 2 : 1,
+        vsync: this);
+    cometChatStartConversationController.tabController.addListener(
+        cometChatStartConversationController.tabControllerListener);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     super.initState();
   }
 
@@ -119,7 +145,12 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
     super.dispose();
   }
 
+<<<<<<< HEAD
   Widget getSelectionWidget(CometChatTheme theme, CometChatContactsController controller, BuildContext context) {
+=======
+  Widget getSelectionWidget(CometChatTheme theme,
+      CometChatContactsController controller, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     return IconButton(
         onPressed: () {
           List<Group>? groups;
@@ -141,7 +172,13 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
 
           int selectionLimit = widget.selectionLimit ?? 5;
           if (total > selectionLimit) {
+<<<<<<< HEAD
             SnackBarUtils.show("${cc.Translations.of(context).max_selection_limit_is} $selectionLimit", context);
+=======
+            SnackBarUtils.show(
+                "${cc.Translations.of(context).maxSelectionLimitIs} $selectionLimit",
+                context);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             return;
           }
 
@@ -150,7 +187,13 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
           }
         },
         icon: widget.submitIcon ??
+<<<<<<< HEAD
             Image.asset(AssetConstants.checkmark, package: UIConstants.packageName, color: theme.palette.getPrimary()));
+=======
+            Image.asset(AssetConstants.checkmark,
+                package: UIConstants.packageName,
+                color: theme.palette.getPrimary()));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   @override
@@ -160,8 +203,13 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
         builder: (CometChatContactsController value) {
           value.context = context;
           return CometChatListBase(
+<<<<<<< HEAD
             title: widget.title ?? cc.Translations.of(context).new_message,
             ctheme: theme,
+=======
+            title: widget.title ?? cc.Translations.of(context).newMessage,
+            theme: theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             backIcon: widget.closeIcon ??
                 Image.asset(
                   AssetConstants.close,
@@ -174,7 +222,12 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
             },
             hideSearch: true,
             menuOptions: [
+<<<<<<< HEAD
               if (widget.hideSubmitIcon != true) getSelectionWidget(theme, value, context),
+=======
+              if (widget.hideSubmitIcon != true)
+                getSelectionWidget(theme, value, context),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             ],
             container: Column(
               children: [
@@ -192,10 +245,22 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
                       borderRadius: BorderRadius.circular(
                         18.0,
                       ),
+<<<<<<< HEAD
                       color: widget.contactsStyle.selectedTabColor ?? theme.palette.getPrimary(),
                     ),
                     labelColor: widget.contactsStyle.selectedTabTextStyle?.color ?? theme.palette.getBackground(),
                     unselectedLabelColor: widget.contactsStyle.tabTextStyle?.color ?? theme.palette.getAccent600(),
+=======
+                      color: widget.contactsStyle.selectedTabColor ??
+                          theme.palette.getPrimary(),
+                    ),
+                    labelColor:
+                        widget.contactsStyle.selectedTabTextStyle?.color ??
+                            theme.palette.getBackground(),
+                    unselectedLabelColor:
+                        widget.contactsStyle.tabTextStyle?.color ??
+                            theme.palette.getAccent600(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                     labelStyle: TextStyle(
                       color: theme.palette.getBackground(),
                       fontSize: theme.typography.text1.fontSize,
@@ -209,6 +274,7 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
                       fontWeight: theme.typography.text1.fontWeight,
                     ).merge(widget.contactsStyle.tabTextStyle),
                     tabs: [
+<<<<<<< HEAD
                       if (widget.tabVisibility == TabVisibility.usersAndGroups ||
                           widget.tabVisibility == TabVisibility.users)
                         Tab(
@@ -218,6 +284,21 @@ class _CometChatContactsState extends State<CometChatContacts> with SingleTicker
                           widget.tabVisibility == TabVisibility.groups)
                         Tab(
                           text: widget.groupsTabTitle ?? cc.Translations.of(context).groups,
+=======
+                      if (widget.tabVisibility ==
+                              TabVisibility.usersAndGroups ||
+                          widget.tabVisibility == TabVisibility.users)
+                        Tab(
+                          text: widget.usersTabTitle ??
+                              cc.Translations.of(context).users,
+                        ),
+                      if (widget.tabVisibility ==
+                              TabVisibility.usersAndGroups ||
+                          widget.tabVisibility == TabVisibility.groups)
+                        Tab(
+                          text: widget.groupsTabTitle ??
+                              cc.Translations.of(context).groups,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                         ),
                     ],
                   ),

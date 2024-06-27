@@ -12,6 +12,7 @@ class DetailsStyle extends BaseStyles {
       this.protectedGroupIconBackground,
       this.onlineStatusColor,
       double? width,
+<<<<<<< HEAD
       double? height,
       Color? background,
       Gradient? gradient,
@@ -21,6 +22,12 @@ class DetailsStyle extends BaseStyles {
             background: background,
             gradient: gradient,
             border: border);
+=======
+      super.height,
+      super.background,
+      super.gradient,
+      Border? super.border});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[titleStyle] provides styling for title text
   final TextStyle? titleStyle;

@@ -21,15 +21,23 @@ import '../../../../cometchat_chat_uikit.dart';
 /// ```
 class StickerAuxiliaryButton extends StatefulWidget {
   const StickerAuxiliaryButton(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.keyboardButtonIcon,
       this.stickerButtonIcon,
       this.onKeyboardTap,
       this.onStickerTap,
       this.theme,
       this.stickerIconTint,
+<<<<<<< HEAD
       this.keyboardIconTint})
       : super(key: key);
+=======
+      this.keyboardIconTint});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[stickerButtonIcon] shows stickers keyboard
   final Widget? stickerButtonIcon;
@@ -53,7 +61,11 @@ class StickerAuxiliaryButton extends StatefulWidget {
   final Color? keyboardIconTint;
 
   @override
+<<<<<<< HEAD
   _StickerAuxiliaryButtonState createState() => _StickerAuxiliaryButtonState();
+=======
+  State<StickerAuxiliaryButton> createState() => _StickerAuxiliaryButtonState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _StickerAuxiliaryButtonState extends State<StickerAuxiliaryButton>

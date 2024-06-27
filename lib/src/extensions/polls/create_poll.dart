@@ -15,8 +15,12 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 /// ```
 class CreatePoll extends StatefulWidget {
   const CreatePoll(
+<<<<<<< HEAD
       {Key? key,
       // this.onCreatePoll,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.title,
       this.user,
       this.group,
@@ -30,8 +34,12 @@ class CreatePoll extends StatefulWidget {
       this.closeIcon,
       this.createPollIcon,
       this.theme,
+<<<<<<< HEAD
       this.style})
       : super(key: key);
+=======
+      this.style});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] title default is 'Create Poll'
   final String? title;
@@ -76,7 +84,11 @@ class CreatePoll extends StatefulWidget {
   final CometChatTheme? theme;
 
   @override
+<<<<<<< HEAD
   _CreatePollState createState() => _CreatePollState();
+=======
+  State<CreatePoll> createState() => _CreatePollState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _CreatePollState extends State<CreatePoll> {
@@ -152,15 +164,24 @@ class _CreatePollState extends State<CreatePoll> {
           ),
           context: context,
           messageText: Text(
+<<<<<<< HEAD
             Translations.of(context).something_wrong,
+=======
+            Translations.of(context).somethingWrong,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             style: TextStyle(
                 fontSize: _theme.typography.title2.fontSize,
                 fontWeight: _theme.typography.title2.fontWeight,
                 color: _theme.palette.getAccent(),
                 fontFamily: _theme.typography.title2.fontFamily),
           ),
+<<<<<<< HEAD
           cancelButtonText: Translations.of(context).cancel_capital,
           confirmButtonText: Translations.of(context).try_again,
+=======
+          cancelButtonText: Translations.of(context).cancelCapital,
+          confirmButtonText: Translations.of(context).tryAgain,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           onCancel: () {
             Navigator.pop(context);
             Navigator.pop(context);
@@ -194,7 +215,11 @@ class _CreatePollState extends State<CreatePoll> {
               },
         ),
         title: Text(
+<<<<<<< HEAD
           widget.title ?? Translations.of(context).create_poll,
+=======
+          widget.title ?? Translations.of(context).createPoll,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           style: TextStyle(
                   color: _theme.palette.getAccent(),
                   fontSize: _theme.typography.title1.fontSize,
@@ -205,11 +230,15 @@ class _CreatePollState extends State<CreatePoll> {
           IconButton(
               onPressed: () async {
                 if (formKey.currentState!.validate() && _answers.isNotEmpty) {
+<<<<<<< HEAD
                   // if (widget.onCreatePoll != null) {
                   //   await widget.onCreatePoll!(_question, _answers);
                   // } else {
                   createPoll();
                   // }
+=======
+                  createPoll();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                 }
               },
               icon: widget.createPollIcon ??
@@ -234,7 +263,11 @@ class _CreatePollState extends State<CreatePoll> {
                 TextFormField(
                   validator: (value) {
                     if (value == null || value.isEmpty) {
+<<<<<<< HEAD
                       return Translations.of(context).invalid_poll_question;
+=======
+                      return Translations.of(context).invalidPollQuestion;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                     }
                     return null;
                   },
@@ -263,7 +296,10 @@ class _CreatePollState extends State<CreatePoll> {
                             color: widget.style?.borderColor ??
                                 _theme.palette.getAccent200()),
                       ),
+<<<<<<< HEAD
                       // labelText: 'Question',
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       hintText: widget.questionPlaceholderText ??
                           Translations.of(context).question,
                       labelStyle: TextStyle(
@@ -284,7 +320,11 @@ class _CreatePollState extends State<CreatePoll> {
                 ),
                 Text(
                   widget.answerHelpText ??
+<<<<<<< HEAD
                       Translations.of(context).set_the_answers,
+=======
+                      Translations.of(context).setTheAnswers,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   style: TextStyle(
                           color: _theme.palette.getAccent600(),
                           fontSize: _theme.typography.text2.fontSize,
@@ -309,7 +349,11 @@ class _CreatePollState extends State<CreatePoll> {
                     focusNode.requestFocus();
                   },
                   child: Text(
+<<<<<<< HEAD
                     Translations.of(context).add_another_answer,
+=======
+                    Translations.of(context).addAnotherAnswer,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                     style: TextStyle(
                             color: _theme.palette.getPrimary(),
                             fontSize: _theme.typography.body.fontSize,
@@ -326,6 +370,7 @@ class _CreatePollState extends State<CreatePoll> {
     );
   }
 
+<<<<<<< HEAD
   // getTextFields() => textFields;
 
   getTextKey(int index, String initialText, {FocusNode? focusNode}) {
@@ -403,6 +448,79 @@ class _CreatePollState extends State<CreatePoll> {
                   fontFamily: _theme.typography.body.fontFamily,
                   fontWeight: _theme.typography.body.fontWeight,
                 ).merge(widget.style?.hintTextStyle)),
+=======
+  getTextKey(int index, String initialText, {FocusNode? focusNode}) {
+    return SizedBox(
+      key: UniqueKey(),
+      child: Center(
+        child: TextFormField(
+          initialValue: initialText,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return Translations.of(context).invalidPollQuestion;
+            }
+            return null;
+          },
+          focusNode: focusNode,
+          onChanged: (String val) {
+            _answers[index] = val;
+          },
+          style: TextStyle(
+            color: _theme.palette.getAccent(),
+            fontSize: _theme.typography.body.fontSize,
+            fontFamily: _theme.typography.body.fontFamily,
+            fontWeight: _theme.typography.body.fontWeight,
+          ).merge(widget.style?.inputTextStyle),
+          decoration: InputDecoration(
+            border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.style?.borderColor ??
+                      _theme.palette.getAccent200()),
+            ),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.style?.borderColor ??
+                      _theme.palette.getAccent200()),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.style?.borderColor ??
+                      _theme.palette.getAccent200()),
+            ),
+            labelText: widget.answerPlaceholderText ??
+                '${Translations.of(context).answer} ${index + 1}',
+            labelStyle: TextStyle(
+              color: _theme.palette.getAccent600(),
+              fontSize: _theme.typography.body.fontSize,
+              fontFamily: _theme.typography.body.fontFamily,
+              fontWeight: _theme.typography.body.fontWeight,
+            ).merge(widget.style?.hintTextStyle),
+            hintStyle: TextStyle(
+              color: _theme.palette.getAccent600(),
+              fontSize: _theme.typography.body.fontSize,
+              fontFamily: _theme.typography.body.fontFamily,
+              fontWeight: _theme.typography.body.fontWeight,
+            ).merge(widget.style?.hintTextStyle),
+            suffixIcon: index < widget.defaultAnswers
+                ? const SizedBox()
+                : IconButton(
+                    onPressed: () {
+                      _answers.removeAt(index);
+                      textFields.removeAt(index);
+                      for (var i = index; i < textFields.length; i++) {
+                        textFields[i] = getTextKey(i, _answers[i]);
+                      }
+                      setState(() {});
+                    },
+                    icon: widget.deleteIcon ??
+                        Image.asset(
+                          AssetConstants.delete,
+                          package: UIConstants.packageName,
+                          color: widget.style?.deleteIconColor ??
+                              _theme.palette.getAccent500(),
+                        ),
+                  ),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           ),
         ),
       ),

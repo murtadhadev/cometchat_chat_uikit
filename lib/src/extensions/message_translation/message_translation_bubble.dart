@@ -19,14 +19,27 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 /// ```
 class MessageTranslationBubble extends StatelessWidget {
   const MessageTranslationBubble(
+<<<<<<< HEAD
       {Key? key, this.translatedText = "", this.ctheme, required this.alignment, this.child, this.style})
       : super(key: key);
+=======
+      {super.key,
+      this.translatedText = "",
+      this.theme,
+      required this.alignment,
+      this.child,
+      this.style});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[translatedText] translated version of messageText
   final String translatedText;
 
   ///[theme] sets custom theme
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
+=======
+  final CometChatTheme? theme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[alignment] of the bubble
   final BubbleAlignment alignment;
@@ -39,7 +52,11 @@ class MessageTranslationBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     CometChatTheme theme = ctheme ?? cometChatTheme;
+=======
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -73,7 +90,10 @@ class MessageTranslationBubble extends StatelessWidget {
           ),
         ),
       ],
+<<<<<<< HEAD
       // ),
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     );
   }
 }

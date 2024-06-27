@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 ///[AIConversationSummaryConfiguration] is a data class that has configuration properties
 ///to customize the functionality and appearance of [AIConversationSummaryConfiguration]
 ///
+<<<<<<< HEAD
 // title // mobile-only
 // apiConfiguration?: (user?: CometChat.User, group?: CometChat.Group) { };
 // conversationSummaryStyle?: AIConversationSummaryStyle;
@@ -38,6 +39,29 @@ class AIConversationSummaryConfiguration {
     this.errorIconPackageName,
     this.loadingIconPackageName
   });
+=======
+class AIConversationSummaryConfiguration {
+  AIConversationSummaryConfiguration(
+      {this.customView,
+      this.conversationSummaryStyle,
+      this.title,
+      this.apiConfiguration,
+      this.unreadMessageThreshold = 30,
+      this.theme,
+      this.loadingStateText,
+      this.errorStateText,
+      this.emptyStateText,
+      this.loadingIconUrl,
+      this.loadingStateView,
+      this.errorIconUrl,
+      this.errorStateView,
+      this.emptyStateView,
+      this.emptyIconUrl,
+      this.onCloseIconTap,
+      this.emptyIconPackageName,
+      this.errorIconPackageName,
+      this.loadingIconPackageName});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[conversationStarterStyle] provides styling to the reply view
   final AIConversationSummaryStyle? conversationSummaryStyle;
@@ -54,7 +78,10 @@ class AIConversationSummaryConfiguration {
   ///[errorStateText] text to be displayed when error occur
   final String? errorStateText;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[emptyStateView] returns view for empty state
   final WidgetBuilder? emptyStateView;
 
@@ -76,7 +103,10 @@ class AIConversationSummaryConfiguration {
   ///[onCloseIconTap] used to set the close icon function
   final Function(Map<String, dynamic> id)? onCloseIconTap;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   ///[errorIconPackageName] used to set the error icon package name
   final String? errorIconPackageName;
 
@@ -90,7 +120,12 @@ class AIConversationSummaryConfiguration {
   final String? title;
 
   ///[apiConfiguration] set the api configuration
+<<<<<<< HEAD
   final Future<Map<String, dynamic>> Function(User? user,  Group? group)? apiConfiguration;
+=======
+  final Future<Map<String, dynamic>> Function(User? user, Group? group)?
+      apiConfiguration;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[unreadMessageThreshold] set the unread message count threshold
   final int? unreadMessageThreshold;
@@ -98,6 +133,7 @@ class AIConversationSummaryConfiguration {
   ///[customView] set the custom view
   final Widget Function(String summary, BuildContext context)? customView;
 
+<<<<<<< HEAD
 
   /// Copies current [AIConversationSummaryConfiguration] with some changes
   AIConversationSummaryConfiguration copyWith({
@@ -123,11 +159,40 @@ class AIConversationSummaryConfiguration {
     return AIConversationSummaryConfiguration(
       conversationSummaryStyle:
       conversationSummaryStyle ?? this.conversationSummaryStyle,
+=======
+  /// Copies current [AIConversationSummaryConfiguration] with some changes
+  AIConversationSummaryConfiguration copyWith(
+      {AIConversationSummaryStyle? conversationSummaryStyle,
+      CometChatTheme? theme,
+      String? emptyStateText,
+      String? loadingStateText,
+      String? errorStateText,
+      Widget Function(List<String> replies, BuildContext context)? customView,
+      Widget Function(List<String> replies, BuildContext context)?
+          conversationStarterEmptyView,
+      WidgetBuilder? emptyStateView,
+      WidgetBuilder? loadingStateView,
+      WidgetBuilder? errorStateView,
+      String? errorIconUrl,
+      String? emptyIconUrl,
+      String? loadingIconUrl,
+      final String? errorIconPackageName,
+      final String? loadingIconPackageName,
+      final String? emptyIconPackageName,
+      Future<Map<String, dynamic>> Function(User? user, Group? group)?
+          apiConfiguration}) {
+    return AIConversationSummaryConfiguration(
+      conversationSummaryStyle:
+          conversationSummaryStyle ?? this.conversationSummaryStyle,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       theme: theme ?? this.theme,
       emptyStateText: emptyStateText ?? this.emptyStateText,
       loadingStateText: loadingStateText ?? this.loadingStateText,
       errorStateText: errorStateText ?? this.errorStateText,
+<<<<<<< HEAD
      // customView: customView ?? this.customView,
+=======
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       emptyStateView: emptyStateView ?? this.emptyStateView,
       loadingStateView: loadingStateView ?? this.loadingStateView,
       errorStateView: errorStateView ?? this.errorStateView,
@@ -136,7 +201,12 @@ class AIConversationSummaryConfiguration {
       loadingIconUrl: loadingIconUrl ?? this.loadingIconUrl,
       errorIconPackageName: errorIconPackageName ?? this.errorIconPackageName,
       emptyIconPackageName: emptyIconPackageName ?? this.emptyIconPackageName,
+<<<<<<< HEAD
       loadingIconPackageName: loadingIconPackageName ?? this.loadingIconPackageName,
+=======
+      loadingIconPackageName:
+          loadingIconPackageName ?? this.loadingIconPackageName,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       apiConfiguration: apiConfiguration ?? this.apiConfiguration,
     );
   }

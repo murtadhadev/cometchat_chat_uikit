@@ -10,6 +10,7 @@ class MessageHeaderStyle extends BaseStyles {
     this.onlineStatusColor,
     this.subtitleTextStyle,
     this.typingIndicatorTextStyle,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
@@ -23,6 +24,15 @@ class MessageHeaderStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[backButtonIconTint] provides color to back button
   final Color? backButtonIconTint;

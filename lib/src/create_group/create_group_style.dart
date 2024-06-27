@@ -17,6 +17,7 @@ class CreateGroupStyle extends BaseStyles {
     this.passwordPlaceholderTextStyle,
     this.nameInputTextStyle,
     this.passwordInputTextStyle,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
@@ -30,6 +31,15 @@ class CreateGroupStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[closeIconTint] provides color to back icon
   final Color? closeIconTint;

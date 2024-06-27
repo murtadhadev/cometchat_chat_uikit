@@ -19,10 +19,16 @@ class ImageModerationFilter extends StatefulWidget {
       {required this.message,
       this.theme,
       required this.child,
+<<<<<<< HEAD
       Key? key,
       this.warningText,
       this.style})
       : super(key: key);
+=======
+      super.key,
+      this.warningText,
+      this.style});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[message] the object containing the image
   final MediaMessage message;
@@ -40,7 +46,11 @@ class ImageModerationFilter extends StatefulWidget {
   final ImageModerationFilterStyle? style;
 
   @override
+<<<<<<< HEAD
   _ImageModerationFilterState createState() => _ImageModerationFilterState();
+=======
+  State<ImageModerationFilter> createState() => _ImageModerationFilterState();
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }
 
 class _ImageModerationFilterState extends State<ImageModerationFilter> {
@@ -80,7 +90,11 @@ class _ImageModerationFilterState extends State<ImageModerationFilter> {
         onTap: () {
           showCometChatConfirmDialog(
             context: context,
+<<<<<<< HEAD
             title: Text(Translations.of(context).are_you_sure_unsafe_content),
+=======
+            title: Text(Translations.of(context).areYouSureUnsafeContent),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             messageText: const Text("Do image change"),
             confirmButtonText: Translations.of(context).yes,
             cancelButtonText: Translations.of(context).cancel,
@@ -112,7 +126,11 @@ class _ImageModerationFilterState extends State<ImageModerationFilter> {
                   height: 12,
                 ),
                 Text(
+<<<<<<< HEAD
                   widget.warningText ?? Translations.of(context).unsafe_content,
+=======
+                  widget.warningText ?? Translations.of(context).unsafeContent,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   style: widget.style?.warningTextStyle ??
                       TextStyle(
                           fontSize: _theme.typography.subtitle2.fontSize,

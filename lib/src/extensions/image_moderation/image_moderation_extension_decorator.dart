@@ -7,8 +7,12 @@ class ImageModerationExtensionDecorator extends DataSourceDecorator {
   User? loggedInUser;
   ImageModerationConfiguration? configuration;
 
+<<<<<<< HEAD
   ImageModerationExtensionDecorator(DataSource dataSource, {this.configuration})
       : super(dataSource) {
+=======
+  ImageModerationExtensionDecorator(super.dataSource, {this.configuration}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     getLoggedInUser();
   }
 

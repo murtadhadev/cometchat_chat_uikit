@@ -7,8 +7,12 @@ class StickersExtensionDecorator extends DataSourceDecorator {
   String stickerTypeConstant = "extension_sticker";
   StickerConfiguration? configuration;
 
+<<<<<<< HEAD
   StickersExtensionDecorator(DataSource dataSource, {this.configuration})
       : super(dataSource);
+=======
+  StickersExtensionDecorator(super.dataSource, {this.configuration});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   @override
   List<CometChatMessageTemplate> getAllMessageTemplates(
@@ -63,7 +67,11 @@ class StickersExtensionDecorator extends DataSourceDecorator {
     if (message != null &&
         message.type == stickerTypeConstant &&
         message.category == MessageCategoryConstants.custom) {
+<<<<<<< HEAD
       return Translations.of(context).custom_message_sticker;
+=======
+      return Translations.of(context).customMessageSticker;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     } else {
       return super.getLastConversationMessage(conversation, context);
     }
@@ -74,7 +82,12 @@ class StickersExtensionDecorator extends DataSourceDecorator {
         type: stickerTypeConstant,
         category: CometChatMessageCategory.custom,
         contentView: (BaseMessage message, BuildContext context,
+<<<<<<< HEAD
             BubbleAlignment alignment) {
+=======
+            BubbleAlignment alignment,
+            {AdditionalConfigurations? additionalConfigurations}) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           if (message.deletedAt != null) {
             return super
                 .getDeleteMessageBubble(message, theme ?? cometChatTheme);
@@ -118,6 +131,13 @@ class StickersExtensionDecorator extends DataSourceDecorator {
           category: CometChatMessageCategory.custom,
           parentMessageId: parentMessageId,
           muid: DateTime.now().microsecondsSinceEpoch.toString(),
+<<<<<<< HEAD
+=======
+          updateConversation: true,
+          metadata: {
+            UpdateSettingsConstant.incrementUnreadCount: true,
+          },
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         );
 
         CometChatUIKit.sendCustomMessage(customMessage);

@@ -17,17 +17,27 @@ class GroupsStyle extends BaseStyles {
     this.loadingIconTint,
     this.emptyTextStyle,
     this.errorTextStyle,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
     BoxBorder? border,
     double? borderRadius,
     Gradient? gradient,
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     this.subtitleTextStyle,
     this.privateGroupIconBackground,
     this.passwordGroupIconBackground,
     this.selectionIconTint,
     this.submitIconTint,
+<<<<<<< HEAD
   }) : super(
             width: width,
             height: height,
@@ -35,6 +45,9 @@ class GroupsStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[titleStyle] provides styling for title text
   final TextStyle? titleStyle;

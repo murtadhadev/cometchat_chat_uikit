@@ -20,7 +20,11 @@ import '../../cometchat_chat_uikit.dart' as cc;
 
 class CometChatMessageInformation extends StatefulWidget {
   const CometChatMessageInformation({
+<<<<<<< HEAD
     Key? key,
+=======
+    super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     required this.message,
     this.title,
     this.closeIcon,
@@ -42,7 +46,11 @@ class CometChatMessageInformation extends StatefulWidget {
     this.loadingIconUrl,
     this.loadingStateView,
     this.errorStateView,
+<<<<<<< HEAD
   }) : super(key: key);
+=======
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[message] parent message for message information
   final BaseMessage message;
@@ -57,10 +65,19 @@ class CometChatMessageInformation extends StatefulWidget {
   final Widget Function(BaseMessage, BuildContext context)? bubbleView;
 
   ///[listItemView] list item view for parent message
+<<<<<<< HEAD
   final Widget Function(BaseMessage message, MessageReceipt messageReceipt, BuildContext context)? listItemView;
 
   ///[subTitleView] gives subtitle view
   final Widget Function(BaseMessage message, MessageReceipt messageReceipt, BuildContext context)? subTitleView;
+=======
+  final Widget Function(BaseMessage message, MessageReceipt messageReceipt,
+      BuildContext context)? listItemView;
+
+  ///[subTitleView] gives subtitle view
+  final Widget Function(BaseMessage message, MessageReceipt messageReceipt,
+      BuildContext context)? subTitleView;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[receiptDatePattern] to format receipt date
   final String? receiptDatePattern;
@@ -108,11 +125,22 @@ class CometChatMessageInformation extends StatefulWidget {
   final WidgetBuilder? errorStateView;
 
   @override
+<<<<<<< HEAD
   State<CometChatMessageInformation> createState() => _CometChatMessageInformationState();
 }
 
 class _CometChatMessageInformationState extends State<CometChatMessageInformation> {
   late CometchatMessageInformationController cometchatMessageInformationController;
+=======
+  State<CometChatMessageInformation> createState() =>
+      _CometChatMessageInformationState();
+}
+
+class _CometChatMessageInformationState
+    extends State<CometChatMessageInformation> {
+  late CometchatMessageInformationController
+      cometchatMessageInformationController;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   late CometChatTheme _theme;
 
   late CometChatMessageTemplate _messageTemplate;
@@ -121,23 +149,43 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
   void initState() {
     super.initState();
     _theme = widget.theme ?? cometChatTheme;
+<<<<<<< HEAD
     List<CometChatMessageTemplate> template = CometChatUIKit.getDataSource().getAllMessageTemplates();
     for (var element in template) {
       if (widget.message.category == element.category && widget.message.type == element.type) {
+=======
+    List<CometChatMessageTemplate> template =
+        CometChatUIKit.getDataSource().getAllMessageTemplates();
+    for (var element in template) {
+      if (widget.message.category == element.category &&
+          widget.message.type == element.type) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         _messageTemplate = element;
       }
     }
     _messageTemplate = widget.template ?? _messageTemplate;
     cometchatMessageInformationController =
+<<<<<<< HEAD
         CometchatMessageInformationController(widget.message, _theme, widget.onError);
     cometchatMessageInformationController.fetchMessageRecipients(
         cometchatMessageInformationController.group, cometchatMessageInformationController.parentMessage);
+=======
+        CometchatMessageInformationController(
+            widget.message, _theme, widget.onError);
+    cometchatMessageInformationController.fetchMessageRecipients(
+        cometchatMessageInformationController.group,
+        cometchatMessageInformationController.parentMessage);
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
   }
 
   @override
   Widget build(BuildContext context) {
     return CometChatListBase(
+<<<<<<< HEAD
       title: widget.title ?? cc.Translations.of(context).message_information,
+=======
+      title: widget.title ?? cc.Translations.of(context).messageInformation,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       hideSearch: true,
       backIcon: widget.closeIcon ??
           Image.asset(
@@ -146,7 +194,11 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
             color: _theme.palette.getPrimary(),
           ),
       showBackButton: true,
+<<<<<<< HEAD
       ctheme: _theme,
+=======
+      theme: _theme,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       onBack: widget.onClose ??
           () {
             Navigator.of(context).pop();
@@ -159,7 +211,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
         gradient: widget.messageInformationStyle?.gradient,
         height: widget.messageInformationStyle?.height,
         width: widget.messageInformationStyle?.width,
+<<<<<<< HEAD
         backIconTint: widget.messageInformationStyle?.closeIconTint ?? _theme.palette.getPrimary(),
+=======
+        backIconTint: widget.messageInformationStyle?.closeIconTint ??
+            _theme.palette.getPrimary(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         border: widget.messageInformationStyle?.border,
         borderRadius: widget.messageInformationStyle?.borderRadius,
       ),
@@ -167,7 +224,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
         init: cometchatMessageInformationController,
         builder: (CometchatMessageInformationController value) {
           if (value.hasError == true) {
+<<<<<<< HEAD
             WidgetsBinding.instance.addPostFrameCallback((_) => _showError(value, context, _theme));
+=======
+            WidgetsBinding.instance.addPostFrameCallback(
+                (_) => _showError(value, context, _theme));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             if (widget.errorStateView != null) {
               return widget.errorStateView!(context);
             }
@@ -175,6 +237,7 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
           } else if (value.isLoading == true) {
             return _getLoadingIndicator(context, _theme);
           } else {
+<<<<<<< HEAD
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -240,6 +303,93 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
                         ),
                       ),
               ],
+=======
+            return SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    cc.Translations.of(context).message,
+                    style: widget.messageInformationStyle?.titleStyle ??
+                        TextStyle(
+                            fontSize: _theme.typography.text1.fontSize,
+                            fontWeight: _theme.typography.text1.fontWeight,
+                            color: _theme.palette.getAccent400()),
+                  ),
+                  Divider(
+                    color: widget.messageInformationStyle?.dividerTint ??
+                        _theme.palette.getAccent500(),
+                  ),
+                  (widget.bubbleView != null)
+                      ? getBubbleView(value, context)
+                      : MessageUtils.getMessageBubble(
+                          context: context,
+                          theme: _theme,
+                          bubbleAlignment: BubbleAlignment.right,
+                          message: value.parentMessage,
+                          template: _messageTemplate,
+                        ),
+                  Divider(
+                    color: widget.messageInformationStyle?.dividerTint ??
+                        _theme.palette.getAccent500(),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    cc.Translations.of(context).receiptInformation,
+                    style: widget.messageInformationStyle?.titleStyle ??
+                        TextStyle(
+                            fontSize: _theme.typography.text1.fontSize,
+                            fontWeight: _theme.typography.text1.fontWeight,
+                            color: _theme.palette.getAccent400()),
+                  ),
+                  Divider(
+                    color: widget.messageInformationStyle?.dividerTint ??
+                        _theme.palette.getAccent500(),
+                  ),
+                  SizedBox(
+                    child: (cometchatMessageInformationController
+                            .messageReceiptList.isEmpty)
+                        ? _getNoRecipient(context, _theme)
+                        : ListView.separated(
+                            itemCount: cometchatMessageInformationController
+                                .messageReceiptList.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              final messageReceipt =
+                                  cometchatMessageInformationController
+                                      .messageReceiptList[index];
+                              return ((cometchatMessageInformationController
+                                              .parentMessage.receiver is User &&
+                                          cometchatMessageInformationController
+                                                  .parentMessage.sentAt !=
+                                              null) &&
+                                      (cometchatMessageInformationController
+                                                  .parentMessage.readAt ==
+                                              null &&
+                                          cometchatMessageInformationController
+                                                  .parentMessage.deliveredAt ==
+                                              null))
+                                  ? _getNoRecipient(context, _theme)
+                                  : _getListItemView(
+                                      value, messageReceipt, context);
+                            },
+                            separatorBuilder: (context, index) {
+                              return Divider(
+                                color: widget
+                                        .messageInformationStyle?.dividerTint ??
+                                    _theme.palette.getAccent500(),
+                              );
+                            },
+                          ),
+                  ),
+                ],
+              ),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             );
           }
         },
@@ -247,7 +397,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
     );
   }
 
+<<<<<<< HEAD
   _getListItemView(CometchatMessageInformationController value, MessageReceipt messageReceipt, BuildContext context) {
+=======
+  _getListItemView(CometchatMessageInformationController value,
+      MessageReceipt messageReceipt, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (widget.listItemView != null) {
       return widget.listItemView!(value.parentMessage, messageReceipt, context);
     } else {
@@ -270,7 +425,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
     }
   }
 
+<<<<<<< HEAD
   _getSubTitleView(CometchatMessageInformationController value, MessageReceipt messageReceipt, BuildContext context) {
+=======
+  _getSubTitleView(CometchatMessageInformationController value,
+      MessageReceipt messageReceipt, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (widget.subTitleView != null) {
       return widget.subTitleView!(value.parentMessage, messageReceipt, context);
     } else {
@@ -288,7 +448,13 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
                       Image.asset(
                         AssetConstants.messageReceived,
                         package: UIConstants.packageName,
+<<<<<<< HEAD
                         color: widget.messageInformationStyle?.deliveredIconTint ?? _theme.palette.getAccent(),
+=======
+                        color:
+                            widget.messageInformationStyle?.deliveredIconTint ??
+                                _theme.palette.getAccent(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       ),
                   widget.messageInformationStyle ??
                       MessageInformationStyle(
@@ -316,7 +482,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
                       Image.asset(
                         AssetConstants.messageReceived,
                         package: UIConstants.packageName,
+<<<<<<< HEAD
                         color: widget.messageInformationStyle?.readIconTint ?? _theme.palette.getPrimary(),
+=======
+                        color: widget.messageInformationStyle?.readIconTint ??
+                            _theme.palette.getPrimary(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                       ),
                   widget.messageInformationStyle ??
                       MessageInformationStyle(
@@ -340,7 +511,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
     }
   }
 
+<<<<<<< HEAD
   getBubbleView(CometchatMessageInformationController controller, BuildContext context) {
+=======
+  getBubbleView(
+      CometchatMessageInformationController controller, BuildContext context) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     if (widget.bubbleView != null) {
       return widget.bubbleView!(controller.parentMessage, context);
     } else {
@@ -390,7 +566,11 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
     } else {
       return Center(
         child: Text(
+<<<<<<< HEAD
           widget.emptyStateText ?? cc.Translations.of(context).no_recipient,
+=======
+          widget.emptyStateText ?? cc.Translations.of(context).noRecipient,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           style: widget.messageInformationStyle?.emptyTextStyle ??
               TextStyle(
                   fontSize: theme.typography.title1.fontSize,
@@ -409,12 +589,18 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
         child: Image.asset(
           widget.loadingIconUrl ?? AssetConstants.spinner,
           package: UIConstants.packageName,
+<<<<<<< HEAD
           color: widget.messageInformationStyle?.loadingIconTint ?? theme.palette.getAccent600(),
+=======
+          color: widget.messageInformationStyle?.loadingIconTint ??
+              theme.palette.getAccent600(),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
         ),
       );
     }
   }
 
+<<<<<<< HEAD
   _showError(CometchatMessageInformationController controller, BuildContext context, CometChatTheme theme) {
     String error;
     if (controller.error != null && controller.error is CometChatException) {
@@ -422,13 +608,29 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
           widget.errorStateText ?? Utils.getErrorTranslatedText(context, (controller.error as CometChatException).code);
     } else {
       error = widget.errorStateText ?? cc.Translations.of(context).no_recipient;
+=======
+  _showError(CometchatMessageInformationController controller,
+      BuildContext context, CometChatTheme theme) {
+    String error;
+    if (controller.error != null && controller.error is CometChatException) {
+      error = widget.errorStateText ??
+          Utils.getErrorTranslatedText(
+              context, (controller.error as CometChatException).code);
+    } else {
+      error = widget.errorStateText ?? cc.Translations.of(context).noRecipient;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     }
     if (widget.errorStateView != null) {}
     _showErrorDialog(error, context, theme, controller);
   }
 
+<<<<<<< HEAD
   _showErrorDialog(
       String errorText, BuildContext context, CometChatTheme theme, CometchatMessageInformationController controller) {
+=======
+  _showErrorDialog(String errorText, BuildContext context, CometChatTheme theme,
+      CometchatMessageInformationController controller) {
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
     showCometChatConfirmDialog(
         context: context,
         messageText: Text(
@@ -444,7 +646,12 @@ class _CometChatMessageInformationState extends State<CometChatMessageInformatio
         style: ConfirmDialogStyle(
             backgroundColor: theme.palette.mode == PaletteThemeModes.light
                 ? theme.palette.getBackground()
+<<<<<<< HEAD
                 : Color.alphaBlend(theme.palette.getAccent200(), theme.palette.getBackground()),
+=======
+                : Color.alphaBlend(theme.palette.getAccent200(),
+                    theme.palette.getBackground()),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             shadowColor: theme.palette.getAccent300(),
             confirmButtonTextStyle: TextStyle(
                 fontSize: theme.typography.text2.fontSize,

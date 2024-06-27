@@ -10,6 +10,7 @@ class ThreadedMessageStyle extends BaseStyles {
   ///[titleStyle] sets TextStyle for title
   final TextStyle? titleStyle;
 
+<<<<<<< HEAD
   const ThreadedMessageStyle(
       {double? width,
       double? height,
@@ -26,4 +27,16 @@ class ThreadedMessageStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+  const ThreadedMessageStyle({
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+    this.titleStyle,
+    this.closeIconTint,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

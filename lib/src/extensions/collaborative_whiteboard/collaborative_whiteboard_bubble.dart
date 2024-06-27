@@ -27,8 +27,19 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///
 class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
   const CometChatCollaborativeWhiteBoardBubble(
+<<<<<<< HEAD
       {Key? key, required this.url, this.title, this.subtitle, this.icon, this.buttonText, this.style, this.ctheme})
       : super(key: key);
+=======
+      {super.key,
+      required this.url,
+      this.title,
+      this.subtitle,
+      this.icon,
+      this.buttonText,
+      this.style,
+      this.theme});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[title] title to be displayed default is 'Collaborative Whiteboard'
   final String? title;
@@ -49,6 +60,7 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
   final String? url;
 
   ///[theme] sets custom theme
+<<<<<<< HEAD
   final CometChatTheme? ctheme;
 
   @override
@@ -57,11 +69,26 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
     return Container(
       color: style?.background ?? Colors.transparent,
       constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 65 / 100),
+=======
+  final CometChatTheme? theme;
+
+  @override
+  Widget build(BuildContext context) {
+    CometChatTheme theme = this.theme ?? cometChatTheme;
+    return Container(
+      color: style?.background ?? Colors.transparent,
+      constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 65 / 100),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       child: Column(
         children: [
           ListTile(
             title: Text(
+<<<<<<< HEAD
               title ?? Translations.of(context).collaborative_whiteboard,
+=======
+              title ?? Translations.of(context).collaborativeDocument,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               style: style?.titleStyle ??
                   TextStyle(
                       color: theme.palette.getAccent(),
@@ -69,7 +96,11 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
                       fontWeight: theme.typography.text1.fontWeight),
             ),
             subtitle: Text(
+<<<<<<< HEAD
               subtitle ?? Translations.of(context).open_whiteboard_subtitle,
+=======
+              subtitle ?? Translations.of(context).openWhiteboardSubtitle,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
               style: style?.subtitleStyle ??
                   TextStyle(
                       color: theme.palette.getAccent600(),
@@ -98,6 +129,7 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => CometChatWebView(
+<<<<<<< HEAD
                             title: title ?? Translations.of(context).collaborative_whiteboard,
                             webViewUrl: url!,
                             appBarColor: style?.webViewAppBarColor ?? theme.palette.getBackground(),
@@ -108,6 +140,23 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
                                       color: theme.palette.getAccent(),
                                       fontSize: theme.typography.heading.fontSize,
                                       fontWeight: theme.typography.heading.fontWeight),
+=======
+                            title: title ??
+                                Translations.of(context).collaborativeDocument,
+                            webViewUrl: url!,
+                            appBarColor: style?.webViewAppBarColor ??
+                                theme.palette.getBackground(),
+                            webViewStyle: WebViewStyle(
+                              backIconColor: style?.webViewBackIconColor ??
+                                  theme.palette.getPrimary(),
+                              titleStyle: style?.webViewTitleStyle ??
+                                  TextStyle(
+                                      color: theme.palette.getAccent(),
+                                      fontSize:
+                                          theme.typography.heading.fontSize,
+                                      fontWeight:
+                                          theme.typography.heading.fontWeight),
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                             ))));
               }
             },
@@ -116,7 +165,11 @@ class CometChatCollaborativeWhiteBoardBubble extends StatelessWidget {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(
+<<<<<<< HEAD
                   buttonText ?? Translations.of(context).open_whiteboard,
+=======
+                  buttonText ?? Translations.of(context).openWhiteboard,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                   style: style?.buttonTextStyle ??
                       TextStyle(
                           color: theme.palette.getPrimary(),

@@ -21,6 +21,7 @@ class GroupMembersStyle extends BaseStyles {
     this.separatorColor,
     this.memberScopeTextStyle,
     this.listPadding,
+<<<<<<< HEAD
     double? width,
     double? height,
     Color? background,
@@ -34,6 +35,15 @@ class GroupMembersStyle extends BaseStyles {
             border: border,
             borderRadius: borderRadius,
             gradient: gradient);
+=======
+    super.width,
+    super.height,
+    super.background,
+    super.border,
+    super.borderRadius,
+    super.gradient,
+  });
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[titleStyle] provides styling for title text
   final TextStyle? titleStyle;

@@ -20,6 +20,7 @@ import 'package:cometchat_chat_uikit/cometchat_chat_uikit.dart';
 ///```
 /// {@end-tool}
 class ConversationsConfiguration {
+<<<<<<< HEAD
   const ConversationsConfiguration({
     this.conversationsRequestBuilder,
     this.conversationType = ConversationTypes.both,
@@ -74,6 +75,62 @@ class ConversationsConfiguration {
     this.hideAppbar,
     this.userFilter,
   });
+=======
+  const ConversationsConfiguration(
+      {this.conversationsRequestBuilder,
+      this.conversationType = ConversationTypes.both,
+      this.subtitleView,
+      this.title,
+      this.showBackButton = true,
+      this.backButton,
+      this.hideStartConversation = false,
+      this.startConversationIcon,
+      this.theme,
+      this.tailView,
+      this.hideSeparator,
+      this.listItemView,
+      this.conversationsStyle,
+      this.options,
+      this.selectionMode,
+      this.onSelection,
+      this.emptyStateText,
+      this.errorStateText,
+      this.loadingStateText,
+      this.emptyStateView,
+      this.errorStateView,
+      this.stateCallBack,
+      this.listItemStyle,
+      this.avatarStyle,
+      this.statusIndicatorStyle,
+      this.receiptStyle,
+      this.disableUsersPresence,
+      this.disableReceipt,
+      this.protectedGroupIcon,
+      this.privateGroupIcon,
+      this.readIcon,
+      this.deliveredIcon,
+      this.sentIcon,
+      this.datePattern,
+      this.typingIndicatorText,
+      this.dateStyle,
+      this.badgeStyle,
+      this.customSoundForMessages,
+      this.disableSoundForMessages,
+      this.conversationsProtocol,
+      this.hideError,
+      this.appBarOptions,
+      this.activateSelection,
+      this.controller,
+      this.onError,
+      this.onBack,
+      this.onItemTap,
+      this.onItemLongPress,
+      this.disableTyping,
+      this.deleteConversationDialogStyle,
+      this.hideAppbar,
+      this.disableMentions,
+      this.textFormatters});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[conversationsProtocol] set custom conversations request builder protocol
   final ConversationsBuilderProtocol? conversationsProtocol;
@@ -106,7 +163,13 @@ class ConversationsConfiguration {
   final ConversationsStyle? conversationsStyle;
 
   final List<CometChatOption>? Function(
+<<<<<<< HEAD
       Conversation, CometChatConversationsController controller, BuildContext context)? options;
+=======
+      Conversation,
+      CometChatConversationsController controller,
+      BuildContext context)? options;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[backButton] back button
   final Widget? backButton;
@@ -228,5 +291,13 @@ class ConversationsConfiguration {
   ///[hideAppbar] toggle visibility for app bar
   final bool? hideAppbar;
 
+<<<<<<< HEAD
   final List<String>? userFilter;
+=======
+  ///[disableMentions] disables formatting of mentions in the subtitle of the conversation
+  final bool? disableMentions;
+
+  ///[textFormatters] is a list of text formatters for message bubbles with type text
+  final List<CometChatTextFormatter>? textFormatters;
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 }

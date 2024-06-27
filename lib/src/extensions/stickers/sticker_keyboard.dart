@@ -21,7 +21,11 @@ import '../../../../../../cometchat_chat_uikit.dart';
 /// ```
 class CometChatStickerKeyboard extends StatefulWidget {
   const CometChatStickerKeyboard(
+<<<<<<< HEAD
       {Key? key,
+=======
+      {super.key,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
       this.theme,
       this.onStickerTap,
       this.keyboardStyle,
@@ -30,8 +34,12 @@ class CometChatStickerKeyboard extends StatefulWidget {
       this.errorStateText,
       this.emptyStateView,
       this.emptyStateText,
+<<<<<<< HEAD
       this.errorIcon})
       : super(key: key);
+=======
+      this.errorIcon});
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
 
   ///[theme] sets custom theme
   final CometChatTheme? theme;
@@ -170,7 +178,11 @@ class _CometChatStickerKeyboardState extends State<CometChatStickerKeyboard> {
                 ),
           ),
           Text(
+<<<<<<< HEAD
             widget.errorStateText ?? Translations.of(context).no_stickers_found,
+=======
+            widget.errorStateText ?? Translations.of(context).noStickersFound,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
             style: widget.keyboardStyle?.errorTextStyle ??
                 TextStyle(
                     fontSize: 20,
@@ -188,7 +200,11 @@ class _CometChatStickerKeyboardState extends State<CometChatStickerKeyboard> {
     } else {
       return Center(
         child: Text(
+<<<<<<< HEAD
           widget.emptyStateText ?? Translations.of(context).no_stickers_found,
+=======
+          widget.emptyStateText ?? Translations.of(context).noStickersFound,
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
           style: widget.keyboardStyle?.emptyTextStyle ??
               TextStyle(
                   fontSize: theme.typography.title1.fontSize,
@@ -304,7 +320,11 @@ class _CometChatStickerKeyboardState extends State<CometChatStickerKeyboard> {
                                               return Center(
                                                   child: Text(
                                                       Translations.of(context)
+<<<<<<< HEAD
                                                           .something_wrong));
+=======
+                                                          .somethingWrong));
+>>>>>>> 505e7ce063d0534c0c0b7a796b3601f100dee178
                                             },
                                             image: NetworkImage(
                                               sticker.stickerUrl,
